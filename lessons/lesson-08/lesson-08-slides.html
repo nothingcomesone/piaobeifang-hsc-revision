@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W2 L8 — 结尾 + 全曲整合</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy); color: var(--white); padding: 10px 18px; font-size: 9pt; font-weight: 500; border-radius: 4px 4px 0 0; }
+  .title-box { background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%); color: var(--white); padding: 22px 24px 18px; border-radius: 0 0 4px 4px; margin-bottom: 16px; }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: 9pt; font-weight: 700; padding: 3px 12px; border-radius: 3px; margin-bottom: 8px; }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 140px; border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; background: var(--white); }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading { background: var(--navy); color: var(--white); padding: 8px 16px; font-size: 12pt; font-weight: 700; border-radius: 4px; margin: 20px 0 12px; }
+  .sub-heading { color: var(--blue); font-size: 11pt; font-weight: 700; border-left: 4px solid var(--gold); padding-left: 10px; margin: 14px 0 8px; }
+
+  .info-box { background: var(--light-blue); border-left: 4px solid var(--blue); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+  .gold-box { background: var(--light-gold); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+
+  .lyrics-box { background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px; padding: 16px 20px; margin: 12px 0; font-size: 12pt; line-height: 2.0; color: var(--navy); font-weight: 500; }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-blue { background: #B3D9F2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-green { background: #C8E6C9; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-pink { background: #F8BBD0; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate { font-size: 9pt; font-weight: 400; color: var(--mid-grey); display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px; }
+
+  .discussion { background: var(--white); border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .discussion-title { font-weight: 700; color: var(--gold); font-size: 10pt; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .discussion ol, .discussion ul { padding-left: 20px; margin: 6px 0; }
+  .discussion li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .technique-tag { display: inline-block; background: var(--light-blue); border-radius: 3px; padding: 2px 8px; font-size: 8.5pt; font-weight: 600; color: var(--navy); margin: 2px 2px; }
+  .issue-tag { display: inline-block; background: var(--navy); color: var(--white); border-radius: 3px; padding: 2px 8px; font-size: 8.5pt; font-weight: 600; margin: 2px 2px; }
+
+  .arc-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 10px 14px; margin: 6px 0; display: flex; align-items: flex-start; gap: 12px; }
+  .arc-num { background: var(--navy); color: var(--white); font-weight: 900; font-size: 14pt; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .arc-content { flex: 1; }
+  .arc-title { font-weight: 700; color: var(--navy); font-size: 10.5pt; }
+  .arc-desc { font-size: 9.5pt; color: var(--dark); margin-top: 2px; }
+  .arc-emotion { font-size: 9pt; color: var(--blue); font-weight: 600; margin-top: 2px; }
+  .arc-arrow { text-align: center; color: var(--gold); font-size: 16pt; font-weight: 900; margin: 2px 0; }
+
+  .network-node { display: inline-block; border-radius: 6px; padding: 6px 14px; font-weight: 700; font-size: 10pt; margin: 4px; }
+  .node-core { background: var(--navy); color: var(--white); font-size: 11pt; padding: 8px 18px; }
+  .node-ext { background: var(--light-blue); color: var(--navy); border: 2px solid var(--blue); }
+  .node-theme { background: var(--light-gold); color: var(--navy); border: 2px solid var(--gold); }
+  .network-line { color: var(--mid-grey); font-size: 9pt; }
+  .network-center { text-align: center; margin: 12px 0; }
+
+  .checkpoint { background: var(--navy); color: var(--white); border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 10pt; }
+  .checkpoint-title { font-weight: 700; color: var(--gold); margin-bottom: 4px; font-size: 10.5pt; }
+
+  .footer { text-align: center; font-size: 8pt; color: var(--mid-grey); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px; }
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box, .checkpoint, .arc-card { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .discussion, .gold-box, .lyrics-box { page-break-inside: auto; break-inside: auto; }
+    .discussion li, tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第二周 · 第八课 W2 L8</div>
+  <h1>结尾 + 全曲整合</h1>
+  <div class="subtitle">结尾精读 · 全曲结构图 · 11个语言技巧总复习 · 议题网络图</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">结尾 + 全曲</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issues</div>
+    <div class="field-value">1.1 + 1.3 + 2.1</div>
+  </div>
+  <div class="field">
+    <div class="field-label">语言技巧 Focus</div>
+    <div class="field-value">全部 11 个总复习</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 精读结尾三行："别<strong>再</strong>问"与"别问"的微妙差异——反复中的变化如何传递终结感<br>
+  ② 完成全曲7段情感弧线图，理解歌曲从叙述到消亡的完整情感轨迹<br>
+  ③ 总复习11个语言技巧：分类归纳 + 快速识别竞赛<br>
+  ④ 构建全曲议题网络图：1.1 为核心，1.3 / 2.1 为延伸，明确三者关系<br>
+  ⑤ 建立全曲分析框架——为 L9 的 Q3 限时模拟和 Q4 导论做准备
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: 结尾精读                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L8 · 结尾 + 全曲整合</span>
+  <span>Part A — 结尾精读</span>
+</div>
+
+<div class="section-heading">Part A · 结尾：三行歌词，一个句号</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>经历了桥段的激烈呐喊与消亡意象（L7）之后，歌曲突然安静下来。结尾只有三行，却是全曲的情感终点。引导学生注意：这三行歌词中，哪一个字与之前不同？
+</div>
+
+<div class="lyrics-box">
+  回不去的远方 哦<br>
+  漂向北方<br>
+  <span class="highlight">别<strong>再</strong>问</span>我家乡
+  <span class="annotate">黄色 = 与之前版本的关键差异</span>
+</div>
+
+<div class="sub-heading">"别再问" vs "别问"——一个"再"字的分量</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 18%;">对比维度</th>
+      <th style="width: 41%;">"别问我家乡"（主歌1/2/3）</th>
+      <th style="width: 41%;">"别<strong>再</strong>问我家乡"（结尾）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>语气</strong></td>
+      <td>请求——"请你不要问"，语气中仍有交流的意愿</td>
+      <td><strong>命令</strong>——"不要再问了"，语气中带有终结感和疲惫</td>
+    </tr>
+    <tr>
+      <td><strong>"再"的含义</strong></td>
+      <td>（无此字）</td>
+      <td>暗示已经被问过很多次——每一次被问都是一次伤口的撕裂。"再"字承载了所有过去的追问和痛苦</td>
+    </tr>
+    <tr>
+      <td><strong>情感状态</strong></td>
+      <td>逃避 → 无力 → 麻木（三次递进）</td>
+      <td><strong>彻底封闭</strong>——不再逃避，不再无力，而是主动关闭对话的可能</td>
+    </tr>
+    <tr>
+      <td><strong>叙事功能</strong></td>
+      <td>歌曲的"主题句"——每一段的起点</td>
+      <td>歌曲的"终结句"——整首歌的句号，暗示北漂者已经放弃了被理解的希望</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>结尾三行的结构意义：</strong><br>
+  <strong>"回不去的远方 哦"</strong>——呼应主歌2新增的"也是最后寄望 回不去的远方"，确认了不可逆转的事实<br>
+  <strong>"漂向北方"</strong>——回到歌名本身。注意：没有"我"字，从第一人称叙述退回到了歌曲开头的客观陈述——仿佛叙述者已经退出了自己的故事，变成了旁观者<br>
+  <strong>"别再问我家乡"</strong>——"再"字终结了整首歌的对话，北漂者不是在诉说，而是在<strong>关上最后一扇门</strong>
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <ol>
+    <li>结尾的"漂向北方"没有"我"字——为什么叙述者在歌曲最后选择退回到第三人称的客观视角？</li>
+    <li>如果歌曲在桥段的"Rest in peace"后直接结束，与现在这个安静的三行结尾相比，效果有何不同？</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: 全曲结构图                       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L8 · 结尾 + 全曲整合</span>
+  <span>Part B — 全曲情感弧线</span>
+</div>
+
+<div class="section-heading">Part B · 全曲结构图：7段情感弧线</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>引导学生回顾整个单元所学。每一段的标题和情感关键词在之前的课堂中都已讲解过，这里是第一次将它们串联成一条完整的弧线。建议在黑板/白板上同步绘制，学生跟着填写自己的笔记。
+</div>
+
+<div class="arc-card">
+  <div class="arc-num">1</div>
+  <div class="arc-content">
+    <div class="arc-title">主歌1 — 北漂群像与个人困境</div>
+    <div class="arc-desc">排比描绘四种北漂者 → 燕郊求职公寓的细节描写 → 城墙象征 + 行囊借喻</div>
+    <div class="arc-emotion">情感：叙述 · 客观 · 铺垫</div>
+  </div>
+</div>
+<div class="arc-arrow">▼</div>
+
+<div class="arc-card">
+  <div class="arc-num">2</div>
+  <div class="arc-content">
+    <div class="arc-title">副歌1 — 情感爆发</div>
+    <div class="arc-desc">"抗下了梦想"矛盾修辞 → 自尊/光环/风光递进卸下 → 雾霾vs椰子树对比</div>
+    <div class="arc-emotion">情感：爆发 · 痛苦 · 思乡</div>
+  </div>
+</div>
+<div class="arc-arrow">▼</div>
+
+<div class="arc-card">
+  <div class="arc-num">3</div>
+  <div class="arc-content">
+    <div class="arc-title">主歌2 — 城市适应困境</div>
+    <div class="arc-desc">反复中的深化（"回不去的远方"）→ 城市困境四层 → "大染缸"借喻 + "一双又一双"叠词</div>
+    <div class="arc-emotion">情感：加深 · 挣扎 · 被迫同化</div>
+  </div>
+</div>
+<div class="arc-arrow">▼</div>
+
+<div class="arc-card">
+  <div class="arc-num">4</div>
+  <div class="arc-content">
+    <div class="arc-title">副歌2 — 反复中的加重</div>
+    <div class="arc-desc">与副歌1歌词相同，但在新语境下每句都获得更深的情感重量</div>
+    <div class="arc-emotion">情感：沉重 · 螺旋下降 · 麻木</div>
+  </div>
+</div>
+<div class="arc-arrow">▼</div>
+
+<div class="arc-card">
+  <div class="arc-num">5</div>
+  <div class="arc-content">
+    <div class="arc-title">主歌3 — 祈祷</div>
+    <div class="arc-desc">"尘土飘散"比喻 → "谁又能带领我飞翔"设问 → 天坛祈祷场景</div>
+    <div class="arc-emotion">情感：精神求助 · 渺小 · 虔诚</div>
+  </div>
+</div>
+<div class="arc-arrow">▼</div>
+
+<div class="arc-card">
+  <div class="arc-num">6</div>
+  <div class="arc-content">
+    <div class="arc-title">桥段 — 呐喊与消亡</div>
+    <div class="arc-desc">对位结构（吟唱vs说唱）→ 极端对比（梦想中心/遥不可及）→ 消亡意象链 → RIP</div>
+    <div class="arc-emotion">情感：<strong>全曲最低点</strong> · 愤怒 · 崩溃 · 死亡</div>
+  </div>
+</div>
+<div class="arc-arrow">▼</div>
+
+<div class="arc-card">
+  <div class="arc-num">7</div>
+  <div class="arc-content">
+    <div class="arc-title">结尾 — 沉默的句号</div>
+    <div class="arc-desc">"回不去的远方"确认 → 退回第三人称 → "别再问"终结对话</div>
+    <div class="arc-emotion">情感：终结 · 封闭 · 余韵</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>弧线总结：</strong>全曲情感走向是一条<strong>持续下降</strong>的曲线：叙述→爆发→挣扎→沉重→祈祷→崩溃→沉默。歌曲没有"光明的结尾"或"希望的转折"——这种<strong>无解的结构</strong>本身就是对 Issue 1.1 最有力的表达：社会变迁对个人的冲击是深刻的、持续的、不可逆转的。
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 11个语言技巧总复习              -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L8 · 结尾 + 全曲整合</span>
+  <span>Part C — 语言技巧总复习</span>
+</div>
+
+<div class="section-heading">Part C · 11个语言技巧总复习与归类</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>以下总复习表是全单元语言技巧的核心参考资料。建议用"快速识别竞赛"形式复习——教师读出歌词片段，学生抢答对应技巧名称。
+</div>
+
+<div class="sub-heading">A 类：修辞手法（6 个）</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">技巧</th>
+      <th style="width: 12%;">英文</th>
+      <th style="width: 28%;">代表歌词</th>
+      <th style="width: 22%;">效果</th>
+      <th style="width: 10%;">课次</th>
+      <th style="width: 16%;">出现段落</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>排比</strong></td>
+      <td>Parallelism</td>
+      <td>"有人…有人…有人…有人…"</td>
+      <td>群体全景，强化"多"的感觉</td>
+      <td>L2</td>
+      <td>主歌1</td>
+    </tr>
+    <tr>
+      <td><strong>象征</strong></td>
+      <td>Symbolism</td>
+      <td>"高耸古老的城墙"</td>
+      <td>城墙=城市壁垒/阶层固化</td>
+      <td>L1, L3</td>
+      <td>主歌1/2/3</td>
+    </tr>
+    <tr>
+      <td><strong>借喻</strong></td>
+      <td>Metaphor</td>
+      <td>"行囊盛满惆怅""大染缸"</td>
+      <td>抽象情感具象化</td>
+      <td>L3, L6</td>
+      <td>主歌1/2</td>
+    </tr>
+    <tr>
+      <td><strong>矛盾修辞</strong></td>
+      <td>Oxymoron</td>
+      <td>"抗下了梦想"</td>
+      <td>梦想=重担，揭示内在矛盾</td>
+      <td>L4</td>
+      <td>副歌</td>
+    </tr>
+    <tr>
+      <td><strong>设问</strong></td>
+      <td>Rhetorical Q.</td>
+      <td>"谁又能带领着我一起飞翔"</td>
+      <td>隐含"没有人"，强调无助</td>
+      <td>L7</td>
+      <td>主歌3</td>
+    </tr>
+    <tr>
+      <td><strong>比喻</strong></td>
+      <td>Simile</td>
+      <td>"就像那尘土飘散随着风向"</td>
+      <td>个人如尘土般渺小无根</td>
+      <td>L7</td>
+      <td>主歌3</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">B 类：结构/节奏手法（3 个）</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">技巧</th>
+      <th style="width: 12%;">英文</th>
+      <th style="width: 28%;">代表歌词</th>
+      <th style="width: 22%;">效果</th>
+      <th style="width: 10%;">课次</th>
+      <th style="width: 16%;">出现段落</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>反复</strong></td>
+      <td>Repetition</td>
+      <td>"漂向北方 别问我家乡"×3</td>
+      <td>螺旋加深，每次更沉重</td>
+      <td>L6</td>
+      <td>主歌1/2/3</td>
+    </tr>
+    <tr>
+      <td><strong>递进</strong></td>
+      <td>Climax</td>
+      <td>"自尊→光环→风光"层层卸下</td>
+      <td>逐步升级，情感层层加重</td>
+      <td>L4</td>
+      <td>副歌</td>
+    </tr>
+    <tr>
+      <td><strong>对位结构</strong></td>
+      <td>Counterpoint</td>
+      <td>桥段吟唱 vs 说唱交织</td>
+      <td>多声部叙事，内心撕裂外化</td>
+      <td>L7</td>
+      <td>桥段</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">C 类：描写手法（2 个）</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">技巧</th>
+      <th style="width: 12%;">英文</th>
+      <th style="width: 28%;">代表歌词</th>
+      <th style="width: 22%;">效果</th>
+      <th style="width: 10%;">课次</th>
+      <th style="width: 16%;">出现段落</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>细节描写</strong></td>
+      <td>Detail</td>
+      <td>"燕郊""九三零号公路""爆肚涮羊"</td>
+      <td>地名/食物增添真实感</td>
+      <td>L2, L3, L6</td>
+      <td>主歌1/2</td>
+    </tr>
+    <tr>
+      <td><strong>叠词</strong></td>
+      <td>Reduplication</td>
+      <td>"一双又一双"</td>
+      <td>延续感，画面的持续性</td>
+      <td>L6</td>
+      <td>主歌2</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">D 类：对比手法（贯穿全曲）</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">技巧</th>
+      <th style="width: 12%;">英文</th>
+      <th style="width: 40%;">代表歌词</th>
+      <th style="width: 20%;">课次</th>
+      <th style="width: 16%;">出现段落</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>对比</strong></td>
+      <td>Contrast</td>
+      <td>"雾霾"vs"椰子树" · "梦想的中心"vs"遥不可及" · "城墙"vs"忧伤" · 北方vs南方</td>
+      <td>L3, L4, L7</td>
+      <td>全曲贯穿</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: 议题网络图                       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L8 · 结尾 + 全曲整合</span>
+  <span>Part D — 议题网络图</span>
+</div>
+
+<div class="section-heading">Part D · 全曲议题网络图</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>帮助学生理解三个议题之间的层次关系。Issue 1.1 是核心——歌曲的根本主题；1.3 和 2.1 是延伸——从不同角度深化 1.1 的内涵。Q3 答题应以 1.1 为主线，1.3 / 2.1 为补充；Q4 审题时需要判断题目侧重哪个议题。
+</div>
+
+<div class="network-center">
+  <span class="network-node node-theme">Theme 1：个人与社会</span>
+</div>
+
+<div class="network-center" style="margin-top: 16px;">
+  <span class="network-node node-core">核心 Issue 1.1：不断变化的社会对个人的冲击</span>
+</div>
+
+<table style="margin-top: 16px;">
+  <thead>
+    <tr>
+      <th style="width: 14%;">议题</th>
+      <th style="width: 30%;">在歌曲中的体现</th>
+      <th style="width: 28%;">关键歌词</th>
+      <th style="width: 28%;">与 1.1 的关系</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="issue-tag">1.1 核心</span><br>不断变化的社会对个人的冲击</td>
+      <td>北漂现象的全面描绘：经济推力→城市壁垒→身份危机→精神崩溃→消亡</td>
+      <td>"漂向北方""城墙""大染缸""销声匿迹""Rest in peace"</td>
+      <td>——</td>
+    </tr>
+    <tr>
+      <td><span class="issue-tag" style="background: var(--blue);">1.3 延伸</span><br>现代社会中的家庭</td>
+      <td>北漂导致的家庭分离与牵挂</td>
+      <td>"家人是否无恙""祈求一家人都平安""回不去的远方"</td>
+      <td>1.1 的<strong>情感根源</strong>——社会变迁最痛的代价不是物质困苦，而是家庭的破碎</td>
+    </tr>
+    <tr>
+      <td><span class="issue-tag" style="background: var(--blue);">2.1 延伸</span><br>现代年轻人的压力</td>
+      <td>梦想与现实的落差、被迫同化的痛苦</td>
+      <td>"抗下了梦想""梦想的中心/遥不可及""被踩得喘不过气"</td>
+      <td>1.1 的<strong>年龄聚焦</strong>——社会变迁中承受最大冲击的是年轻人，因为他们既有最大的梦想，也有最少的资源</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>议题关系总结（考试应用）：</strong><br>
+  <strong>Q3 答题：</strong>以 1.1 为主线展开分析，在适当位置穿插 1.3（家庭）和 2.1（年轻人压力）的联系。每个论点结尾的"议题联系"句应优先联系 1.1，再视情况补充延伸议题。<br>
+  <strong>Q4 审题：</strong>题目的 thematic statement 通常侧重某一个议题。先判断题目的核心议题（可能是 1.1、1.3 或 2.1 中任何一个），再从歌词中选择最相关的素材。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">快速判断 Quick Check</div>
+  <p>以下 Q4 题目分别侧重哪个议题？标注后说明你的判断理由。</p>
+  <ol>
+    <li>"在不断变化的社会中，个人往往需要牺牲自我才能生存。" → Issue ____</li>
+    <li>"现代社会中，年轻人的理想与现实之间存在着难以逾越的鸿沟。" → Issue ____</li>
+    <li>"社会的快速发展正在改变传统的家庭关系。" → Issue ____</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: 全曲分析框架 + 总结             -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L8 · 结尾 + 全曲整合</span>
+  <span>Part E — 全曲分析框架 + 总结</span>
+</div>
+
+<div class="section-heading">Part E · 全曲分析框架：从歌词到考试</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>本页的分析框架是下节课 L9 限时模拟的核心工具。建议学生将此页作为复习参考资料保留。
+</div>
+
+<div class="sub-heading">Q3 答题模板回顾</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">小题</th>
+      <th style="width: 10%;">分值</th>
+      <th style="width: 20%;">题型</th>
+      <th style="width: 30%;">答题要素</th>
+      <th style="width: 28%;">关键策略</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>(a)</strong></td>
+      <td>3 分</td>
+      <td>解释象征/含义</td>
+      <td>表层义 → 深层义 → 议题联系</td>
+      <td>简洁直接，2-3 层递进即可</td>
+    </tr>
+    <tr>
+      <td><strong>(b)</strong></td>
+      <td>5 分</td>
+      <td>分析原因/影响/比较</td>
+      <td>引用歌词 → 技巧分析 → 效果 → 议题</td>
+      <td>2-3 个论点，每点有引用支撑</td>
+    </tr>
+    <tr>
+      <td><strong>(c)</strong></td>
+      <td>7 分</td>
+      <td>综合分析语言技巧</td>
+      <td>多个技巧 × (命名→引用→分析→议题)</td>
+      <td>覆盖面广，有整体论述深度</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">歌曲素材速查：按议题分类</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 14%;">议题</th>
+      <th style="width: 43%;">核心歌词素材</th>
+      <th style="width: 43%;">可用语言技巧</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="issue-tag">1.1</span></td>
+      <td>"城墙挡不住忧伤""大染缸""有人…有人…""销声匿迹""空壳尸体""尘土飘散""漂向北方"</td>
+      <td>
+        <span class="technique-tag">象征</span>
+        <span class="technique-tag">排比</span>
+        <span class="technique-tag">借喻</span>
+        <span class="technique-tag">比喻</span>
+        <span class="technique-tag">对比</span>
+        <span class="technique-tag">反复</span>
+        <span class="technique-tag">对位结构</span>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="issue-tag" style="background: var(--blue);">1.3</span></td>
+      <td>"家人是否无恙""祈求一家人都平安""回不去的远方""椰子树摇晃…幻想"</td>
+      <td>
+        <span class="technique-tag">反复</span>
+        <span class="technique-tag">设问</span>
+        <span class="technique-tag">对比</span>
+        <span class="technique-tag">细节描写</span>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="issue-tag" style="background: var(--blue);">2.1</span></td>
+      <td>"抗下了梦想""梦想的中心/遥不可及""被踩得喘不过气""自尊→光环→风光""将自己灌醉"</td>
+      <td>
+        <span class="technique-tag">矛盾修辞</span>
+        <span class="technique-tag">递进</span>
+        <span class="technique-tag">对比</span>
+        <span class="technique-tag">叠词</span>
+        <span class="technique-tag">细节描写</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">本课核心收获 Key Takeaways</div>
+  ✦ <strong>"别再问"</strong>：一个"再"字从请求变为命令，承载了所有过去的追问与痛苦，终结了全曲的对话<br>
+  ✦ <strong>全曲弧线</strong>：7段情感持续下降（叙述→爆发→挣扎→沉重→祈祷→崩溃→沉默）——无解的结构=最有力的 Issue 1.1 表达<br>
+  ✦ <strong>11个技巧</strong>：修辞6（排比/象征/借喻/矛盾修辞/设问/比喻）+ 结构3（反复/递进/对位结构）+ 描写2（细节描写/叠词）+ 对比（贯穿）<br>
+  ✦ <strong>议题网络</strong>：1.1 核心 + 1.3 情感根源 + 2.1 年龄聚焦——三者互为补充，Q3 以 1.1 为主线，Q4 按题目判断侧重<br>
+  ✦ <strong>素材速查</strong>：按议题分类的歌词+技巧对照表——考试时快速调取素材<br>
+  ✦ 下节课：L9 Q3 限时模拟（15分，25分钟）+ Q4 议题作文导论
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W2 L8<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Issue 1.3 现代社会中的家庭 · Issue 2.1 现代年轻人的压力 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W2 L9 — Q3 + Q4 综合模拟</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy); color: var(--white); padding: 10px 18px; font-size: 9pt; font-weight: 500; border-radius: 4px 4px 0 0; }
+  .title-box { background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%); color: var(--white); padding: 22px 24px 18px; border-radius: 0 0 4px 4px; margin-bottom: 16px; }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: 9pt; font-weight: 700; padding: 3px 12px; border-radius: 3px; margin-bottom: 8px; }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 140px; border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; background: var(--white); }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading { background: var(--navy); color: var(--white); padding: 8px 16px; font-size: 12pt; font-weight: 700; border-radius: 4px; margin: 20px 0 12px; }
+  .sub-heading { color: var(--blue); font-size: 11pt; font-weight: 700; border-left: 4px solid var(--gold); padding-left: 10px; margin: 14px 0 8px; }
+
+  .info-box { background: var(--light-blue); border-left: 4px solid var(--blue); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+  .gold-box { background: var(--light-gold); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+  .red-box { background: #FFF0F0; border-left: 4px solid #CC3333; padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+
+  .discussion { background: var(--white); border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .discussion-title { font-weight: 700; color: var(--gold); font-size: 10pt; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .discussion ol, .discussion ul { padding-left: 20px; margin: 6px 0; }
+  .discussion li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .q3-box { background: #FFF8F0; border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q3-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q3-marks { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .q4-box { background: #F0F4FF; border: 2px solid var(--blue); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q4-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q4-marks { display: inline-block; background: var(--blue); color: var(--white); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .timer-box { background: var(--navy); color: var(--white); border-radius: 6px; padding: 14px 18px; margin: 12px 0; text-align: center; }
+  .timer-box .timer-label { font-size: 9pt; text-transform: uppercase; letter-spacing: 1px; color: var(--light-blue); margin-bottom: 4px; }
+  .timer-box .timer-value { font-size: 22pt; font-weight: 900; color: var(--gold); }
+  .timer-box .timer-note { font-size: 9pt; color: var(--light-blue); margin-top: 4px; }
+
+  .writing-lines { margin: 10px 0; }
+  .writing-line { border-bottom: 1px solid var(--border); height: 28px; width: 100%; }
+  .writing-line-dense { border-bottom: 1px solid var(--border); height: 24px; width: 100%; }
+
+  .technique-tag { display: inline-block; background: var(--light-blue); border-radius: 3px; padding: 2px 8px; font-size: 8.5pt; font-weight: 600; color: var(--navy); margin: 2px 2px; }
+  .issue-tag { display: inline-block; background: var(--navy); color: var(--white); border-radius: 3px; padding: 2px 8px; font-size: 8.5pt; font-weight: 600; margin: 2px 2px; }
+
+  .teel-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 0 4px 4px 0; padding: 10px 14px; margin: 8px 0; }
+  .teel-label { display: inline-block; background: var(--blue); color: var(--white); font-size: 9pt; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 4px; }
+  .teel-desc { font-size: 10pt; margin-top: 4px; }
+
+  .checkpoint { background: var(--navy); color: var(--white); border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 10pt; }
+  .checkpoint-title { font-weight: 700; color: var(--gold); margin-bottom: 4px; font-size: 10.5pt; }
+
+  .footer { text-align: center; font-size: 8pt; color: var(--mid-grey); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px; }
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box, .checkpoint, .teel-card, .timer-box { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .discussion, .gold-box, .red-box, .q3-box, .q4-box, .writing-lines { page-break-inside: auto; break-inside: auto; }
+    .discussion li, tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第二周 · 第九课 W2 L9 · 单元终课</div>
+  <h1>Q3 + Q4 综合模拟</h1>
+  <div class="subtitle">Q3 限时模拟 · Q4 议题作文导论 · 单元总结与考试策略</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">全曲</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issues</div>
+    <div class="field-value">综合</div>
+  </div>
+  <div class="field">
+    <div class="field-label">考试技能 Exam Focus</div>
+    <div class="field-value">Q3 限时 + Q4 导论</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 完成 Q3 限时模拟练习（15 分，25 分钟）——检验全单元学习成果<br>
+  ② 学习 Q4 议题作文的基本要求：TEEL 结构 + 350-450 字<br>
+  ③ 练习 Q4 审题——从题目中识别核心议题和关键词<br>
+  ④ 初步构建 Q4 论点——如何从歌词中提取议题论据<br>
+  ⑤ 单元总结与 HSC 考试策略
+</div>
+
+<div class="red-box">
+  <strong>课堂流程 Lesson Flow：</strong><br>
+  <strong>Part A</strong>（5 min）考前策略提醒 → <strong>Part B</strong>（25 min）Q3 限时模拟 → <strong>Part C</strong>（5 min）答案对照与反思 → <strong>Part D</strong>（15 min）Q4 导论 + 审题练习 → <strong>Part E</strong>（5 min）单元总结
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: Q3 考前策略                      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L9 · Q3 + Q4 综合模拟</span>
+  <span>Part A — Q3 考前策略</span>
+</div>
+
+<div class="section-heading">Part A · Q3 考前策略提醒（5 分钟）</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>限时模拟前的快速提醒。不做新内容教学，仅巩固答题方法论。建议投影 L8 的 Q3 答题模板和素材速查表供学生参考。
+</div>
+
+<div class="sub-heading">时间分配建议</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">小题</th>
+      <th style="width: 10%;">分值</th>
+      <th style="width: 15%;">建议时间</th>
+      <th style="width: 63%;">答题要点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>(a)</strong></td>
+      <td>3 分</td>
+      <td>5 分钟</td>
+      <td>表层义→深层义→议题联系。<strong>简洁直接</strong>，不需要引用多处歌词。</td>
+    </tr>
+    <tr>
+      <td><strong>(b)</strong></td>
+      <td>5 分</td>
+      <td>8 分钟</td>
+      <td>2-3 个论点，每个论点：引用歌词→命名技巧→分析效果→议题联系。</td>
+    </tr>
+    <tr>
+      <td><strong>(c)</strong></td>
+      <td>7 分</td>
+      <td>12 分钟</td>
+      <td>3-4 个技巧，覆盖面广。注意<strong>整体论述</strong>：不只是罗列技巧，要有"这些技巧共同作用于…"的总结句。</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">常见扣分点</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 40%;">问题</th>
+      <th style="width: 60%;">修正方法</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>只描述歌词内容，没有分析技巧</td>
+      <td>每个论点必须<strong>命名一个语言技巧</strong>——"作者运用了<strong>XX手法</strong>"</td>
+    </tr>
+    <tr>
+      <td>引用歌词但没有分析</td>
+      <td>引用后必须跟上"<strong>这表明/这揭示了/这强调了</strong>…"的分析句</td>
+    </tr>
+    <tr>
+      <td>分析了技巧但没有联系议题</td>
+      <td>每个论点结尾加上"<strong>这体现了 Issue X.X 中…</strong>"的联系句</td>
+    </tr>
+    <tr>
+      <td>(c) 题只罗列技巧，缺乏整体论述</td>
+      <td>开头或结尾加上总结句："<strong>以上技巧共同深化了…的主题</strong>"</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: Q3 限时模拟试题                  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L9 · Q3 + Q4 综合模拟</span>
+  <span>Part B — Q3 限时模拟</span>
+</div>
+
+<div class="section-heading">Part B · Q3 限时模拟</div>
+
+<div class="timer-box">
+  <div class="timer-label">限时 Time Limit</div>
+  <div class="timer-value">25 分钟</div>
+  <div class="timer-note">总分 15 分 ｜ 可使用中文或英文作答 ｜ 不可查阅笔记</div>
+</div>
+
+<div class="q3-box">
+  <div class="q3-title">Question 3（15 marks）</div>
+  <p style="font-size: 10pt; color: var(--mid-grey); margin-bottom: 10px;">
+    阅读下面的歌词，然后用中文或英文回答问题。<br>
+    閱讀下面的歌詞，然後用中文或英文回答問題。<br>
+    <em>Read the following song lyrics and answer the questions in either Chinese or English.</em>
+  </p>
+
+  <p style="margin-top: 12px;">
+    <strong>(a)</strong>&nbsp;
+    解释"行囊盛满了惆怅"中"行囊"一词的象征意义。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    解釋"行囊盛滿了惆悵"中"行囊"一詞的象徵意義。<br>
+    <em>Explain the symbolic meaning of "luggage" (行囊) in the line "shoulders carrying heavy luggage, filled with melancholy".</em>
+    </span>
+    <span class="q3-marks">3 分</span>
+  </p>
+
+  <div class="writing-lines">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <p style="margin-top: 14px;">
+    <strong>(b)</strong>&nbsp;
+    根据歌词，分析歌曲中"漂向北方 别问我家乡"三次出现时的含义有何变化。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    根據歌詞，分析歌曲中"漂向北方 別問我家鄉"三次出現時的含義有何變化。<br>
+    <em>Analyse how the meaning of "drifting to the north, don't ask about my hometown" changes across its three appearances in the song.</em>
+    </span>
+    <span class="q3-marks">5 分</span>
+  </p>
+
+  <div class="writing-lines">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <p style="margin-top: 14px;">
+    <strong>(c)</strong>&nbsp;
+    根据《漂向北方》这首歌，回答作者是通过哪些语言技巧来表达社会变迁对个人的冲击的？<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    根據《漂向北方》這首歌，回答作者是通過哪些語言技巧來表達社會變遷對個人的衝擊的？<br>
+    <em>How does the author use language features to express the impact of social change on individuals? Support your answer with reference to the whole song.</em>
+    </span>
+    <span class="q3-marks">7 分</span>
+  </p>
+
+  <div class="writing-lines">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: Q3 参考答案要点                  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L9 · Q3 + Q4 综合模拟</span>
+  <span>Part C — Q3 参考答案要点</span>
+</div>
+
+<div class="section-heading">Part C · Q3 参考答案要点（考后对照）</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>限时结束后发放此页。建议学生自评后与同桌互评，再由教师讲解重点。本页为答案要点，非唯一标准答案——学生若能提出合理且有歌词支持的论点，同样给分。
+</div>
+
+<div class="sub-heading">(a) "行囊"象征意义（3 分）</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 15%;">层次</th>
+      <th style="width: 85%;">答案要点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>表层义</strong></td>
+      <td>行囊是旅行时携带的包袋——北漂者离乡背井时带上的行李</td>
+    </tr>
+    <tr>
+      <td><strong>借喻义</strong></td>
+      <td>行囊不仅装着物质行李，更象征着北漂者背负的<strong>多重压力</strong>：经济压力、家庭责任、社会期待、个人理想。"沉重"形容其重量，"盛满惆怅"将抽象情感具象化——压力已经装满，没有多余的空间</td>
+    </tr>
+    <tr>
+      <td><strong>议题联系</strong></td>
+      <td>体现 Issue 1.1——社会变迁迫使个人承担超出能力的负担；也联系 Issue 2.1——年轻人在追求梦想过程中的身心压力</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">(b) "漂向北方 别问我家乡"三次变化（5 分）</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">次数</th>
+      <th style="width: 18%;">段落</th>
+      <th style="width: 35%;">含义变化</th>
+      <th style="width: 35%;">关键证据</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>第一次</strong></td>
+      <td>主歌1</td>
+      <td><strong>逃避</strong>——刚刚叙述北漂处境，不愿触及家乡</td>
+      <td>首次出现，铺垫全曲基调</td>
+    </tr>
+    <tr>
+      <td><strong>第二次</strong></td>
+      <td>主歌2</td>
+      <td><strong>无力</strong>——经历副歌1的情感爆发和城市困境后，不是不想说，而是说不出口</td>
+      <td>新增"也是最后寄望 回不去的远方"——确认不可逆转</td>
+    </tr>
+    <tr>
+      <td><strong>第三次</strong></td>
+      <td>主歌3</td>
+      <td><strong>麻木→祈祷</strong>——穷尽世俗努力，转向精神求助</td>
+      <td>新增"尘土飘散""谁又能带领我飞翔""天坛祈祷"</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>加分要素：</strong>若学生能指出结尾"别<strong>再</strong>问我家乡"是第四次变体——"再"字终结了全曲的对话，从请求变为命令——可额外加分。此外，能指出这是<strong>反复</strong>技巧的运用，每次重复在新语境下获得更深含义（螺旋式加深），展现更高层次的分析能力。
+</div>
+
+<div class="sub-heading">(c) 语言技巧分析（7 分）</div>
+
+<div class="info-box">
+  <strong>评分标准：</strong>覆盖 3-4 个不同技巧，每个技巧需包含：命名→引用→分析效果→议题联系。最后有整体总结句可得满分。以下为参考论点（学生选择其中 3-4 个即可）：
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">技巧</th>
+      <th style="width: 25%;">引用</th>
+      <th style="width: 35%;">效果分析</th>
+      <th style="width: 28%;">议题联系</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>象征</strong></td>
+      <td>"高耸古老的城墙 挡不住忧伤"</td>
+      <td>城墙象征城市壁垒/阶层固化，与"忧伤"的对比揭示外在宏伟与内在脆弱的矛盾</td>
+      <td>1.1：城市化的壁垒对个人情感的压迫</td>
+    </tr>
+    <tr>
+      <td><strong>排比</strong></td>
+      <td>"有人…有人…有人…有人…"</td>
+      <td>四种北漂群像并列，"有人"的匿名性强调个人的渺小与被忽视</td>
+      <td>1.1：社会变迁中个人沦为无名群体</td>
+    </tr>
+    <tr>
+      <td><strong>反复</strong></td>
+      <td>"漂向北方 别问我家乡"×3</td>
+      <td>每次重复在新语境下加深绝望感，构成"叙述→叹息→祈祷"的情感弧线</td>
+      <td>1.1：社会冲击的持续性和不可逆转</td>
+    </tr>
+    <tr>
+      <td><strong>对位结构</strong></td>
+      <td>桥段吟唱 vs 说唱</td>
+      <td>悲伤低语与愤怒呐喊同时进行，外化内心撕裂</td>
+      <td>1.1：个人在社会中的内在矛盾</td>
+    </tr>
+    <tr>
+      <td><strong>对比</strong></td>
+      <td>"梦想的中心/遥不可及"</td>
+      <td>先扬后抑，展现希望到失望的完整弧线</td>
+      <td>2.1：年轻人理想与现实的落差</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: Q4 导论                          -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L9 · Q3 + Q4 综合模拟</span>
+  <span>Part D — Q4 导论</span>
+</div>
+
+<div class="section-heading">Part D · Q4 议题作文导论</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>Q4 是本单元的延伸目标——学生在后续课堂和课后作业中将持续练习。本课仅做基础导论，建立 TEEL 结构概念和审题方法。
+</div>
+
+<div class="sub-heading">Q4 基本要求</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">项目</th>
+      <th style="width: 80%;">要求</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>分值</strong></td>
+      <td>25 分</td>
+    </tr>
+    <tr>
+      <td><strong>字数</strong></td>
+      <td>350-450 个汉字 或 300-400 个英文字</td>
+    </tr>
+    <tr>
+      <td><strong>要求</strong></td>
+      <td>围绕一个<strong>议题性陈述</strong>（thematic statement），分析<strong>两部指定作品</strong>（prescribed texts）的内容和语言特色</td>
+    </tr>
+    <tr>
+      <td><strong>评分维度</strong></td>
+      <td>① 语言技巧分析 ② 作品与议题的联系 ③ 引用歌词作为论据 ④ 结构与条理</td>
+    </tr>
+    <tr>
+      <td><strong>关键区别</strong></td>
+      <td>Q3 = 引导性问题（有 a/b/c 子题）；Q4 = <strong>自由论述</strong>（无子题，自行组织结构）</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">TEEL 结构入门</div>
+
+<div class="teel-card">
+  <div class="teel-label">T — Topic Sentence 主题句</div>
+  <div class="teel-desc">开门见山，回应题目中的议题陈述。例如："《漂向北方》深刻揭示了社会变迁对个人身份认同的冲击。"</div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">E — Evidence 论据（歌词引用）</div>
+  <div class="teel-desc">直接引用歌词原文作为证据。例如：歌中写道"高耸古老的城墙 挡不住忧伤"……</div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">E — Explanation 分析（技巧+效果）</div>
+  <div class="teel-desc">命名语言技巧，分析其效果和对议题的表达作用。例如：作者运用<strong>象征</strong>手法，将城墙比作城市化进程中的阶层壁垒……</div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">L — Link 回扣（联系议题）</div>
+  <div class="teel-desc">回到题目的议题陈述，总结本段论点。例如：这充分体现了不断变化的社会对个人造成的深刻而不可逆转的冲击。</div>
+</div>
+
+<div class="sub-heading">审题练习</div>
+
+<div class="q4-box">
+  <div class="q4-title">模拟题 Practice Question</div>
+  <p>
+    "在不断变化的社会中，个人往往需要牺牲自我才能生存。"<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">"在不斷變化的社會中，個人往往需要犧牲自我才能生存。"</span><br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey); font-style: italic;">'In a constantly changing society, individuals often have to sacrifice themselves in order to survive.'</span>
+  </p>
+  <p style="margin-top: 8px;">
+    这一说法是如何通过《漂向北方》和[第二部指定作品]中体现出来的？在你的答案中，从作品的内容和语言特色方面分析。你的答案大约是 350-450 个汉字。
+    <span class="q4-marks">25 分</span>
+  </p>
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">课堂审题活动 Deconstruct the Question</div>
+  <ol>
+    <li><strong>找关键词：</strong>圈出题目中的核心概念。（答案："不断变化的社会""牺牲自我""生存"）</li>
+    <li><strong>判断议题：</strong>这道题主要对应哪个 Issue？（答案：Issue 1.1，兼及 2.1）</li>
+    <li><strong>找歌词素材：</strong>《漂向北方》中哪些歌词可以用来论证"牺牲自我才能生存"？</li>
+  </ol>
+  <p style="font-size: 9.5pt; color: var(--mid-grey); margin-top: 8px;">
+    提示素材：① "强迫融入这大染缸"（被迫放弃个性）② "卸下了自尊 光环"（递进式牺牲）③ "销声匿迹…空壳尸体"（牺牲的极端后果）④ "别再问我家乡"（放弃被理解的希望）
+  </p>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: 单元总结                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L9 · Q3 + Q4 综合模拟</span>
+  <span>Part E — 单元总结</span>
+</div>
+
+<div class="section-heading">Part E · 单元总结与考试策略</div>
+
+<div class="sub-heading">《漂向北方》单元学习成果一览</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">类别</th>
+      <th style="width: 80%;">成果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>歌曲结构</strong></td>
+      <td>掌握全曲 7 段结构（主歌1→副歌1→主歌2→副歌2→主歌3→桥段→结尾）及其情感弧线</td>
+    </tr>
+    <tr>
+      <td><strong>语言技巧</strong></td>
+      <td>11 个技巧：排比·细节描写·象征·对比·借喻·矛盾修辞·递进·反复·叠词·设问·对位结构</td>
+    </tr>
+    <tr>
+      <td><strong>议题理解</strong></td>
+      <td>1.1 核心（社会变迁对个人的冲击）+ 1.3 延伸（家庭）+ 2.1 延伸（年轻人压力）</td>
+    </tr>
+    <tr>
+      <td><strong>Q3 能力</strong></td>
+      <td>(a) 象征/含义解释 → (b) 原因/影响/比较分析 → (c) 综合语言技巧分析</td>
+    </tr>
+    <tr>
+      <td><strong>Q4 基础</strong></td>
+      <td>TEEL 结构概念 + 审题方法 + 论点构建入门</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">HSC 考试策略提醒</div>
+
+<div class="gold-box">
+  <strong>Q3 策略：</strong><br>
+  ✦ 严格按分值分配时间——(a) 5 min，(b) 8 min，(c) 12 min<br>
+  ✦ 每个论点的公式：<strong>引用歌词 → 命名技巧 → 分析效果 → 联系议题</strong><br>
+  ✦ (c) 题最后加一句整体总结："以上技巧共同深化了……的主题"<br>
+  ✦ 可以用中文或英文——选择你更能准确表达分析的语言
+</div>
+
+<div class="gold-box" style="margin-top: 8px;">
+  <strong>Q4 策略（预告）：</strong><br>
+  ✦ 审题第一步：圈关键词 → 判断核心议题 → 确定两部作品的论述角度<br>
+  ✦ 每段一个 TEEL：主题句→引用→分析→回扣<br>
+  ✦ 必须分析<strong>两部</strong>指定作品——不能只写一部<br>
+  ✦ 字数 350-450 字——不宜过短（论述不够深入）也不宜过长（超时风险）
+</div>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">《漂向北方》单元圆满完成</div>
+  ✦ <strong>9 节课</strong>完成了从导入到限时模拟的完整教学弧线<br>
+  ✦ <strong>全曲 7 段</strong>逐段精读，每段歌词都有深度分析<br>
+  ✦ <strong>11 个语言技巧</strong>全部教授、归类并在考试语境中练习<br>
+  ✦ <strong>3 个议题</strong>的关系网络已建立，Q3/Q4 均可灵活调用<br>
+  ✦ <strong>Q3</strong> 完成了 (a)(b)(c) 各题型的分步练习 + 本课的完整限时模拟<br>
+  ✦ <strong>Q4</strong> 建立了 TEEL 基础框架——后续课堂将配合第二部指定作品深化练习<br>
+  ✦ 学生现在具备了独立分析歌曲类文本并完成 HSC Q3/Q4 答题的核心能力
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W2 L9 · 单元终课<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Issue 1.3 现代社会中的家庭 · Issue 2.1 现代年轻人的压力 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

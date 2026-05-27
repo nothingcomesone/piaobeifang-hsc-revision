@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>附录 C · 形象议题表 — 《漂向北方》HSC hub</title>
+  <style>
+:root {
+  --ink: #1f2933; --muted: #5d6875; --line: #d7dee8;
+  --paper: #ffffff; --wash: #f6f8fb;
+  --teal: #0f766e; --teal-soft: #e7f4f2;
+  --red: #a43b3b; --red-soft: #faeeee;
+  --gold: #87620e; --gold-soft: #fff6dc;
+  --blue: #2b5d8a; --blue-soft: #edf5fb;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wash); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; line-height: 1.65; }
+main { width: min(1100px, calc(100% - 32px)); margin: 28px auto 64px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 18px 48px rgba(31, 41, 51, 0.08); }
+header.doc-head { padding: 42px 46px 30px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, rgba(15, 118, 110, 0.11), rgba(43, 93, 138, 0.09)), #fff; }
+section.entry { padding: 36px 46px; border-bottom: 4px solid var(--line); scroll-margin-top: 20px; }
+section.entry:last-child { border-bottom: 0; }
+section.toc-section { padding: 28px 46px; border-bottom: 1px solid var(--line); }
+section.matrix-section { padding: 36px 46px; border-top: 4px solid var(--line); background: var(--wash); }
+h1, h2, h3, h4 { margin: 0; line-height: 1.25; }
+h1 { font-size: 30px; margin-bottom: 8px; }
+h2 { font-size: 24px; margin-bottom: 4px; }
+h3 { font-size: 16px; margin: 20px 0 8px; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+h3 .num { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; border-radius: 6px; background: var(--teal-soft); color: var(--teal); font-weight: 800; font-size: 13px; text-align: center; padding: 0 6px; }
+h4 { font-size: 14px; margin: 0 0 5px; }
+p { margin: 0 0 10px; }
+ul, ol { margin: 6px 0 0 22px; padding: 0; }
+li { margin: 4px 0; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; vertical-align: top; text-align: left; }
+th { background: #f1f5f9; font-weight: 700; }
+.doc-subtitle { color: var(--muted); font-size: 16px; margin-bottom: 18px; }
+.meta-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+.meta-card { padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #fff; min-height: 70px; }
+.meta-label { display: block; color: var(--muted); font-size: 11px; letter-spacing: 0.05em; margin-bottom: 4px; }
+.meta-value { font-size: 15px; font-weight: 800; }
+.tag { display: inline-block; border-radius: 999px; padding: 2px 8px; margin: 2px 3px 2px 0; font-size: 11px; font-weight: 800; white-space: nowrap; }
+.tag.teal { background: var(--teal-soft); color: var(--teal); }
+.tag.red { background: var(--red-soft); color: var(--red); }
+.tag.gold { background: var(--gold-soft); color: var(--gold); }
+.tag.blue { background: var(--blue-soft); color: var(--blue); }
+.callout { padding: 14px 16px; background: var(--gold-soft); border: 1px solid #ead394; border-radius: 8px; margin-top: 12px; font-size: 13px; }
+.callout strong { color: var(--gold); }
+.teacher-note { padding: 12px 14px; background: var(--blue-soft); border: 1px solid #c9ddec; border-radius: 8px; margin-top: 12px; font-size: 13px; }
+.teacher-note strong { color: var(--blue); }
+.entry-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.entry-num { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; color: var(--teal); min-width: 60px; }
+.entry-title { font-size: 22px; font-weight: 800; }
+.entry-meta { color: var(--muted); font-size: 12px; }
+.usage-block { padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #fff; border-left: 4px solid var(--ink); margin-top: 10px; }
+.usage-block.teal { border-left-color: var(--teal); }
+.usage-block.gold { border-left-color: var(--gold); }
+.usage-block.blue { border-left-color: var(--blue); }
+.usage-block.red { border-left-color: var(--red); }
+.usage-label { font-size: 11px; font-weight: 800; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; }
+.usage-body { font-size: 13px; line-height: 1.75; }
+.usage-body strong { color: var(--red); }
+.toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+.toc-grid a { display: flex; gap: 10px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; text-decoration: none; color: var(--ink); background: #fff; font-size: 13px; align-items: center; }
+.toc-grid a:hover { background: var(--wash); }
+.toc-num { display: inline-block; min-width: 26px; font-weight: 800; color: var(--teal); }
+.matrix-table { font-size: 12px; }
+.matrix-table th, .matrix-table td { padding: 6px 8px; text-align: center; }
+.matrix-table th:first-child, .matrix-table td:first-child { text-align: left; font-weight: 700; }
+.rating { font-weight: 800; }
+.rating.three { color: var(--red); }
+.rating.two { color: var(--gold); }
+.rating.one { color: var(--blue); }
+@media (max-width: 860px) {
+  main { width: 100%; margin: 0; border-left: 0; border-right: 0; }
+  header.doc-head, section.entry, section.toc-section, section.matrix-section { padding: 22px 18px; }
+  .meta-row, .toc-grid { grid-template-columns: 1fr; }
+  .entry-num { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="doc-head">
+  <h1>附录 C · 形象议题表</h1>
+  <p class="doc-subtitle">《漂向北方》HSC hub · 5 个 lyrical voices × 议题 1.1 / 1.3 承载 + Q4 配对矩阵</p>
+  <div class="meta-row">
+    <div class="meta-card"><span class="meta-label">体裁特性</span><span class="meta-value">歌曲 · 无传统人物</span></div>
+    <div class="meta-card"><span class="meta-label">Lyrical voices 数</span><span class="meta-value">5 个</span></div>
+    <div class="meta-card"><span class="meta-label">议题</span><span class="meta-value">1.1 + 1.3</span></div>
+    <div class="meta-card"><span class="meta-label">Q4 配对</span><span class="meta-value">3 大 established</span></div>
+  </div>
+  <div class="callout">
+    <strong>歌曲文体说明：</strong>《漂向北方》是嘻哈/流行歌——没有小说意义上的「人物」或电影意义上的「角色」。但歌曲通过<strong>多个 lyrical voices（抒情声部）</strong>承担不同议题：① 两位创作者-演绎者（王力宏 / 黄明志）作为<em>声部 persona</em>；② 歌词内的<strong>第三人称「他」</strong>（主歌叙述对象）；③ <strong>第一人称「我」</strong>（尾段+交织段介入的当事人）；④ 主歌1 的<strong>北漂群像四型</strong>（四组「有人」排比）。本附录把这五个 voices 当作「形象」单位，列出其议题承载与 Q4 配对建议。
+  </div>
+  <div class="teacher-note">
+    <strong>权威源：</strong>NotebookLM「漂向北方 DLC」笔记本回答的「歌曲结构分析：王力宏的演唱部分与黄明志的说唱部分分别承担什么功能」(2026-05-27) + 学校 <code>飘向北方-内容分析-theme1.docx</code> P14（描述合唱部分体现「对故乡的思念、对家人的愧疚、对过去的眷恋、对现实的无奈、对梦想的彷徨、对困难的无畏」）。
+  </div>
+</header>
+
+<section class="toc-section">
+  <h2>5 个 lyrical voices 速览</h2>
+  <div class="toc-grid">
+    <a href="#voice-1"><span class="toc-num">1</span>王力宏（抒情声部 · 议题 1.3 家庭情感）</a>
+    <a href="#voice-2"><span class="toc-num">2</span>黄明志（说唱声部 · 议题 1.1 社会冲击）</a>
+    <a href="#voice-3"><span class="toc-num">3</span>第三人称「他」（北漂者个案）</a>
+    <a href="#voice-4"><span class="toc-num">4</span>第一人称「我」（介入当事人）</a>
+    <a href="#voice-5"><span class="toc-num">5</span>北漂群像四型（「有人...」排比）</a>
+    <a href="#matrix-issue"><span class="toc-num">★</span>5 voices × 12 子角度速查矩阵</a>
+    <a href="#matrix-q4"><span class="toc-num">★</span>Q4 三大配对建议矩阵</a>
+  </div>
+</section>
+
+
+<!-- ====================== Voice 1: 王力宏 ====================== -->
+<section class="entry" id="voice-1">
+  <div class="entry-head">
+    <span class="entry-num">1</span>
+    <div>
+      <div class="entry-title">王力宏 · 抒情副歌声部</div>
+      <div class="entry-meta">演唱部分 · 内心独白与情感羁绊 · 高音穿透人心</div>
+    </div>
+  </div>
+  <div><span class="tag red">议题 1.3 主承载</span> <span class="tag teal">议题 1.1 余声</span> <span class="tag blue">归国华裔 / 成功者形象底色</span></div>
+
+  <h3><span class="num">1</span>角色定位</h3>
+  <p>王力宏（华裔美籍）演唱副歌 + 桥段 + 尾段，承担<strong>抒情副歌</strong>的功能——以含蓄、内敛的旋律抒发<em>对家人的思念</em>与<em>对家乡的牵挂</em>。NotebookLM 表述：「演唱部分主要表达含蓄、内敛的情感，如对家人的思念与牵挂——『家人是否无恙』。它像是一段『内心独白』，用优美、悠长而苍凉的旋律抒发乡愁与对美好事物的憧憬」。从歌手身份底色看，王力宏代表「归国华裔」的成功者形象。</p>
+
+  <h3><span class="num">2</span>议题承载</h3>
+  <table>
+    <thead><tr><th style="width:30%;">议题</th><th>承载方式 + 关键歌词</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag red">议题 1.3 责任与期望</span></td><td>「我漂向北方 家人是否无恙」「祈求一家人都平安」 — 副歌+尾段反复呈现漂泊者对家人的牵挂</td></tr>
+      <tr><td><span class="tag red">议题 1.3 亲情的疏离</span></td><td>「肩上沉重的行囊 盛满了惆怅」「回不去的远方」 — 物理割裂导致的情感维系考验</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 传统身份认同冲突</span></td><td>「漂向北方 别问我家乡」 — 副歌奠定全曲身份命题</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="num">3</span>Q3 用法</h3>
+  <div class="usage-block teal">
+    <div class="usage-label">王力宏声部 · Q3 题型</div>
+    <p class="usage-body"><strong>(b) 5 分</strong>题方向：分析<strong>呼告 + 反问 + 隐喻</strong>如何在副歌中呈现议题 1.3 家庭情感（「别问我家乡」呼告 + 「家人是否无恙」反问 + 「沉重的行囊」隐喻）。<strong>(c) 7 分</strong>题方向：结合副歌 + 尾段，分析<strong>「漂」三层含义</strong>在王力宏抒情声部中的递进——从「迁移」（漂向北方）→「未扎根」（别问我家乡）→「心理的漂」（祈求一家人平安）。</p>
+  </div>
+
+  <h3><span class="num">4</span>Q4 配对</h3>
+  <div class="usage-block gold">
+    <div class="usage-label">王力宏声部 · 优先配对</div>
+    <p class="usage-body"><strong>《流浪地球2》刘培强</strong>（议题 1.3 主钩，学校 Sample 4） — 两个角色都承担<em>「无法陪伴在侧的家庭责任」</em>。王力宏的「祈求一家人都平安」与刘培强对儿子的远距告别形成「歌词反问 vs 电影告别情节」的跨文体共振。</p>
+  </div>
+</section>
+
+
+<!-- ====================== Voice 2: 黄明志 ====================== -->
+<section class="entry" id="voice-2">
+  <div class="entry-head">
+    <span class="entry-num">2</span>
+    <div>
+      <div class="entry-title">黄明志 · 说唱主歌声部</div>
+      <div class="entry-meta">说唱部分 · 现实呐喊与社会压迫 · 低沉强烈语感</div>
+    </div>
+  </div>
+  <div><span class="tag teal">议题 1.1 主承载</span> <span class="tag blue">马来西亚华人 / 挣扎者形象底色</span></div>
+
+  <h3><span class="num">1</span>角色定位</h3>
+  <p>黄明志（马来西亚华裔）说唱主歌1 + 主歌2 + 交织段说唱部分，承担<strong>叙事主歌·现实呐喊</strong>的功能——充满力量感、直白、写实地表达现实的残酷。NotebookLM 表述：「说唱部分将听众从理想主义的忧伤打回到惨不忍睹的现实状况前，如同将刚愈合的伤口再次撕开，直击人心」。从歌手身份底色看，黄明志代表「底层打拼的挣扎者」形象——他本人是马来西亚华人在台湾发展的漂泊者，与歌词内容的同构性赋予说唱真实的语感底气。</p>
+
+  <h3><span class="num">2</span>议题承载</h3>
+  <table>
+    <thead><tr><th style="width:30%;">议题</th><th>承载方式 + 关键歌词</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag teal">议题 1.1 经济压力与生存挑战</span></td><td>「他住在燕郊区 残破的求职公寓」「往返在九三零号公路 内心盼着奇迹」</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 焦虑与迷茫</span></td><td>「空气太脏 太混浊」「车太混乱 太匆忙」「他经常将自己灌醉 强迫融入 这大染缸」</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 人际关系冷漠</span></td><td>「人行道一双又一双 斜视冷漠的眼光」</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 阶层流动 vs 固化</span></td><td>「埋头写着履历 怀抱着多少憧憬」+ 「内心盼着奇迹」</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="num">3</span>Q3 用法</h3>
+  <div class="usage-block teal">
+    <div class="usage-label">黄明志声部 · Q3 题型</div>
+    <p class="usage-body"><strong>(b) 5 分</strong>题方向：分析<strong>排比 + 细节描写 + 借喻</strong>如何在主歌中呈现议题 1.1 北漂群体的生存现状（四组「有人」排比 + 「燕郊」「九三零号公路」「二锅头」细节 + 「大染缸」借喻）。<strong>(c) 7 分</strong>题方向：结合主歌1 + 主歌2 + 交织段，分析作者如何通过黄明志的说唱声部呈现「身体抵达 / 精神尚未抵达」的双重位移。</p>
+  </div>
+
+  <h3><span class="num">4</span>Q4 配对</h3>
+  <div class="usage-block gold">
+    <div class="usage-label">黄明志声部 · 优先配对</div>
+    <p class="usage-body"><strong>《大江大河》雷东宝</strong>（学校 Sample 6，「走出舒适圈」论点） — 黄明志说唱的<em>北漂者被动同化</em>与雷东宝主动改革形成姿态对照。<strong>《夹缝中的光芒》</strong>（学校 Sample 5，「现实妥协」论点） — 说唱部分的写实底色与《夹缝》的纪实笔触形成跨文体共构。</p>
+  </div>
+</section>
+
+
+<!-- ====================== Voice 3: 第三人称「他」 ====================== -->
+<section class="entry" id="voice-3">
+  <div class="entry-head">
+    <span class="entry-num">3</span>
+    <div>
+      <div class="entry-title">第三人称「他」 · 主歌中的北漂者个案</div>
+      <div class="entry-meta">叙述对象 · 由黄明志说唱以「报道」位置叙述</div>
+    </div>
+  </div>
+  <div><span class="tag teal">议题 1.1 个案承载</span> <span class="tag blue">「报道」位置叙述</span></div>
+
+  <h3><span class="num">1</span>角色定位</h3>
+  <p>「他」是主歌1 与主歌2 中被叙述的<strong>具体北漂者</strong>——是四组「有人」排比之后<em>视角推近</em>聚焦的个案。「他住在燕郊区」「他经常将自己灌醉」「他还不习惯」等句中的「他」并非任何具名人物，而是<strong>北漂群体的代表样本</strong>。这种第三人称叙述使黄明志的说唱保持<em>「报道」位置</em>（旁观者视角）——观察、记录、不直接代入。</p>
+
+  <h3><span class="num">2</span>议题承载</h3>
+  <table>
+    <thead><tr><th style="width:30%;">议题</th><th>承载方式</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag teal">议题 1.1 经济压力</span></td><td>「他住在燕郊区 残破的求职公寓」「他埋头写着履历 怀抱着多少憧憬」</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 焦虑迷茫</span></td><td>「他说不喜欢」「他还不习惯」「他经常将自己灌醉」</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 借酒麻痹</span></td><td>「强迫融入 这大染缸」</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="num">3</span>Q3 用法</h3>
+  <div class="usage-block teal">
+    <div class="usage-label">「他」 · Q3 题型</div>
+    <p class="usage-body"><strong>(b) 5 分</strong>题方向：分析<strong>视角切换</strong>（从「有人...有人...」群像 → 「他住在燕郊区」聚焦个体）如何使群像不停留在抽象统计层面，而是落到具体住址、履历、公路上——体现作者对个体命运的<strong>显微关注</strong>。<strong>(c) 7 分</strong>题方向：结合「他」的主歌片段与「我」的尾段片段，分析视角切换（他→我）如何加深听者的代入感。</p>
+  </div>
+
+  <h3><span class="num">4</span>Q4 配对</h3>
+  <div class="usage-block gold">
+    <div class="usage-label">「他」 · 优先配对</div>
+    <p class="usage-body"><strong>《夹缝中的光芒》</strong>中的具体年轻人个案（如潘海燕） — 两文本都以<strong>个案</strong>呈现北漂/南漂青年的生存底色，形成<em>「歌词个体化叙述 vs 纪实文学个案跟踪」</em>跨文体对照。</p>
+  </div>
+</section>
+
+
+<!-- ====================== Voice 4: 第一人称「我」 ====================== -->
+<section class="entry" id="voice-4">
+  <div class="entry-head">
+    <span class="entry-num">4</span>
+    <div>
+      <div class="entry-title">第一人称「我」 · 尾段+交织段介入的当事人</div>
+      <div class="entry-meta">叙述位置由「报道」转为「自陈」 · 王力宏 / 黄明志在不同段轮替为「我」</div>
+    </div>
+  </div>
+  <div><span class="tag red">议题 1.3 自陈</span> <span class="tag teal">议题 1.1 自陈</span> <span class="tag blue">代入感 / 当事人位置</span></div>
+
+  <h3><span class="num">1</span>角色定位</h3>
+  <p>「我」首次大段介入是<strong>尾段</strong>（王力宏说唱：「我站在天坛中央 闭上眼 祈求一家人都平安」），并在<strong>交织段</strong>持续展开（「我站在天子脚下 被踩得喘不过气」「我根本不属于这里 早就该离去」）。视角从前面的「他」转为「我」，使叙述从<em>「报道」</em>转为<em>「自陈」</em>——听者从旁观位置被拉入当事人位置。这是全曲<strong>情绪强度</strong>最高的部分。</p>
+
+  <h3><span class="num">2</span>议题承载（议题 1.1 + 1.3 同时承载）</h3>
+  <table>
+    <thead><tr><th style="width:30%;">议题</th><th>承载方式 + 关键歌词</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag red">议题 1.3 责任与期望</span></td><td>「我站在天坛中央 闭上眼 祈求一家人都平安」</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 文化身份认同</span></td><td>「我根本不属于这里 早就该离去」</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 高压社会</span></td><td>「我站在天子脚下 被踩得喘不过气」</td></tr>
+      <tr><td><span class="tag teal">议题 1.1 梦想与现实</span></td><td>「谁能给我致命的一击 请用力到彻底」</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="num">3</span>Q3 用法</h3>
+  <div class="usage-block teal">
+    <div class="usage-label">「我」 · Q3 题型</div>
+    <p class="usage-body"><strong>(b) 5 分</strong>题方向：分析<strong>视角切换</strong>（他→我）+ <strong>空间反讽</strong>（天坛中央祈求一家平安）+ <strong>反问</strong>（谁又能带领着我飞翔）如何把漂泊者推至能动性的最后保留。<strong>(c) 7 分</strong>题方向：结合尾段「我」的祈祷与交织段「我」的脱离宣告，分析作者如何在「我」声部内呈现从「精神祈愿」到「认同放弃」的崩塌轨迹。</p>
+  </div>
+
+  <h3><span class="num">4</span>Q4 配对</h3>
+  <div class="usage-block gold">
+    <div class="usage-label">「我」 · 优先配对</div>
+    <p class="usage-body"><strong>《流浪地球2》刘培强</strong>（学校 Sample 4）— 「我」在尾段的家庭祈愿与刘培强的「父亲身份+航天员身份」双重承担呈现同一议题。<strong>《夹缝中的光芒》</strong>（Sample 5）— 「我根本不属于这里」与《夹缝》中年轻人「『月是故乡圆』观念的解构」形成跨文体共构。</p>
+  </div>
+</section>
+
+
+<!-- ====================== Voice 5: 北漂群像四型 ====================== -->
+<section class="entry" id="voice-5">
+  <div class="entry-head">
+    <span class="entry-num">5</span>
+    <div>
+      <div class="entry-title">北漂群像四型 · 主歌1「有人...」排比</div>
+      <div class="entry-meta">四组「有人」展开的北漂动机谱系</div>
+    </div>
+  </div>
+  <div><span class="tag teal">议题 1.1 多元动机</span> <span class="tag blue">排比技巧承载</span></div>
+
+  <h3><span class="num">1</span>角色定位</h3>
+  <p>主歌1 以四组「有人」排比展开<strong>北漂动机谱系</strong>——四类不同推力使年轻人离乡北上：① 欠债避祸型；② 怀才不遇型；③ 迷失自我型；④ 生计养家型。四型并置呈现「漂」不是单一原因驱动，而是结构性力量推动下<em>多种推力的合流</em>。</p>
+
+  <h3><span class="num">2</span>四型 × 议题承载</h3>
+  <table>
+    <thead><tr><th style="width:24%;">类型</th><th style="width:36%;">verbatim 歌词</th><th>议题映射</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 欠债避祸型</strong></td><td>「有人说他在老家欠了一堆钱 需要避避风头」</td><td><span class="tag teal">议题 1.1 经济压力</span></td></tr>
+      <tr><td><strong>② 怀才不遇型</strong></td><td>「有人说他练就了一身武艺 却没机会展露」</td><td><span class="tag teal">议题 1.1 社会流动 vs 阶层固化</span></td></tr>
+      <tr><td><strong>③ 迷失自我型</strong></td><td>「有人失去了自我 手足无措四处漂流」</td><td><span class="tag teal">议题 1.1 文化身份认同</span></td></tr>
+      <tr><td><strong>④ 生计养家型</strong></td><td>「有人为了梦想 为了三餐为养家糊口」</td><td><span class="tag teal">议题 1.1 经济压力</span> + <span class="tag red">议题 1.3 责任与期望</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="num">3</span>Q3 用法</h3>
+  <div class="usage-block teal">
+    <div class="usage-label">四型 · Q3 题型</div>
+    <p class="usage-body"><strong>(a) 3 分</strong>题方向：列举北漂者选择北漂的原因有哪些（学校 Sample 1 已出此题型）。<strong>(b) 5 分</strong>题方向：分析<strong>四组「有人」排比</strong>如何把北漂从「单一故事」升格为「结构性社会现象」。</p>
+  </div>
+
+  <h3><span class="num">4</span>Q4 配对</h3>
+  <div class="usage-block gold">
+    <div class="usage-label">四型 · 优先配对</div>
+    <p class="usage-body">第 ④ 型「为养家糊口」直接连<strong>《流浪地球2》刘培强</strong>（家庭责任）；第 ① ② ③ 型连<strong>《夹缝中的光芒》</strong>（年轻人多元动机的纪实笔触）；第 ② 型「练就武艺没机会展露」可连<strong>《大江大河》雷东宝</strong>（同样有才能，但雷东宝主动闯出体制 vs 北漂者被动等待机会）。</p>
+  </div>
+</section>
+
+
+<!-- ====================== 速查矩阵 1：5 voices × 12 子角度 ====================== -->
+<section class="matrix-section" id="matrix-issue">
+  <h2>★ 5 voices × 12 子角度 速查矩阵</h2>
+  <p style="margin-top: 8px; color: var(--muted); font-size: 13px;">每个 voice 主承载（●●●）/ 部分承载（●●）/ 余声（●）。学生 Q4 essay 中可对照矩阵选取 voice + 议题组合。</p>
+
+  <table class="matrix-table" style="margin-top: 18px;">
+    <thead>
+      <tr>
+        <th style="width:30%;">子角度</th>
+        <th>王力宏</th>
+        <th>黄明志</th>
+        <th>他</th>
+        <th>我</th>
+        <th>群像四型</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="tag teal">1.1①</span> 经济压力与生存挑战</td><td></td><td><span class="rating three">●●●</span></td><td><span class="rating three">●●●</span></td><td></td><td><span class="rating two">●●</span></td></tr>
+      <tr><td><span class="tag teal">1.1②</span> 高压社会对心理影响</td><td><span class="rating two">●●</span></td><td><span class="rating three">●●●</span></td><td><span class="rating two">●●</span></td><td><span class="rating three">●●●</span></td><td></td></tr>
+      <tr><td><span class="tag teal">1.1③</span> 焦虑和迷茫</td><td></td><td><span class="rating three">●●●</span></td><td><span class="rating three">●●●</span></td><td><span class="rating two">●●</span></td><td></td></tr>
+      <tr><td><span class="tag teal">1.1④</span> 人际关系冷漠</td><td></td><td><span class="rating three">●●●</span></td><td><span class="rating three">●●●</span></td><td></td><td></td></tr>
+      <tr><td><span class="tag teal">1.1⑤</span> 传统身份认同冲突</td><td><span class="rating two">●●</span></td><td><span class="rating one">●</span></td><td></td><td><span class="rating three">●●●</span></td><td><span class="rating two">●●</span></td></tr>
+      <tr><td><span class="tag teal">1.1⑥</span> 社会流动 vs 阶层固化</td><td></td><td><span class="rating three">●●●</span></td><td><span class="rating three">●●●</span></td><td></td><td><span class="rating three">●●●</span></td></tr>
+      <tr><td><span class="tag teal">1.1⑦</span> 梦想与现实的碰撞</td><td></td><td><span class="rating two">●●</span></td><td></td><td><span class="rating three">●●●</span></td><td></td></tr>
+      <tr><td><span class="tag teal">1.1⑧</span> 文化身份认同挑战</td><td><span class="rating one">●</span></td><td></td><td></td><td><span class="rating three">●●●</span></td><td><span class="rating two">●●</span></td></tr>
+      <tr><td><span class="tag red">1.3①</span> 责任与期望：背负家庭希望</td><td><span class="rating three">●●●</span></td><td></td><td></td><td><span class="rating three">●●●</span></td><td><span class="rating two">●●</span></td></tr>
+      <tr><td><span class="tag red">1.3②</span> 亲情的疏离</td><td><span class="rating three">●●●</span></td><td></td><td></td><td><span class="rating two">●●</span></td><td></td></tr>
+      <tr><td><span class="tag red">1.3③</span> 梦想与家庭的矛盾</td><td><span class="rating three">●●●</span></td><td></td><td></td><td><span class="rating one">●</span></td><td></td></tr>
+      <tr><td><span class="tag red">1.3④</span> 传统 vs 现代家庭观念</td><td><span class="rating two">●●</span></td><td></td><td></td><td><span class="rating two">●●</span></td><td></td></tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!-- ====================== 速查矩阵 2：Q4 配对 ====================== -->
+<section class="matrix-section" id="matrix-q4">
+  <h2>★ Q4 三大 established 配对建议矩阵</h2>
+  <p style="margin-top: 8px; color: var(--muted); font-size: 13px;">学校 activity booklet Sample 4-6 + NotebookLM 三源一致认定的 Q4 配对。每行列出本曲哪个 voice 与该跨文本人物配对最自然。</p>
+
+  <table class="matrix-table" style="margin-top: 18px;">
+    <thead>
+      <tr>
+        <th style="width:24%;">配对教材 + 人物</th>
+        <th style="width:30%;">论点角度（学校 Sample）</th>
+        <th style="width:23%;">本曲优先 voice</th>
+        <th style="width:23%;">核心歌词锚点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>《流浪地球2》刘培强</strong></td>
+        <td>家庭责任 vs 社会期望的无奈抉择（Sample 4）</td>
+        <td>王力宏抒情声部 + 第一人称「我」 + 北漂群像第 ④ 型</td>
+        <td>「家人是否无恙」「祈求一家人都平安」「为了三餐为养家糊口」</td>
+      </tr>
+      <tr>
+        <td><strong>《夹缝中的光芒》</strong></td>
+        <td>「月是故乡圆」解构（Sample 5 + 论点角度三）</td>
+        <td>王力宏抒情声部 + 第一人称「我」</td>
+        <td>「漂向北方 别问我家乡」「我根本不属于这里 早就该离去」「回不去的远方」</td>
+      </tr>
+      <tr>
+        <td><strong>《夹缝中的光芒》</strong></td>
+        <td>梦想坚持论点：困境中对梦想的执着（论点角度二）</td>
+        <td>黄明志说唱声部 + 第三人称「他」</td>
+        <td>「他埋头写着履历 怀抱着多少憧憬」「内心盼着奇迹」</td>
+      </tr>
+      <tr>
+        <td><strong>《夹缝中的光芒》</strong></td>
+        <td>现实妥协论点：理想向生存妥协（论点角度一）</td>
+        <td>黄明志说唱声部</td>
+        <td>「卸下了自尊 光环 过去多风光」「强迫融入 这大染缸」</td>
+      </tr>
+      <tr>
+        <td><strong>《大江大河》雷东宝</strong></td>
+        <td>走出舒适圈是追求梦想的必经之路（Sample 6）</td>
+        <td>黄明志说唱声部 + 北漂群像第 ② 型</td>
+        <td>「他经常将自己灌醉 强迫融入 这大染缸」（被动同化）vs 雷东宝主动改革</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 18px;">
+    <strong>学生 Q4 essay 选段建议：</strong>本曲 body 段建议<strong>选取 2 个 voice</strong>作 evidence —— 一个 voice 一个 TEEL 小循环。例如「家庭责任」论点的本文本段：TEEL ① 用王力宏副歌「家人是否无恙」，TEEL ② 用第一人称「我」尾段「祈求一家人都平安」，TEEL ③ 用北漂群像第 ④ 型「为了三餐为养家糊口」——三个 voice 交织展开论点，避免单一证据铺整段。
+  </div>
+</section>
+
+
+</main>
+</body>
+</html>

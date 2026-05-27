@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W2 L6 — 困境深化与重复的力量</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy); color: var(--white); padding: 10px 18px; font-size: 9pt; font-weight: 500; border-radius: 4px 4px 0 0; }
+  .title-box { background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%); color: var(--white); padding: 22px 24px 18px; border-radius: 0 0 4px 4px; margin-bottom: 16px; }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: 9pt; font-weight: 700; padding: 3px 12px; border-radius: 3px; margin-bottom: 8px; }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 140px; border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; background: var(--white); }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading { background: var(--navy); color: var(--white); padding: 8px 16px; font-size: 12pt; font-weight: 700; border-radius: 4px; margin: 20px 0 12px; }
+  .sub-heading { color: var(--blue); font-size: 11pt; font-weight: 700; border-left: 4px solid var(--gold); padding-left: 10px; margin: 14px 0 8px; }
+
+  .info-box { background: var(--light-blue); border-left: 4px solid var(--blue); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+  .gold-box { background: var(--light-gold); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+
+  .lyrics-box { background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px; padding: 16px 20px; margin: 12px 0; font-size: 12pt; line-height: 2.0; color: var(--navy); font-weight: 500; }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-blue { background: #B3D9F2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-green { background: #C8E6C9; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-pink { background: #F8BBD0; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate { font-size: 9pt; font-weight: 400; color: var(--mid-grey); display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px; }
+  .lyrics-box .new-line { border-left: 3px solid var(--gold); padding-left: 8px; margin: 4px 0; }
+
+  .discussion { background: var(--white); border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .discussion-title { font-weight: 700; color: var(--gold); font-size: 10pt; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .discussion ol, .discussion ul { padding-left: 20px; margin: 6px 0; }
+  .discussion li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .technique-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 4px; padding: 12px 16px; margin: 10px 0; }
+  .technique-card h3 { font-size: 12pt; color: var(--navy); font-weight: 900; margin-bottom: 2px; }
+  .technique-card .en { font-size: 9pt; color: var(--mid-grey); font-weight: 400; }
+  .technique-card .def { margin: 6px 0; font-size: 10.5pt; }
+  .technique-card .effect { color: var(--blue); font-weight: 600; font-size: 10pt; }
+
+  .checkpoint { background: var(--navy); color: var(--white); border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 10pt; }
+  .checkpoint-title { font-weight: 700; color: var(--gold); margin-bottom: 4px; font-size: 10.5pt; }
+
+  .q3-box { background: #FFF8F0; border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q3-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q3-marks { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .footer { text-align: center; font-size: 8pt; color: var(--mid-grey); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px; }
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box, .checkpoint, .technique-card { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .discussion, .gold-box, .lyrics-box, .q3-box { page-break-inside: auto; break-inside: auto; }
+    .discussion li, tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第二周 · 第六课 W2 L6</div>
+  <h1>困境深化与重复的力量</h1>
+  <div class="subtitle">主歌2 + 副歌2 精读 · Verse 2 &amp; Chorus 2 Close Reading</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">主歌2 + 副歌2</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issues</div>
+    <div class="field-value">1.1 + 2.1</div>
+  </div>
+  <div class="field">
+    <div class="field-label">语言技巧 Focus</div>
+    <div class="field-value">反复 · 叠词</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 理解"反复"手法——重复歌词在新语境下如何获得更深含义<br>
+  ② 掌握"叠词"技巧——分析"一双又一双"的强调效果<br>
+  ③ 分析"大染缸"借喻——城市对个人的强制同化<br>
+  ④ 精读城市适应困境系列场景（空气/车/冷漠眼光/灌醉/爆肚涮羊）<br>
+  ⑤ 练习 Q3(b) 题型：引用歌词分析原因/影响（5 分）
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: 反复——重复中的深化               -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L6 · 困境深化与重复的力量</span>
+  <span>Part A — 反复</span>
+</div>
+
+<div class="section-heading">Part A · 语言技巧一：反复</div>
+
+<div class="technique-card">
+  <h3>反复 <span class="en">Repetition</span></h3>
+  <div class="def">
+    <strong>定义：</strong>有意地<strong>重复使用</strong>同一个词、短语或句子，以达到<strong>强调、深化</strong>的效果。注意：反复不是"偷懒地重复"——每一次重复都应在新的语境中获得<strong>新的含义</strong>。
+  </div>
+  <div class="def">
+    <strong>与排比的区别：</strong>排比是结构相似但<strong>内容不同</strong>的并列（有人A…有人B…有人C…）；反复是<strong>同一内容</strong>的重复出现，但在不同位置获得不同深度。
+  </div>
+  <div class="effect">
+    效果：强调 · 深化 · 情感积累 · 回环感
+  </div>
+</div>
+
+<div class="sub-heading">主歌2：重复歌词的深化意义</div>
+
+<div class="lyrics-box">
+  我漂向北方 别问我家乡<br>
+  高耸古老的城墙 挡不住忧伤<br>
+  我漂向北方 家人是否无恙<br>
+  肩上沉重的行囊 盛满了惆怅<br>
+  <span class="new-line"><span class="highlight">也是最后寄望 回不去的远方 oh</span></span>
+  <span class="annotate">以上四句与主歌1相同 ｜ 黄色 = 新增内容</span>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">对比维度</th>
+      <th style="width: 39%;">主歌1（首次出现）</th>
+      <th style="width: 39%;">主歌2（重复出现）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>语境</strong></td>
+      <td>歌曲开头——刚刚开始叙述北漂处境</td>
+      <td>经历了副歌1的情感爆发之后——更加沉重</td>
+    </tr>
+    <tr>
+      <td><strong>"别问我家乡"</strong></td>
+      <td>第一次听——逃避的姿态，不愿触及</td>
+      <td>经历失败后的重复——已无力谈论，不是不想说，而是<strong>说不出口</strong></td>
+    </tr>
+    <tr>
+      <td><strong>"行囊盛满惆怅"</strong></td>
+      <td>压力的初始描述</td>
+      <td>与"最后寄望 回不去的远方"配合——行囊不仅盛满压力，还盛满了<strong>回不去的绝望</strong></td>
+    </tr>
+    <tr>
+      <td><strong>新增内容</strong></td>
+      <td>无</td>
+      <td><strong>"也是最后寄望 回不去的远方"</strong>——揭示社会变迁给个人带来的<strong>不可逆转</strong>的改变</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>"回不去的远方"解析：</strong><br>
+  "最后寄望"——对家乡的眷恋已经从现实期待变成了精神寄托<br>
+  "回不去"——社会变迁给个人带来的改变是不可逆转的（经济层面：城市生活已建立；心理层面：价值观已改变；社会层面：原有的身份认同已转变）<br>
+  "远方"——既指地理上的家乡，也象征着回不去的过去
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <p>如果歌曲只唱一遍"漂向北方 别问我家乡"，效果和唱两遍有什么不同？第二遍的"别问"比第一遍更沉重还是更轻？为什么？</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: 城市适应困境                      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L6 · 困境深化与重复的力量</span>
+  <span>Part B — 城市适应困境</span>
+</div>
+
+<div class="section-heading">Part B · 城市适应困境：一连串的不适应</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>主歌2从重复的副歌旋律过渡到全新的叙事内容——一系列密集的城市生活场景。这些场景不是随机罗列，而是呈现了一个完整的"城市适应困境图"。
+</div>
+
+<div class="lyrics-box">
+  <span class="highlight">空气太脏 太混浊</span> 他说不喜欢<br>
+  <span class="highlight">车太混乱 太匆忙</span> 他还不习惯<br>
+  人行道<span class="highlight-blue">一双又一双</span><br>
+  斜视冷漠的眼光<br>
+  他经常将自己灌醉<br>
+  强迫融入 这<span class="highlight-pink">大染缸</span><br>
+  走着脚步蹒跚<br>
+  <span class="highlight-green">二锅头</span>在摇晃<br>
+  失意的人啊<br>
+  偶尔醉倒在那<span class="highlight-green">胡同陋巷</span><br>
+  咀嚼<span class="highlight-green">爆肚涮羊</span><br>
+  手中盛着一碗热汤<br>
+  用力地 温暖着<br>
+  内心里的不安
+  <span class="annotate">黄色 = 环境描写 ｜ 蓝色 = 叠词 ｜ 粉色 = 借喻 ｜ 绿色 = 北京细节</span>
+</div>
+
+<div class="sub-heading">城市困境四层分析</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 28%;">歌词</th>
+      <th style="width: 18%;">困境层面</th>
+      <th style="width: 54%;">分析</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>空气太脏太混浊…<br>车太混乱太匆忙…</td>
+      <td><strong>环境适应</strong></td>
+      <td>"太"字四次重复，强调城市特征的过度性——已超出个人适应能力。"不喜欢"→"不习惯"：从情感拒绝到行为不适应，暗示一个漫长而痛苦的适应过程（Issue 1.1）</td>
+    </tr>
+    <tr>
+      <td>一双又一双<br>斜视冷漠的眼光</td>
+      <td><strong>社会排斥</strong></td>
+      <td>"一双又一双"<strong>叠词</strong>强调目光的普遍性和持续性。"斜视"暗示社会地位差异，"冷漠"反映人际疏离——传统人情味在城市化中消失（Issue 1.1）</td>
+    </tr>
+    <tr>
+      <td>将自己灌醉<br>强迫融入这大染缸</td>
+      <td><strong>被迫同化</strong></td>
+      <td>"大染缸"<strong>借喻</strong>——城市是将人同化的容器，改变个人的本色。"强迫"突出这种改变非自愿；"灌醉"是用最廉价的方式麻痹自己（Issue 2.1）</td>
+    </tr>
+    <tr>
+      <td>爆肚涮羊…一碗热汤<br>用力地温暖内心的不安</td>
+      <td><strong>寻求慰藉</strong></td>
+      <td>北京特色小吃<strong>细节描写</strong>——在陌生城市中寻找一丝温暖。"用力地"强调需求的迫切——温暖不是自然获得的，需要"用力"才能感受到（Issue 2.1）</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 叠词 + 大染缸                    -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L6 · 困境深化与重复的力量</span>
+  <span>Part C — 叠词 + 大染缸</span>
+</div>
+
+<div class="section-heading">Part C · 语言技巧二：叠词</div>
+
+<div class="technique-card">
+  <h3>叠词 <span class="en">Reduplication</span></h3>
+  <div class="def">
+    <strong>定义：</strong>把同一个词或相似的结构<strong>重叠使用</strong>（如"一双又一双""太A太B"），通过声音和节奏的重复达到<strong>强调和延续</strong>的效果。
+  </div>
+  <div class="def">
+    <strong>与反复的区别：</strong>反复是段落/句子级别的重复（同一段歌词出现两次）；叠词是词汇级别的重复（一个词内部的叠加）。
+  </div>
+  <div class="effect">
+    效果：强调 · 延续感 · 节奏感 · 画面的"持续性"
+  </div>
+</div>
+
+<div class="sub-heading">"一双又一双"分析</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">分析维度</th>
+      <th style="width: 80%;">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>表层含义</strong></td>
+      <td>描述路人的目光——不是一个人在看，而是一双接一双，连续不断</td>
+    </tr>
+    <tr>
+      <td><strong>叠词效果</strong></td>
+      <td>"一双又一双"创造了一种<strong>无限延续</strong>的画面感——冷漠的目光不是偶尔出现，而是持续存在的日常体验</td>
+    </tr>
+    <tr>
+      <td><strong>与"斜视冷漠"配合</strong></td>
+      <td>叠词强调了<strong>数量和普遍性</strong>，"斜视"强调了<strong>态度和偏见</strong>，"冷漠"强调了<strong>情感距离</strong>——三者叠加形成了一幅完整的社会排斥图景</td>
+    </tr>
+    <tr>
+      <td><strong>Issue 1.1 联系</strong></td>
+      <td>外来人口融入城市社会的困难不是个别事件，而是结构性的、持续的排斥。城市的包容度不足，社会阶层固化</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">"大染缸"借喻深化</div>
+
+<div class="gold-box">
+  <strong>"大染缸"的含义：</strong>染缸的功能是把布料染成统一的颜色——无论布料原来是什么颜色，放进去之后都会被改变。<br><br>
+  <strong>在歌词中：</strong>城市就是一个"大染缸"，个人的独特性（家乡口音、生活习惯、价值观）被城市的文化强制同化。<br>
+  <strong>"强迫融入"：</strong>不是自愿的选择，而是生存的必需——为了活下去，必须放弃自我。<br>
+  <strong>"灌醉"：</strong>当"强迫融入"也无法缓解痛苦时，唯一的出口是麻痹自己。"二锅头"作为廉价白酒，暗示了这种麻痹方式的卑微。<br><br>
+  <strong>与 L4"抗下了梦想"的呼应：</strong>副歌中梦想变成了重担，主歌2中个人被迫改变本色——两者都体现了社会对个人精神世界的侵蚀。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <ol>
+    <li>为什么歌词选择"二锅头"而不是"啤酒"或"红酒"？这个细节暗示了什么？</li>
+    <li>"爆肚涮羊"和"一碗热汤"是正面意象还是负面意象？为什么歌词在描述困境的同时加入这些温暖的细节？</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: 副歌2 + 反复深化                  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L6 · 困境深化与重复的力量</span>
+  <span>Part D — 副歌2 反复深化</span>
+</div>
+
+<div class="section-heading">Part D · 副歌2：反复中的深化</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>副歌2 与副歌1 歌词<strong>基本相同</strong>——但在经历了主歌2 的城市困境叙事后，同样的歌词获得了<strong>更深的情感重量</strong>。这就是反复的力量。
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 35%;">副歌歌词</th>
+      <th style="width: 30%;">副歌1 的理解（L4）</th>
+      <th style="width: 35%;">副歌2 在新语境下的理解</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>忍着泪（不听也不想 不敢回头望的遗憾）</td>
+      <td>对过去的逃避——不敢回望</td>
+      <td>经历了城市的冷漠眼光之后——泪水不只是思乡，更是被排斥的屈辱</td>
+    </tr>
+    <tr>
+      <td>掩着伤（抗下了梦想 要毅然决然去流浪）</td>
+      <td>梦想变成重担</td>
+      <td>"大染缸"之后——掩的不只是伤，更是被迫改变自我的痛苦</td>
+    </tr>
+    <tr>
+      <td>抬头看（卸下了自尊 光环 过去多风光）</td>
+      <td>身份认同的层层卸下</td>
+      <td>"灌醉"之后——自尊已经在酒精中溶解，卸下变成了一种日常</td>
+    </tr>
+    <tr>
+      <td>亲爱的 在远方（椰子树摇晃…幻想）</td>
+      <td>南方家乡的幻想</td>
+      <td>"回不去的远方"之后——"幻想"从可能变成了确定的不可能</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>反复的核心效果总结：</strong>反复不是偷懒的重复。歌曲中每一次"漂向北方 别问我家乡"的重复，都因为前面新增的叙事内容（城市困境、"回不去的远方"）而变得<strong>更沉重</strong>。第一次是叙述，第二次是叹息，到第三次（主歌3，下节课）将成为绝望。这种"螺旋式加深"正是反复技巧最有力的表现。
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: Q3(b) 练习                       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L6 · 困境深化与重复的力量</span>
+  <span>Part E — Q3(b) 练习 + 总结</span>
+</div>
+
+<div class="section-heading">Part E · 考试技能：Q3(b) 练习</div>
+
+<div class="info-box">
+  <strong>Q3(b) 题型说明：</strong>(b) 小题通常要求学生根据歌词<strong>解释原因、分析影响或比较异同</strong>，分值为 <strong>5 分</strong>。答题需要<strong>引用歌词原文</strong>，分点论述，每个论点包含引用 + 分析 + 议题联系。
+</div>
+
+<div class="q3-box">
+  <div class="q3-title">模拟题 Practice Question</div>
+  <p><strong>(b)</strong> 根据歌词，分析北漂者在城市中面临的<strong>适应困难</strong>有哪些？<span class="q3-marks">5 分</span></p>
+</div>
+
+<div class="sub-heading">答题框架 Answer Framework</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">论点</th>
+      <th style="width: 28%;">引用歌词</th>
+      <th style="width: 35%;">分析</th>
+      <th style="width: 25%;">议题联系</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>① 环境</strong></td>
+      <td>"空气太脏太混浊…车太混乱太匆忙"</td>
+      <td>"太"字四次重复强调过度性，"不喜欢"→"不习惯"显示适应过程的漫长</td>
+      <td>Issue 1.1：城市化对个人生活方式的冲击</td>
+    </tr>
+    <tr>
+      <td><strong>② 社会</strong></td>
+      <td>"一双又一双斜视冷漠的眼光"</td>
+      <td>叠词强调排斥的普遍性；"斜视"暗示社会地位差异；"冷漠"反映人际疏离</td>
+      <td>Issue 1.1：社会壁垒与身份排斥</td>
+    </tr>
+    <tr>
+      <td><strong>③ 文化</strong></td>
+      <td>"强迫融入这大染缸"</td>
+      <td>借喻将城市比作染缸——个人独特性被强制同化，"强迫"突出非自愿</td>
+      <td>Issue 2.1：年轻人被迫放弃自我的压力</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">课堂练习 Your Turn</div>
+  <p>用上面的框架（引用→分析→议题联系），在课堂上口头回答以下题目：</p>
+  <p style="margin-top: 8px; color: var(--navy); font-weight: 600;">(b) 歌词中重复出现的"漂向北方 别问我家乡"，两次出现的效果有何不同？（5 分）</p>
+  <p style="font-size: 9.5pt; color: var(--mid-grey); margin-top: 6px;">提示：第一次的语境 → 第二次的语境 → 新增"回不去的远方"的作用 → 反复技巧的效果 → Issue 联系</p>
+</div>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">本课核心收获 Key Takeaways</div>
+  ✦ <strong>反复</strong>：重复不是复述——每次"漂向北方"在新语境下获得更深的绝望感，螺旋式加深<br>
+  ✦ <strong>"回不去的远方"</strong>：社会变迁给个人带来的不可逆转改变（经济/心理/社会三层）<br>
+  ✦ <strong>叠词</strong>："一双又一双"强调冷漠目光的普遍性和持续性，营造无处可逃的压迫感<br>
+  ✦ <strong>"大染缸"借喻</strong>：城市强制同化个人的独特性，"强迫融入"揭示被迫放弃自我的痛苦<br>
+  ✦ <strong>北京细节</strong>：二锅头、爆肚涮羊、胡同陋巷——在困境中寻求卑微的温暖<br>
+  ✦ <strong>已掌握技巧</strong>：9/11（新增反复·叠词）<br>
+  ✦ 下节课：L7 主歌3 + 桥段——设问 + 对位结构
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W2 L6<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Issue 2.1 现代年轻人的压力 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

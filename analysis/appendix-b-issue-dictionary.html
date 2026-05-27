@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>附录 B · 议题词典 — 《漂向北方》HSC hub</title>
+  <style>
+:root {
+  --ink: #1f2933; --muted: #5d6875; --line: #d7dee8;
+  --paper: #ffffff; --wash: #f6f8fb;
+  --teal: #0f766e; --teal-soft: #e7f4f2;
+  --red: #a43b3b; --red-soft: #faeeee;
+  --gold: #87620e; --gold-soft: #fff6dc;
+  --blue: #2b5d8a; --blue-soft: #edf5fb;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wash); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; line-height: 1.65; }
+main { width: min(1100px, calc(100% - 32px)); margin: 28px auto 64px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 18px 48px rgba(31, 41, 51, 0.08); }
+header.doc-head { padding: 42px 46px 30px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, rgba(15, 118, 110, 0.11), rgba(43, 93, 138, 0.09)), #fff; }
+section.entry { padding: 36px 46px; border-bottom: 4px solid var(--line); scroll-margin-top: 20px; }
+section.entry:last-child { border-bottom: 0; }
+section.toc-section { padding: 28px 46px; border-bottom: 1px solid var(--line); }
+section.matrix-section { padding: 36px 46px; border-top: 4px solid var(--line); background: var(--wash); }
+h1, h2, h3, h4 { margin: 0; line-height: 1.25; }
+h1 { font-size: 30px; margin-bottom: 8px; }
+h2 { font-size: 24px; margin-bottom: 4px; }
+h3 { font-size: 16px; margin: 20px 0 8px; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+h3 .num { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; border-radius: 6px; background: var(--teal-soft); color: var(--teal); font-weight: 800; font-size: 13px; text-align: center; padding: 0 6px; }
+h4 { font-size: 14px; margin: 0 0 5px; }
+p { margin: 0 0 10px; }
+ul, ol { margin: 6px 0 0 22px; padding: 0; }
+li { margin: 4px 0; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; vertical-align: top; text-align: left; }
+th { background: #f1f5f9; font-weight: 700; }
+.doc-subtitle { color: var(--muted); font-size: 16px; margin-bottom: 18px; }
+.meta-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+.meta-card { padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #fff; min-height: 70px; }
+.meta-label { display: block; color: var(--muted); font-size: 11px; letter-spacing: 0.05em; margin-bottom: 4px; }
+.meta-value { font-size: 15px; font-weight: 800; }
+.tag { display: inline-block; border-radius: 999px; padding: 2px 8px; margin: 2px 3px 2px 0; font-size: 11px; font-weight: 800; white-space: nowrap; }
+.tag.teal { background: var(--teal-soft); color: var(--teal); }
+.tag.red { background: var(--red-soft); color: var(--red); }
+.tag.gold { background: var(--gold-soft); color: var(--gold); }
+.tag.blue { background: var(--blue-soft); color: var(--blue); }
+.callout { padding: 14px 16px; background: var(--gold-soft); border: 1px solid #ead394; border-radius: 8px; margin-top: 12px; font-size: 13px; }
+.callout strong { color: var(--gold); }
+.teacher-note { padding: 12px 14px; background: var(--blue-soft); border: 1px solid #c9ddec; border-radius: 8px; margin-top: 12px; font-size: 13px; }
+.teacher-note strong { color: var(--blue); }
+.banned-zone { padding: 12px 14px; background: var(--red-soft); border: 1px solid #e9c1c1; border-radius: 8px; margin-top: 12px; font-size: 13px; }
+.banned-zone strong { color: var(--red); }
+.entry-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.entry-num { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; color: var(--teal); min-width: 60px; }
+.entry-title { font-size: 22px; font-weight: 800; }
+.entry-meta { color: var(--muted); font-size: 12px; }
+.usage-block { padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #fff; border-left: 4px solid var(--ink); margin-top: 10px; }
+.usage-block.teal { border-left-color: var(--teal); }
+.usage-block.gold { border-left-color: var(--gold); }
+.usage-block.blue { border-left-color: var(--blue); }
+.usage-block.red { border-left-color: var(--red); }
+.usage-label { font-size: 11px; font-weight: 800; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; }
+.usage-body { font-size: 13px; line-height: 1.75; }
+.usage-body strong { color: var(--red); }
+.toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+.toc-grid a { display: flex; gap: 10px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; text-decoration: none; color: var(--ink); background: #fff; font-size: 13px; align-items: center; }
+.toc-grid a:hover { background: var(--wash); }
+.toc-num { display: inline-block; min-width: 26px; font-weight: 800; color: var(--teal); }
+.matrix-table { font-size: 12px; }
+.matrix-table th, .matrix-table td { padding: 6px 8px; text-align: center; }
+.matrix-table th:first-child, .matrix-table td:first-child { text-align: left; font-weight: 700; }
+@media (max-width: 860px) {
+  main { width: 100%; margin: 0; border-left: 0; border-right: 0; }
+  header.doc-head, section.entry, section.toc-section, section.matrix-section { padding: 22px 18px; }
+  .meta-row, .toc-grid { grid-template-columns: 1fr; }
+  .entry-num { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="doc-head">
+  <h1>附录 B · 议题词典</h1>
+  <p class="doc-subtitle">《漂向北方》HSC hub · 仅 Theme 1 · 议题 1.1（8 子角度）+ 议题 1.3（4 子角度）· 严格边界</p>
+  <div class="meta-row">
+    <div class="meta-card"><span class="meta-label">Theme</span><span class="meta-value">Theme 1 only</span></div>
+    <div class="meta-card"><span class="meta-label">Issues 数</span><span class="meta-value">2 个</span></div>
+    <div class="meta-card"><span class="meta-label">子角度总数</span><span class="meta-value">12 个</span></div>
+    <div class="meta-card"><span class="meta-label">权威源</span><span class="meta-value">NESA + 学校 + NotebookLM</span></div>
+  </div>
+  <div class="callout">
+    <strong>严格边界声明：</strong>三源验证一致——NESA 官方 <code>Prescribed Issues and Texts Mapping 25-30.docx</code> + 学校 <code>飘向北方-内容分析-theme1.docx</code> + NotebookLM「漂向北方 DLC」笔记本——本文本<strong>仅</strong>承载 <span class="tag teal">议题 1.1</span> + <span class="tag red">议题 1.3</span>。<strong>不</strong>承载 议题 1.2（性别角色）/ Theme 2 / 3 / 4。学生 Q3 / Q4 答题中如把 1.2 / 2.x / 3.x / 4.x 议题嫁接到本文本，直接<strong>失分</strong>。
+  </div>
+  <div class="banned-zone">
+    <strong>禁议题（这首歌不承载）：</strong>① 议题 1.2「当代社会中的性别角色」（这是关于女性 / 男女平等 / 玻璃天花板的议题，本文本与性别角色无关）；② 议题 2.x（年轻人压力 / 教育 / 文化冲击——属于「青年文化」主题，本文本归 Theme 1）；③ 议题 3.x（适应新文化 / 海外华人——属于「身份认知」主题，本文本不涉及海外华人）；④ 议题 4.x（全球议题）。
+  </div>
+  <div class="teacher-note">
+    <strong>子角度数据来源：</strong>议题 1.1 的 8 个子角度直接来自学校 <code>飘向北方-内容分析-theme1.docx</code> Table 6（「the impact of a changing society on the individual」对照表）；议题 1.3 的 4 个子角度直接来自该 docx Table 7（「the family in contemporary society」对照表）。两表都是 Mr. Sun 本人在该 analysis docx 中写定的官方框架。
+  </div>
+</header>
+
+<section class="toc-section">
+  <h2>速览</h2>
+  <div class="toc-grid">
+    <a href="#issue-1"><span class="toc-num">1.1</span>不断变化的社会对个人的冲击（8 子角度）</a>
+    <a href="#issue-3"><span class="toc-num">1.3</span>现代社会中的家庭（4 子角度）</a>
+    <a href="#matrix"><span class="toc-num">★</span>12 子角度 × 歌词锚点速查矩阵</a>
+  </div>
+</section>
+
+
+<!-- ====================== 议题 1.1 ====================== -->
+<section class="entry" id="issue-1">
+  <div class="entry-head">
+    <span class="entry-num">1.1</span>
+    <div>
+      <div class="entry-title">不断变化的社会对个人的冲击</div>
+      <div class="entry-meta">The impact of a changing society on the individual · 8 子角度 · 黄明志说唱声部主承载</div>
+    </div>
+  </div>
+  <div><span class="tag teal">议题 1.1</span> <span class="tag blue">说唱声部</span></div>
+
+  <h3><span class="num">1</span>NESA 子考点</h3>
+  <ul>
+    <li>个人的角色及责任</li>
+    <li>个人的修养和技能</li>
+    <li>社会的进步发展对个人的影响</li>
+    <li>社会与个人相互影响</li>
+  </ul>
+
+  <h3><span class="num">2</span>本文承载（学校 Table 6 八子角度 × 歌词锚点）</h3>
+  <table>
+    <thead><tr><th style="width:42%;">子角度</th><th>歌词锚点（verbatim）</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 经济压力与生存挑战：城市化进程下个体的奋斗</strong></td><td>「他住在燕郊区 残破的求职公寓」「为了三餐为养家糊口」</td></tr>
+      <tr><td><strong>② 高压的社会环境对个体心理的影响</strong></td><td>「高耸古老的城墙 挡不住忧伤」（城墙象征繁华与历史，挡不住表明人在大城市依然孤独和压力）</td></tr>
+      <tr><td><strong>③ 快速变化的社会对个体心理状态的影响：焦虑和迷茫</strong></td><td>「空气太脏 太混浊」「车太混乱 太匆忙」「这城市（雾霾太猖狂 不散 都看不清前方）」</td></tr>
+      <tr><td><strong>④ 忙碌的社会让人际关系变得冷漠与疏离</strong></td><td>「人行道一双又一双 斜视冷漠的眼光」</td></tr>
+      <tr><td><strong>⑤ 传统身份认同的冲突：家乡与城市之间的挣扎</strong></td><td>「漂向北方 别问我家乡」「回不去的远方」</td></tr>
+      <tr><td><strong>⑥ 社会流动性增强，但阶层固化加剧</strong></td><td>「他埋头写着履历 怀抱着多少憧憬」「内心盼着奇迹」</td></tr>
+      <tr><td><strong>⑦ 梦想与现实的碰撞：社会对个体理想的冲击</strong></td><td>「这里是梦想的中心 但梦想都遥不可及」「这里是圆梦的圣地 但却总是扑朔迷离」</td></tr>
+      <tr><td><strong>⑧ 文化与身份认同的挑战</strong></td><td>歌词中「家乡」既是地理概念，更是文化认同——年轻人长期在大城市打拼，逐渐与家乡的文化产生疏离，同时又难以完全融入城市文化（学校 analysis 直引）</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="num">3</span>Q3 题型方向</h3>
+  <div class="usage-block teal">
+    <div class="usage-label">议题 1.1 常见 Q3 题型</div>
+    <p class="usage-body"><strong>(a) 3 分</strong>：列举北漂者面临的主要困难（学校 Sample 1 已出此题）；解释「肩上沉重的行囊 盛满了惆怅」的含义；解释「雾霾太猖狂 不散 都看不清前方」的含义（Sample 3）。<br><strong>(b) 5 分</strong>：分析「太...太...」反复 / 「大染缸」借喻 / 排比「有人...有人...」如何呈现「快速变化的社会对个体的冲击」。<br><strong>(c) 7 分</strong>：结合整首歌词，分析<strong>梦想与现实的巨大反差</strong>给个体带来的影响（学校 Sample 2 已出此题）；或结合多段分析「身份认同冲突」的发展轨迹。</p>
+  </div>
+
+  <h3><span class="num">4</span>Q4 essay 钩子</h3>
+  <div class="usage-block gold">
+    <div class="usage-label">议题 1.1 跨文本配对（学校 3 大 established）</div>
+    <p class="usage-body"><strong>① 配《大江大河》雷东宝</strong>（学校 Sample 6）— 论点「走出舒适圈是追求梦想的必经之路」。本曲北漂者被动「漂向北方」 vs 雷东宝主动「改革小雷家村」，两种走出舒适圈的姿态。<br><strong>② 配《夹缝中的光芒》</strong>（学校 Sample 5 + 角度二）— 论点「在困境中对梦想的追求是年轻人前进的动力」。本曲「埋头写着履历 怀抱着多少憧憬」 vs 《夹缝》中年轻人在大学扩招后的就业落差中坚守梦想。<br><strong>③ 配《流浪地球2》刘培强</strong>（学校 Sample 4）— 议题 1.1 + 1.3 双议题钩子（详见议题 1.3 entry）。</p>
+  </div>
+</section>
+
+
+<!-- ====================== 议题 1.3 ====================== -->
+<section class="entry" id="issue-3">
+  <div class="entry-head">
+    <span class="entry-num">1.3</span>
+    <div>
+      <div class="entry-title">现代社会中的家庭</div>
+      <div class="entry-meta">The family in contemporary society · 4 子角度 · 王力宏演唱声部主承载</div>
+    </div>
+  </div>
+  <div><span class="tag red">议题 1.3</span> <span class="tag blue">王力宏抒情声部</span></div>
+
+  <h3><span class="num">1</span>NESA 子考点</h3>
+  <ul>
+    <li>家庭结构和分工的改变</li>
+    <li>婚姻及家庭的改变（一夫多妻、一夫一妻、异族通婚等）</li>
+    <li>未婚同居、同性恋家庭、单亲家庭</li>
+    <li>家庭与社会的关系</li>
+  </ul>
+
+  <h3><span class="num">2</span>本文承载（学校 Table 7 四子角度 × 歌词锚点）</h3>
+  <table>
+    <thead><tr><th style="width:42%;">子角度</th><th>歌词锚点（verbatim）</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 责任与期望：年轻人背负家庭的希望</strong></td><td>「我漂向北方 家人是否无恙」「祈求一家人都平安」「为了三餐为养家糊口」</td></tr>
+      <tr><td><strong>② 亲情的疏离：现实让家庭成员彼此远离</strong></td><td>「回不去的远方」「就像那尘土飘散随着风向 谁又能带领着我一起飞翔」（个体无主体感与远距亲情的双重无奈）</td></tr>
+      <tr><td><strong>③ 梦想与家庭的矛盾：留在家乡 vs 追逐梦想</strong></td><td>「忍着泪（不听也不想 不敢回头望的遗憾）」「亲爱的（再见了南方 眺望最美丽的家乡）」</td></tr>
+      <tr><td><strong>④ 传统家庭观念与现代独立观念的冲突</strong></td><td>传统社会强调「落叶归根」，现代社会的经济模式、城市化进程让年轻人不得不远离家乡（学校 analysis 直引：长辈希望子女留在身边，年轻人希望在外面寻找更大的发展空间——代际观念的差异使年轻人不仅面临社会压力，也面临家庭内部的情感冲突）</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="num">3</span>Q3 题型方向</h3>
+  <div class="usage-block red">
+    <div class="usage-label">议题 1.3 常见 Q3 题型</div>
+    <p class="usage-body"><strong>(a) 3 分</strong>：解释「家人是否无恙」一句的含义；列举本曲中反映「家庭」议题的歌词三处。<br><strong>(b) 5 分</strong>：分析「我站在天坛中央 闭上眼 祈求一家人都平安」如何运用<strong>空间反讽 + 反问</strong>呈现漂泊者对家人的牵挂；或分析桥段「再见了南方 眺望最美丽的家乡」如何呈现「梦想与家庭的矛盾」。<br><strong>(c) 7 分</strong>：结合副歌、桥段、尾段三段，分析作者如何通过「家庭」线索贯穿全曲——议题 1.3 在全曲呈三段递进（副歌反问关切 → 桥段告别家乡 → 尾段天坛祈愿）。</p>
+  </div>
+
+  <h3><span class="num">4</span>Q4 essay 钩子</h3>
+  <div class="usage-block gold">
+    <div class="usage-label">议题 1.3 跨文本配对（学校 3 大 established）</div>
+    <p class="usage-body"><strong>① 配《流浪地球2》刘培强</strong>（学校 Sample 4，议题 1.3 主钩）— 论点「年轻人在面临家庭责任和社会期望时往往需要做出无奈的抉择」。本曲尾段「祈求一家人都平安」 vs 刘培强为人类计划牺牲与家庭团聚，<em>「家庭」作为个体在宏大社会进程中不能完全放弃也无法完全承担的终极牵挂</em>。<br><strong>② 配《夹缝中的光芒》</strong>（学校 Sample 5）— 论点「『月是故乡圆』的传统观念正在被高速发展的社会逐渐解构」。本曲「回不去的远方」 vs 《夹缝》中年轻人在职业流动里与家乡日益疏离的纪实记录。<br><strong>③ 配《大江大河》雷东宝</strong>— 论点「走出舒适圈的家庭代价」。雷东宝在带领乡村改革中也承担家庭关系的紧张，与本曲漂泊者对家人的远距牵挂构成姿态对照。</p>
+  </div>
+</section>
+
+
+<!-- ====================== 速查矩阵 ====================== -->
+<section class="matrix-section" id="matrix">
+  <h2>★ 12 子角度 × 歌词锚点速查矩阵</h2>
+  <p style="margin-top: 8px; color: var(--muted); font-size: 13px;">学生在 Q3 (c) / Q4 essay 写作时，可对照下表快速选取 sub-angle + 歌词证据。</p>
+
+  <table class="matrix-table" style="margin-top: 18px;">
+    <thead>
+      <tr>
+        <th style="width:6%;">议题</th>
+        <th style="width:38%;">子角度</th>
+        <th style="width:30%;">主歌词锚点</th>
+        <th style="width:26%;">所在段</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="tag teal">1.1</span></td><td>① 经济压力与生存挑战</td><td>「他住在燕郊区 残破的求职公寓」</td><td>主歌1</td></tr>
+      <tr><td><span class="tag teal">1.1</span></td><td>② 高压社会环境对心理影响</td><td>「高耸古老的城墙 挡不住忧伤」</td><td>副歌</td></tr>
+      <tr><td><span class="tag teal">1.1</span></td><td>③ 焦虑和迷茫</td><td>「太脏 太混浊」「雾霾太猖狂」</td><td>主歌2 + 桥段</td></tr>
+      <tr><td><span class="tag teal">1.1</span></td><td>④ 人际关系冷漠与疏离</td><td>「一双又一双 斜视冷漠的眼光」</td><td>主歌2</td></tr>
+      <tr><td><span class="tag teal">1.1</span></td><td>⑤ 传统身份认同的冲突</td><td>「漂向北方 别问我家乡」「回不去的远方」</td><td>副歌 + 交织段</td></tr>
+      <tr><td><span class="tag teal">1.1</span></td><td>⑥ 社会流动性 vs 阶层固化</td><td>「埋头写着履历 怀抱着多少憧憬」</td><td>主歌1</td></tr>
+      <tr><td><span class="tag teal">1.1</span></td><td>⑦ 梦想与现实的碰撞</td><td>「梦想的中心 但梦想都遥不可及」</td><td>交织段</td></tr>
+      <tr><td><span class="tag teal">1.1</span></td><td>⑧ 文化与身份认同的挑战</td><td>「我根本不属于这里 早就该离去」</td><td>交织段</td></tr>
+      <tr><td><span class="tag red">1.3</span></td><td>① 责任与期望：背负家庭希望</td><td>「家人是否无恙」「祈求一家人都平安」</td><td>副歌 + 尾段</td></tr>
+      <tr><td><span class="tag red">1.3</span></td><td>② 亲情的疏离：成员彼此远离</td><td>「回不去的远方」</td><td>交织段</td></tr>
+      <tr><td><span class="tag red">1.3</span></td><td>③ 梦想与家庭的矛盾</td><td>「不敢回头望的遗憾」「再见了南方」</td><td>桥段</td></tr>
+      <tr><td><span class="tag red">1.3</span></td><td>④ 传统 vs 现代家庭观念</td><td>桥段全段（落叶归根 vs 独立追梦）</td><td>桥段</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 18px;">
+    <strong>学生使用指南：</strong>① Q3 (b) 题中，根据题干议题方向，从对应行选取<strong>主歌词锚点</strong>作 verbatim 引文；② Q4 essay 中，本文本 body 段建议<strong>2-3 个子角度交织</strong>（不要单一角度铺一整段），呈现议题的多维承载；③ 议题 1.1 + 1.3 在交织段「家人是否无恙 / 我根本不属于这里」是<strong>同时承载</strong>的——交织段是双议题的最强证据。
+  </div>
+</section>
+
+
+</main>
+</body>
+</html>

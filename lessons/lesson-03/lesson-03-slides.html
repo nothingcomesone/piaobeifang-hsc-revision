@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W1 L3 — 城墙·行囊·燕郊</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 18px;
+    font-size: 9pt;
+    font-weight: 500;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .title-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%);
+    color: var(--white);
+    padding: 22px 24px 18px;
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 16px;
+  }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field {
+    flex: 1; min-width: 140px;
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 8px 12px; background: var(--white);
+  }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading {
+    background: var(--navy); color: var(--white);
+    padding: 8px 16px; font-size: 12pt; font-weight: 700;
+    border-radius: 4px; margin: 20px 0 12px;
+  }
+
+  .sub-heading {
+    color: var(--blue); font-size: 11pt; font-weight: 700;
+    border-left: 4px solid var(--gold); padding-left: 10px;
+    margin: 14px 0 8px;
+  }
+
+  .info-box {
+    background: var(--light-blue); border-left: 4px solid var(--blue);
+    padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt;
+  }
+
+  .gold-box {
+    background: var(--light-gold); border-left: 4px solid var(--gold);
+    padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt;
+  }
+
+  .lyrics-box {
+    background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px;
+    padding: 16px 20px; margin: 12px 0;
+    font-size: 13pt; line-height: 2.1; color: var(--navy); font-weight: 500;
+  }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-blue { background: #B3D9F2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-green { background: #C8E6C9; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate {
+    font-size: 9pt; font-weight: 400; color: var(--mid-grey);
+    display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px;
+  }
+
+  .discussion {
+    background: var(--white); border: 2px solid var(--gold);
+    border-radius: 6px; padding: 14px 16px; margin: 12px 0;
+  }
+  .discussion-title {
+    font-weight: 700; color: var(--gold); font-size: 10pt;
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .discussion ol, .discussion ul { padding-left: 20px; margin: 6px 0; }
+  .discussion li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .technique-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-top: 3px solid var(--blue); border-radius: 4px;
+    padding: 12px 16px; margin: 10px 0;
+  }
+  .technique-card h3 {
+    font-size: 12pt; color: var(--navy); font-weight: 900; margin-bottom: 2px;
+  }
+  .technique-card .en { font-size: 9pt; color: var(--mid-grey); font-weight: 400; }
+  .technique-card .def { margin: 6px 0; font-size: 10.5pt; }
+  .technique-card .effect { color: var(--blue); font-weight: 600; font-size: 10pt; }
+
+  .checkpoint {
+    background: var(--navy); color: var(--white);
+    border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 10pt;
+  }
+  .checkpoint-title { font-weight: 700; color: var(--gold); margin-bottom: 4px; font-size: 10.5pt; }
+
+  .q3-box {
+    background: var(--white); border: 2px solid var(--blue);
+    border-radius: 6px; padding: 14px 16px; margin: 12px 0;
+  }
+  .q3-box .q3-title {
+    font-weight: 700; color: var(--blue); font-size: 10.5pt;
+    margin-bottom: 6px; letter-spacing: 0.5px;
+  }
+
+  .footer {
+    text-align: center; font-size: 8pt; color: var(--mid-grey);
+    border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px;
+  }
+
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box, .checkpoint, .technique-card { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .discussion, .gold-box, .lyrics-box, .q3-box { page-break-inside: auto; break-inside: auto; }
+    .discussion li, tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第一周 · 第三课 W1 L3</div>
+  <h1>城墙·行囊·燕郊</h1>
+  <div class="subtitle">主歌1后半精读 · Verse 1 (Second Half) Close Reading</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">主歌1 后半</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issues</div>
+    <div class="field-value">1.1 + 1.3</div>
+  </div>
+  <div class="field">
+    <div class="field-label">语言技巧 Focus</div>
+    <div class="field-value">象征 · 对比 · 借喻</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 精读主歌1后半段歌词，理解叙事视角的关键转变（"漂向北方"→"我漂向北方"）<br>
+  ② 掌握"象征"技巧：分析"城墙"的多层象征义<br>
+  ③ 掌握"借喻"技巧：分析"行囊盛满惆怅"如何将抽象情感具象化<br>
+  ④ 分析燕郊段的细节描写如何通过真实地名营造纪实感<br>
+  ⑤ 初练 Q3(a) 题型：解释歌词含义（3 分）
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: 复习 + 开头4句精读               -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L3 · 城墙·行囊·燕郊</span>
+  <span>Part A — 复习与歌词精读</span>
+</div>
+
+<div class="section-heading">Part A · 复习导入</div>
+
+<div class="info-box">
+  <strong>快速回顾：</strong>上节课我们精读了主歌1前半段——四个"有人…"排比构成的北漂群像。今天我们进入主歌1后半段，焦点从"群像"转向"个人"。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">快速提问 Quick Recall</div>
+  <ol>
+    <li>上节课的四个"有人…"分别代表了哪四种北漂者类型？</li>
+    <li>"有人"这个词的匿名性有什么效果？</li>
+    <li>排比与细节描写如何"协同工作"？</li>
+  </ol>
+</div>
+
+<div class="section-heading">Part B · 歌词精读：开头四句</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>投影歌词。提醒学生注意：这四句歌词其实出现了<strong>两次</strong>——第一次没有"我"字，第二次加了"我"字。这个变化非常重要。
+</div>
+
+<div class="lyrics-box">
+  <span class="highlight">漂向北方</span> 别问我家乡<br>
+  高耸古老的<span class="highlight-blue">城墙</span> 挡不住忧伤<br>
+  <span class="highlight">我漂向北方</span> 家人是否无恙<br>
+  肩上沉重的<span class="highlight-green">行囊</span> 盛满了惆怅
+  <span class="annotate">黄色 = 叙事视角转变 ｜ 蓝色 = 象征 ｜ 绿色 = 借喻</span>
+</div>
+
+<div class="sub-heading">叙事视角的关键转变</div>
+
+<div class="gold-box">
+  第一句<strong>"漂向北方"</strong>是一个客观的陈述，像是一个旁观者在描述整个"北漂"现象。<br>
+  第三句<strong>"我漂向北方"</strong>通过加入<strong>"我"</strong>字，转换成了第一人称视角，让整个故事变得更加个人化和具体化。<br><br>
+  这种视角的转变帮助听众从宏观的社会现象逐渐聚焦到个人的情感困境。人们在城市化进程中既是旁观者，也是参与者，更是承受者。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <ol>
+    <li>第一句"别问我家乡"和第三句"家人是否无恙"在情感层次上有什么递进？</li>
+    <li>"别问"是逃避，"家人是否无恙"是牵挂——这两种情感如何共存？</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: 象征                            -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L3 · 城墙·行囊·燕郊</span>
+  <span>Part C — 语言技巧：象征 + 对比</span>
+</div>
+
+<div class="section-heading">Part C · 语言技巧一：象征</div>
+
+<div class="technique-card">
+  <h3>象征 <span class="en">Symbolism</span></h3>
+  <div class="def">
+    <strong>定义：</strong>用一个<strong>具体的事物</strong>来代表一个<strong>抽象的概念</strong>或更深层的意义。读者需要从表面意象"读出"隐含的意思。
+  </div>
+  <div class="def">
+    <strong>与比喻的区别：</strong>比喻是明确的"A像B"；象征则不直接说明，需要读者自行推断深层含义。
+  </div>
+  <div class="effect">
+    效果：含蓄 · 多义性 · 引发思考 · 意象丰富
+  </div>
+</div>
+
+<div class="sub-heading">"城墙"的多层象征</div>
+
+<p style="margin: 8px 0;">歌词原文：<strong>"高耸古老的城墙 挡不住忧伤"</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 18%;">层次</th>
+      <th style="width: 38%;">象征含义</th>
+      <th style="width: 44%;">与议题的联系</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>① 表层</strong></td>
+      <td>北京的实际城墙——具象的地理描写，点明"北方"就是北京</td>
+      <td>真实的城市空间，为歌曲建立地理真实感</td>
+    </tr>
+    <tr>
+      <td><strong>② 社会层</strong></td>
+      <td>城市的高墙阻隔——户籍制度、阶层壁垒、城乡差距</td>
+      <td>Issue 1.1：社会结构性障碍对个人的冲击，北漂者被排斥在城市资源之外</td>
+    </tr>
+    <tr>
+      <td><strong>③ 情感层</strong></td>
+      <td>再"高耸"的城墙也"挡不住忧伤"——物质的宏伟无法阻挡情感的脆弱</td>
+      <td>城市化发展与个人情感需求之间的矛盾：城市再繁华，也无法回应内心的孤独</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">对比：城墙 vs 忧伤</div>
+
+<div class="technique-card">
+  <h3>对比 <span class="en">Contrast</span></h3>
+  <div class="def">
+    <strong>在这句歌词中的表现：</strong>"高耸古老的城墙"与"挡不住忧伤"形成<strong>实物与情感的对比</strong>。城墙是坚固的、宏大的、物质的；忧伤是无形的、柔软的、精神的。然而坚固的城墙却"挡不住"柔软的忧伤——这种反转突出了<strong>现代化发展与个人情感需求之间的矛盾</strong>。
+  </div>
+  <div class="effect">
+    效果：反差强烈 · 突出矛盾 · 揭示表象与本质的差距
+  </div>
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <p>如果把"城墙"换成"高楼大厦"，象征意义会有什么不同？"古老"这个形容词增加了什么额外含义？</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 借喻                            -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L3 · 城墙·行囊·燕郊</span>
+  <span>Part D — 语言技巧：借喻</span>
+</div>
+
+<div class="section-heading">Part D · 语言技巧三：借喻</div>
+
+<div class="technique-card">
+  <h3>借喻 <span class="en">Metonymy / Implied Metaphor</span></h3>
+  <div class="def">
+    <strong>定义：</strong>不直接说明本体和喻体的关系，而是直接用喻体来<strong>替代</strong>本体。读者需要自行理解"借来的形象"实际指代什么。
+  </div>
+  <div class="def">
+    <strong>与明喻/暗喻的区别：</strong><br>
+    明喻：行囊<strong>像</strong>压力一样沉重（有"像"）<br>
+    暗喻：行囊<strong>是</strong>压力（有"是"）<br>
+    借喻：<strong>肩上沉重的行囊 盛满了惆怅</strong>（直接用行囊替代压力，不说明比喻关系）
+  </div>
+  <div class="effect">
+    效果：含蓄 · 具象化 · 将抽象情感变得"可触摸"
+  </div>
+</div>
+
+<div class="sub-heading">"行囊盛满惆怅"分析</div>
+
+<p style="margin: 8px 0;">歌词原文：<strong>"肩上沉重的行囊 盛满了惆怅"</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">分析维度</th>
+      <th style="width: 80%;">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>表层含义</strong></td>
+      <td>北漂者肩上背着沉重的行李</td>
+    </tr>
+    <tr>
+      <td><strong>借喻解读</strong></td>
+      <td>"行囊"不仅指实际携带的行李，更借指北漂者所背负的<strong>多重压力和责任</strong>——经济负担、思乡之情、对未来的不确定性</td>
+    </tr>
+    <tr>
+      <td><strong>"盛满"的妙处</strong></td>
+      <td>"盛满"把抽象的"惆怅"变成了可以被装进容器的物质，让情感变得<strong>具象化、可触摸</strong>。同时"盛满"暗示容器已经没有空间——压力已经到了极限</td>
+    </tr>
+    <tr>
+      <td><strong>Issue 1.3 联系</strong></td>
+      <td>现代社会中的家庭：年轻人不得不离开家庭，"行囊"中既有物质行李也有对家人的牵挂。家庭关系因地理距离而变得脆弱</td>
+    </tr>
+    <tr>
+      <td><strong>Issue 2.1 联系</strong></td>
+      <td>现代年轻人的压力：经济、家庭责任、社会期待、个人理想——四重压力同时"盛满"一个行囊</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">小组讨论 Group Discussion</div>
+  <ol>
+    <li>"行囊"里具体"盛满"了哪些东西？尝试列出至少四项（参考上节课的四种北漂者类型）。</li>
+    <li>如果不用借喻，直接写"我很难过"，效果有什么不同？</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: 燕郊段精读                       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L3 · 城墙·行囊·燕郊</span>
+  <span>Part E — 燕郊段精读</span>
+</div>
+
+<div class="section-heading">Part E · 燕郊段：地名的真实感</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>这一段从群像叙事转向了一个具体的"他"——一个住在燕郊的北漂者。注意歌词中大量的<strong>细节描写</strong>和<strong>真实地名</strong>如何营造纪实感。
+</div>
+
+<div class="lyrics-box">
+  他住在<span class="highlight-blue">燕郊区</span><br>
+  <span class="highlight">残破</span>的求职公寓<br>
+  <span class="highlight">拥挤</span>的大楼里<br>
+  堆满<span class="highlight">陌生人</span>都来自外地<br>
+  他埋头写着履历<br>
+  怀抱着多少憧憬<br>
+  往返在<span class="highlight-blue">九三零号公路</span><br>
+  内心盼着奇迹
+  <span class="annotate">蓝色 = 真实地名 ｜ 黄色 = 关键细节</span>
+</div>
+
+<div class="sub-heading">逐层分析</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30%;">歌词</th>
+      <th style="width: 25%;">分析维度</th>
+      <th style="width: 45%;">深层含义与议题联系</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>他住在<strong>燕郊区</strong><br><strong>残破</strong>的求职公寓<br><strong>拥挤</strong>的大楼里</td>
+      <td>生存环境的困境</td>
+      <td>燕郊是北京远郊区，房价相对低廉。"残破""拥挤"直接描绘了外来人口的艰苦生活条件，反映城市发展中住房问题和资源分配不均衡（Issue 1.1）</td>
+    </tr>
+    <tr>
+      <td><strong>堆满</strong>陌生人<br>都来自<strong>外地</strong></td>
+      <td>身份认同的困境</td>
+      <td>"堆满"将人物化为物品，突出城市对外来人口的非人性化对待。"陌生人""外地"强调了疏离感和共同的外来者身份（Issue 1.1）</td>
+    </tr>
+    <tr>
+      <td>他<strong>埋头</strong>写着履历<br>怀抱着多少<strong>憧憬</strong></td>
+      <td>职业发展的困境</td>
+      <td>"埋头"与"憧憬"形成<strong>对比</strong>——低头的现实动作 vs 抬头的理想期待。求职过程的艰辛与个人梦想的矛盾（Issue 2.1）</td>
+    </tr>
+    <tr>
+      <td>往返在<strong>九三零号公路</strong><br>内心盼着<strong>奇迹</strong></td>
+      <td>生活压力的具象化</td>
+      <td>具体路名营造纪实感，代表每日城乡往返的辛苦通勤。"盼着奇迹"暗示现实的困难程度——需要"奇迹"才能改变（Issue 1.1）</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>地名的力量：</strong>"燕郊区"和"九三零号公路"都是真实存在的地名。歌词没有用泛化的"郊区""公路"，而是用<strong>具体的、可查证的地名</strong>，让歌曲从"文艺作品"变成了"纪实文本"。这种真实感让听众觉得歌词描写的不是虚构故事，而是一个真实的人、一段真实的生活。
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: 主歌1 T-chart 整合               -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L3 · 城墙·行囊·燕郊</span>
+  <span>Part F — 主歌1 整合</span>
+</div>
+
+<div class="section-heading">Part F · 主歌1 全段 T-Chart 整合</div>
+
+<div class="info-box">
+  <strong>活动指引：</strong>经过 L2 和 L3 两节课，我们已经完成了整个主歌1的精读。现在用 T-Chart 整合<strong>前半段（群像）</strong>与<strong>后半段（个人）</strong>的对比。
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 15%;">对比维度</th>
+      <th style="width: 42%;">前半段（L2：有人…有人…）</th>
+      <th style="width: 43%;">后半段（L3：城墙·行囊·燕郊）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>叙事视角</strong></td>
+      <td>第三人称"有人…"——旁观者视角，像新闻报道</td>
+      <td>"我漂向北方""他住在燕郊区"——第一/三人称交替，个人化、亲密</td>
+    </tr>
+    <tr>
+      <td><strong>人物塑造</strong></td>
+      <td>匿名群像：四种类型的北漂者，没有名字，没有面孔</td>
+      <td>具体个人：一个住在燕郊、写履历、坐930公路的"他"</td>
+    </tr>
+    <tr>
+      <td><strong>核心技巧</strong></td>
+      <td>排比 + 细节描写 → 积累感、广度</td>
+      <td>象征 + 对比 + 借喻 → 深度、多层含义</td>
+    </tr>
+    <tr>
+      <td><strong>情感基调</strong></td>
+      <td>平静叙述，客观呈现不同困境</td>
+      <td>情感递进：从逃避（别问）→ 牵挂（家人）→ 压力（行囊）→ 希望（奇迹）</td>
+    </tr>
+    <tr>
+      <td><strong>议题焦点</strong></td>
+      <td>Issue 1.1：社会冲击的广泛性</td>
+      <td>Issue 1.1 + 1.3：社会冲击 + 家庭关系的断裂</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <p>为什么作者在主歌1中先写"群像"再写"个人"？这种结构安排有什么效果？（提示：先广后深、先"看见他们"再"成为他"）</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 7: Q3(a) 初练                       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L3 · 城墙·行囊·燕郊</span>
+  <span>Part G — Q3(a) 初练 + 总结</span>
+</div>
+
+<div class="section-heading">Part G · 考试技能：Q3(a) 初练</div>
+
+<div class="info-box">
+  <strong>Q3(a) 题型说明：</strong>Section II Part A Question 3 的 (a) 小题通常要求学生<strong>解释一句歌词/文本的含义</strong>，分值为 <strong>3 分</strong>。答题需要覆盖<strong>表层含义</strong>（字面意思）和<strong>深层意义</strong>（象征/借喻/隐含意义）。
+</div>
+
+<div class="q3-box">
+  <div class="q3-title">模拟题 Practice Question</div>
+  <p><strong>(a)</strong> "肩上沉重的行囊 盛满了惆怅"——解释这句歌词的含义。<strong>（3 分）</strong></p>
+</div>
+
+<div class="sub-heading">答题框架 Answer Framework</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 18%;">得分点</th>
+      <th style="width: 20%;">要求</th>
+      <th style="width: 62%;">示范</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1 分</strong></td>
+      <td>表层含义</td>
+      <td>"行囊"表面上指北漂者实际携带的行李，描述了他们肩上背负的沉重物品</td>
+    </tr>
+    <tr>
+      <td><strong>1 分</strong></td>
+      <td>深层意义（借喻）</td>
+      <td>"行囊"借指北漂者所背负的多重压力和责任——经济负担、思乡之情、对未来的不确定性</td>
+    </tr>
+    <tr>
+      <td><strong>1 分</strong></td>
+      <td>语言技巧效果</td>
+      <td>"盛满了惆怅"将抽象的情感具象化，暗示压力已经到了极限，行囊中再也装不下更多</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">课堂练习 Your Turn</div>
+  <p>用同样的框架（表层 → 深层 → 效果），尝试回答以下 Q3(a) 题目：</p>
+  <p style="margin-top: 8px; color: var(--navy); font-weight: 600;">(a) "高耸古老的城墙 挡不住忧伤"——解释这句歌词的含义。（3 分）</p>
+  <p style="font-size: 9.5pt; color: var(--mid-grey); margin-top: 6px;">提示：表层（城墙是什么？）→ 深层（城墙象征什么？）→ 效果（"挡不住"这个对比揭示了什么矛盾？）</p>
+</div>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">本课核心收获 Key Takeaways</div>
+  ✦ <strong>叙事视角转变</strong>："漂向北方"→"我漂向北方"——从旁观到代入，由客观到主观<br>
+  ✦ <strong>象征</strong>："城墙"三层象征——实际城墙/社会壁垒/情感无力<br>
+  ✦ <strong>借喻</strong>："行囊盛满惆怅"——将抽象压力具象化，暗示承受已到极限<br>
+  ✦ <strong>对比</strong>：城墙（坚固）vs 忧伤（无形）；埋头（现实）vs 憧憬（理想）<br>
+  ✦ <strong>地名纪实感</strong>：燕郊区、九三零号公路——真实地名让歌曲成为纪实文本<br>
+  ✦ <strong>Q3(a)</strong>：表层含义 → 深层意义 → 语言技巧效果（3 分框架）<br>
+  ✦ 下节课：副歌1——矛盾修辞与递进
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W1 L3<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Issue 1.3 现代社会中的家庭 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

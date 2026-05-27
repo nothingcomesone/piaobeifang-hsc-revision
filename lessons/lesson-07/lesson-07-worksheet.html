@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L7 练习册 — 设问·对位结构 · Q3 &amp; Q4 Practice</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy); color: var(--white); padding: 10px 18px; font-size: 9pt; font-weight: 500; border-radius: 4px 4px 0 0; }
+  .title-box { background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%); color: var(--white); padding: 22px 24px 18px; border-radius: 0 0 4px 4px; margin-bottom: 16px; }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: 9pt; font-weight: 700; padding: 3px 12px; border-radius: 3px; margin-bottom: 8px; }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 140px; border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; background: var(--white); }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading { background: var(--navy); color: var(--white); padding: 8px 16px; font-size: 12pt; font-weight: 700; border-radius: 4px; margin: 20px 0 12px; }
+  .sub-heading { color: var(--blue); font-size: 11pt; font-weight: 700; border-left: 4px solid var(--gold); padding-left: 10px; margin: 14px 0 8px; }
+
+  .info-box { background: var(--light-blue); border-left: 4px solid var(--blue); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+  .gold-box { background: var(--light-gold); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+
+  .lyrics-box { background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px; padding: 16px 20px; margin: 12px 0; font-size: 12pt; line-height: 2.0; color: var(--navy); font-weight: 500; }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-blue { background: #B3D9F2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-green { background: #C8E6C9; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-pink { background: #F8BBD0; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-red { background: #FFCDD2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate { font-size: 9pt; font-weight: 400; color: var(--mid-grey); display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px; }
+  .lyrics-box .bridge-sing { color: var(--navy); font-weight: 500; }
+  .lyrics-box .bridge-rap { color: #8B4513; font-weight: 600; font-style: italic; }
+  .lyrics-box .bridge-label { font-size: 8pt; font-weight: 700; display: inline-block; padding: 1px 6px; border-radius: 3px; margin-right: 4px; }
+  .lyrics-box .label-sing { background: var(--light-blue); color: var(--navy); }
+  .lyrics-box .label-rap { background: #FDEBD0; color: #8B4513; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .q3-box { background: #FFF8F0; border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q3-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q3-marks { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .q4-box { background: #F0F4FF; border: 2px solid var(--blue); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q4-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+
+  .writing-line { border-bottom: 1px solid var(--border); height: 28px; width: 100%; }
+  .writing-line-short { border-bottom: 1px solid var(--border); height: 24px; width: 100%; }
+
+  .fill-blank { display: inline-block; border-bottom: 2px solid var(--navy); min-width: 120px; height: 20px; margin: 0 4px; }
+  .fill-blank-long { display: inline-block; border-bottom: 2px solid var(--navy); min-width: 220px; height: 20px; margin: 0 4px; }
+
+  .exercise-num { display: inline-block; background: var(--blue); color: var(--white); font-weight: 700; font-size: 9pt; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; margin-right: 6px; }
+
+  .teel-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 0 4px 4px 0; padding: 10px 14px; margin: 8px 0; }
+  .teel-label { display: inline-block; background: var(--blue); color: var(--white); font-size: 9pt; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 4px; }
+  .teel-prompt { font-size: 10pt; color: var(--mid-grey); margin-top: 4px; font-style: italic; }
+
+  .answer-heading { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 8px 16px; font-size: 11pt; font-weight: 700; color: #2E7D32; border-radius: 0 4px 4px 0; margin: 16px 0 10px; }
+
+  .footer { text-align: center; font-size: 8pt; color: var(--mid-grey); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px; }
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .gold-box, .lyrics-box, .q3-box, .q4-box, .teel-card { page-break-inside: auto; break-inside: auto; }
+    tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER + 技巧热身                -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12 · 课后练习</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">L7 课后练习册 Practice Booklet</div>
+  <h1>设问·对位结构 · Q3 &amp; Q4</h1>
+  <div class="subtitle">主歌3 + 桥段 · 祈祷·呐喊·消亡巩固与考试练习</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">主歌3 + 桥段</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心技巧 Techniques</div>
+    <div class="field-value">设问 · 对位结构</div>
+  </div>
+  <div class="field">
+    <div class="field-label">考试技能 Exam Skills</div>
+    <div class="field-value">Q3 (a)(b)(c) + Q4 论点构建</div>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>使用说明：</strong>本练习册配合 L7 课堂内容使用。Part 1 为技巧复习（约 10 分钟），Part 2 为 Q3 模拟（约 25 分钟），Part 3 为 Q4 论点构建脚手架练习（约 15 分钟），Part 4 为参考答案。建议先独立完成 Part 1-3，再对照 Part 4 自评。
+</div>
+
+<div class="section-heading">Part 1 · 技巧热身：设问·对位结构</div>
+
+<div class="lyrics-box">
+  <strong style="font-size: 10pt; color: var(--mid-grey);">【主歌3 新增部分】</strong><br>
+  <span class="highlight">就像那尘土飘散随着风向</span><br>
+  <span class="highlight-blue">谁又能带领着我一起飞翔</span><br>
+  <span class="highlight-green">我站在天坛中央 闭上眼</span><br>
+  <span class="highlight-green">祈求一家人都平安</span>
+  <span class="annotate">黄色 = 比喻 ｜ 蓝色 = 设问 ｜ 绿色 = 祈祷场景</span>
+  <br><strong style="font-size: 10pt; color: var(--mid-grey);">【桥段节选】</strong><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（我漂向北方）</span><span class="bridge-rap">这里是<span class="highlight">梦想的中心</span> 但梦想都<span class="highlight-pink">遥不可及</span></span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（家人是否无恙）</span><span class="bridge-rap">这里是<span class="highlight">圆梦的圣地</span> 但却总是<span class="highlight-pink">扑朔迷离</span></span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（肩上沉重的行囊）</span><span class="bridge-rap">多少人敌不过残酷的现实 从此<span class="highlight-red">销声匿迹</span></span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（盛满了惆怅）</span><span class="bridge-rap">多少人陷入了昏迷 剩下<span class="highlight-red">一具空壳尸体</span></span>
+  <span class="annotate">蓝底 = 吟唱线 ｜ 棕色斜体 = 说唱线 ｜ 黄色 = 正面期待 ｜ 粉色 = 负面现实 ｜ 红色 = 消亡意象</span>
+</div>
+
+<p style="margin: 12px 0 6px; font-weight: 600; color: var(--navy);">请完成以下填空：</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">1</span><strong>设问</strong>（Rhetorical Question）的定义是：明知 <span class="fill-blank"></span> ，却故意以问句形式提出，以达到 <span class="fill-blank-long"></span> 的效果。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">2</span>"谁又能带领着我一起飞翔"的隐含答案是 <span class="fill-blank"></span>。"又"字暗示 <span class="fill-blank-long"></span>。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">3</span><strong>对位结构</strong>（Counterpoint Structure）的定义是：两条独立的声音线 <span class="fill-blank"></span> 进行，各自独立又 <span class="fill-blank"></span>。在桥段中，吟唱线表达的是 <span class="fill-blank"></span>，说唱线表达的是 <span class="fill-blank"></span>。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">4</span>"尘土飘散随着风向"将北漂者比作 <span class="fill-blank"></span>，暗示他们 <span class="fill-blank"></span>、<span class="fill-blank"></span>、<span class="fill-blank"></span>。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">5</span>三次"漂向北方"的情感弧线是：<br>
+  &emsp;主歌1 → <span class="fill-blank"></span>（客观描述）<br>
+  &emsp;主歌2 → <span class="fill-blank"></span>（绝望中回望）<br>
+  &emsp;主歌3 → <span class="fill-blank"></span>（精神求助）
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">6</span>桥段中"梦想的中心/遥不可及"和"圆梦的圣地/扑朔迷离"运用了 <span class="fill-blank"></span> 手法。这种写法的特点是先 <span class="fill-blank" style="min-width: 40px;"></span> 再 <span class="fill-blank" style="min-width: 40px;"></span>，比直接否定更有力量，因为它展现了 <span class="fill-blank-long"></span> 的完整心路历程。
+</p>
+
+<p style="margin: 12px 0 6px; font-weight: 600; color: var(--navy);">技巧识别：判断下列歌词使用了哪种技巧（设问 / 对位结构 / 对比 / 比喻 / 递进）</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 55%;">歌词</th>
+      <th style="width: 25%;">技巧名称</th>
+      <th style="width: 20%;">效果关键词</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"谁又能带领着我一起飞翔"</td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td>吟唱"漂向北方" + 说唱"天子脚下被踩得喘不过气"同时进行</td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td>"梦想的中心" vs "遥不可及"</td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td>"喘不过气"→"销声匿迹"→"空壳尸体"→"Rest in peace"</td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: Q3 模拟                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L7 练习册 · 设问·对位结构</span>
+  <span>Part 2 — Q3 模拟</span>
+</div>
+
+<div class="section-heading">Part 2 · Q3 模拟练习（15 分）</div>
+
+<div class="info-box">
+  <strong>答题要求：</strong>用<strong>中文或英文</strong>作答。每个论点须包含：<strong>引用歌词 → 命名技巧 → 分析效果 → 联系议题</strong>。<br>
+  <strong>建议时间：</strong>(a) 5 min · (b) 8 min · (c) 12 min = 共 25 min
+</div>
+
+<div class="q3-box">
+  <div class="q3-title">Question 3（15 marks）</div>
+
+  <p style="font-size: 10pt; color: var(--mid-grey); margin-bottom: 12px;">
+    阅读《漂向北方》主歌3新增部分及桥段歌词，回答以下问题。<br>
+    閱讀《漂向北方》主歌3新增部分及橋段歌詞，回答以下問題。<br>
+    <em>Read the new content in Verse 3 and the Bridge lyrics from "Drifting North" and answer the following questions.</em>
+  </p>
+
+  <p style="margin-top: 14px;">
+    <strong>(a)</strong>&nbsp;
+    解释"谁又能带领着我一起飞翔"一句如何运用设问手法来表达北漂者的无助。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    解釋"誰又能帶領著我一起飛翔"一句如何運用設問手法來表達北漂者的無助。<br>
+    <em>Explain how the rhetorical question "who can lead me to fly together" expresses the helplessness of the "bei piao" community.</em>
+    </span>
+    <span class="q3-marks">3 分</span>
+  </p>
+
+  <div style="margin: 8px 0 16px;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <p style="margin-top: 14px;">
+    <strong>(b)</strong>&nbsp;
+    分析桥段中"对位结构"（吟唱与说唱交织）如何深化歌曲对北漂者内心矛盾的表达。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    分析橋段中"對位結構"（吟唱與說唱交織）如何深化歌曲對北漂者內心矛盾的表達。<br>
+    <em>Analyse how the "counterpoint structure" (interweaving of singing and rapping) in the bridge deepens the song's expression of the inner conflict of the "bei piao" community.</em>
+    </span>
+    <span class="q3-marks">5 分</span>
+  </p>
+
+  <div style="margin: 8px 0 16px;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <p style="margin-top: 14px;">
+    <strong>(c)</strong>&nbsp;
+    分析主歌3和桥段如何综合运用设问、对比和递进等语言技巧来表达北漂者从"挣扎"到"精神消亡"的心理转变。请结合整段歌词内容回答。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    分析主歌3和橋段如何綜合運用設問、對比和遞進等語言技巧來表達北漂者從"掙扎"到"精神消亡"的心理轉變。請結合整段歌詞內容回答。<br>
+    <em>Analyse how Verse 3 and the Bridge use language features including rhetorical question, contrast and climax to convey the psychological transformation of the "bei piao" community from "struggle" to "spiritual death". Refer to the entire section.</em>
+    </span>
+    <span class="q3-marks">7 分</span>
+  </p>
+
+  <div style="margin: 8px 0;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: Q4 论点构建                      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L7 练习册 · 设问·对位结构</span>
+  <span>Part 3 — Q4 论点构建</span>
+</div>
+
+<div class="section-heading">Part 3 · Q4 脚手架练习：论点构建</div>
+
+<div class="info-box">
+  <strong>说明：</strong>本练习只要求围绕<strong>一部作品</strong>（《漂向北方》）构建<strong>一个论点段落</strong>，帮助你掌握 TEEL 结构。完整 Q4 需分析两部指定作品并写 350-450 字。
+</div>
+
+<div class="q4-box">
+  <div class="q4-title">Q4 模拟题 Practice Prompt</div>
+  <p>
+    "社会变迁往往让个人从满怀希望走向彻底幻灭——这种从希望到绝望的过程，正是现代社会对个人最深刻的冲击。"<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">"社會變遷往往讓個人從滿懷希望走向徹底幻滅——這種從希望到絕望的過程，正是現代社會對個人最深刻的衝擊。"</span><br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey); font-style: italic;">'Social change often takes individuals from hopefulness to complete disillusionment — this journey from hope to despair is the most profound impact of modern society on individuals.'</span>
+  </p>
+</div>
+
+<div class="sub-heading">Step 1 · 审题——圈关键词 + 判断议题</div>
+
+<p style="margin: 8px 0;">
+  关键词 ①：<span class="fill-blank"></span>　关键词 ②：<span class="fill-blank"></span>　关键词 ③：<span class="fill-blank"></span>
+</p>
+<p style="margin: 8px 0;">
+  这道题主要对应 Issue <span class="fill-blank" style="min-width: 40px;"></span> + Issue <span class="fill-blank" style="min-width: 40px;"></span><br>
+  理由：<span class="fill-blank-long"></span>
+</p>
+<p style="margin: 8px 0;">
+  题目中"从希望到绝望"与桥段中哪两句歌词最直接呼应？<br>
+  ① <span class="fill-blank-long"></span><br>
+  ② <span class="fill-blank-long"></span>
+</p>
+
+<div class="sub-heading">Step 2 · 选素材——从歌词中找论据</div>
+
+<p style="margin: 8px 0;">从主歌3和桥段中，找出<strong>两处</strong>可以论证"从希望到幻灭"的歌词：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 10%;">论据</th>
+      <th style="width: 35%;">歌词引用</th>
+      <th style="width: 20%;">语言技巧</th>
+      <th style="width: 35%;">与题目"希望→绝望"的关联</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>①</strong></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td><strong>②</strong></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">Step 3 · 用 TEEL 写一个论点段落（约 80-120 字）</div>
+
+<div class="teel-card">
+  <div class="teel-label">T — Topic Sentence 主题句</div>
+  <div class="teel-prompt">回应题目中"从希望到绝望是社会对个人最深刻的冲击"这一核心概念。</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">E — Evidence 论据（引用歌词）</div>
+  <div class="teel-prompt">直接引用歌词原文。例如："桥段中写道'这里是梦想的中心 但梦想都遥不可及'……"</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">E — Explanation 分析（技巧 + 效果）</div>
+  <div class="teel-prompt">命名技巧（对比/设问/递进），分析效果，联系"从希望到幻灭"。</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">L — Link 回扣（联系议题）</div>
+  <div class="teel-prompt">回到"社会变迁让个人从希望走向绝望"这一论述。</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 参考答案                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L7 练习册 · 设问·对位结构</span>
+  <span>Part 4 — 参考答案</span>
+</div>
+
+<div class="section-heading">Part 4 · 参考答案</div>
+
+<div class="answer-heading">Part 1 技巧热身 — 答案</div>
+
+<p style="margin: 6px 0; font-size: 10pt;">
+  <span class="exercise-num">1</span>明知<strong>没有答案或不需要对方回答</strong>；达到<strong>引起注意、强调观点或表达强烈情感</strong>的效果<br>
+  <span class="exercise-num">2</span>隐含答案是<strong>没有人</strong>；"又"字暗示<strong>之前已经多次寻求帮助但失败，现在连发问都带着绝望的预设</strong><br>
+  <span class="exercise-num">3</span>两条独立声音线<strong>同时</strong>进行；各自独立又<strong>相互呼应</strong>；吟唱线表达<strong>悲伤的低语/内心的无力</strong>；说唱线表达<strong>愤怒的呐喊/对现实的控诉</strong><br>
+  <span class="exercise-num">4</span>比作<strong>尘土</strong>；暗示他们<strong>渺小</strong>、<strong>无根</strong>、<strong>随波逐流/毫无自主权</strong><br>
+  <span class="exercise-num">5</span>主歌1 →<strong>叙述</strong>；主歌2 →<strong>叹息</strong>；主歌3 →<strong>祈祷</strong><br>
+  <span class="exercise-num">6</span>运用了<strong>对比（先扬后抑）</strong>手法；先<strong>肯定/扬</strong>再<strong>否定/抑</strong>；展现了<strong>从希望到失望/从憧憬到幻灭</strong>的完整心路历程
+</p>
+
+<p style="margin: 10px 0 4px; font-size: 10pt; font-weight: 600;">技巧识别答案：</p>
+<p style="font-size: 10pt;">
+  "谁又能带领着我一起飞翔" → <strong>设问</strong>（隐含"没有人"，强调无助与绝望）<br>
+  吟唱"漂向北方" + 说唱"天子脚下被踩得喘不过气" → <strong>对位结构</strong>（悲伤与愤怒并行，内心撕裂）<br>
+  "梦想的中心" vs "遥不可及" → <strong>对比</strong>（先扬后抑，希望与现实的落差）<br>
+  "喘不过气"→"销声匿迹"→"空壳尸体"→"RIP" → <strong>递进</strong>（消亡意象层层加重，从肉体到精神彻底消亡）
+</p>
+
+<div class="answer-heading">Part 2 Q3 — 答案要点</div>
+
+<div class="sub-heading">(a) 设问手法分析（3 分）</div>
+
+<div class="gold-box">
+  <strong>设问本身：</strong>"谁又能带领着我一起飞翔"以问句形式出现，但并不期待回答——隐含答案是<strong>"没有人"</strong>。<br><br>
+  <strong>"又"字的力量：</strong>"又"字暗示北漂者此前已经多次寻求帮助但均告失败。这个字让设问带上了绝望的预设——不是"谁能"（充满期待），而是"谁<strong>又</strong>能"（已经不抱希望）。<br><br>
+  <strong>议题联系：</strong>与前一句"尘土飘散随着风向"配合，北漂者渴望从被动的"飘"变成主动的"飞翔"，但以设问形式出现恰恰说明这种渴望不可能实现。这深刻反映了 Issue 1.1——个人在社会变迁面前的无力感，面对结构性的壁垒，个人力量微不足道。
+</div>
+
+<div class="sub-heading">(b) 对位结构如何深化内心矛盾（5 分）</div>
+
+<div class="gold-box">
+  <strong>论点①——两条声线的功能：</strong>桥段由吟唱线（王力宏重复"漂向北方"旋律）和说唱线（黄明志全新歌词）交织构成。吟唱是熟悉的悲伤叙述——柔和、无力、循环往复，代表北漂者<strong>内心的悲伤低语</strong>；说唱是急促、尖锐的现实控诉——"天子脚下被踩得喘不过气"，代表北漂者<strong>外在的愤怒呐喊</strong>。<br><br>
+  <strong>论点②——矛盾的外化：</strong>两条声线同时进行，制造了强烈的戏剧张力：一边在低泣，一边在怒吼。这种结构将北漂者内心深处的矛盾<strong>外化</strong>为可听见的两种声音——他们既无力反抗（吟唱的无奈），又无法接受现实（说唱的愤怒）。"漂向北方"的温柔旋律与"被踩得喘不过气"的激烈控诉形成的反差，正是 Issue 1.1 中个人面对社会变迁时<strong>矛盾心态</strong>的精确表达。<br><br>
+  <strong>论点③——结构的象征意义：</strong>吟唱线不断重复旧的歌词，暗示被困在循环中无法突破；说唱线不断推进新的叙事，暗示现实在持续恶化。两者的不同步本身就象征了北漂者的困境：<strong>内心停留在原地，现实却不断下沉</strong>。
+</div>
+
+<div class="sub-heading">(c) 语言技巧综合分析（7 分）</div>
+
+<div class="gold-box">
+  <strong>① 设问——精神世界的崩塌起点：</strong>主歌3中"谁又能带领着我一起飞翔"以设问形式表达了北漂者穷尽所有世俗努力后的绝望求助。"又"字暗示此前多次失败，"飞翔"与"尘土飘散"形成对比——渴望从被动的"飘"变成主动的"飞"，但以设问出现说明已知不可能。随后"站在天坛中央 闭上眼 祈求一家人都平安"——从人间求助转向精神求助，标志着挣扎的终结（Issue 1.3）。<br><br>
+  <strong>② 对比（先扬后抑）——希望的系统性破碎：</strong>桥段中"梦想的中心/遥不可及""圆梦的圣地/扑朔迷离"运用了连续的先扬后抑对比。歌词不是直接说"北京不好"，而是先肯定其吸引力，再用"但"字转折揭示落差——这比直接否定更有力量，因为它完整展现了<strong>从希望到失望</strong>的心路历程。北漂者不是没有梦想，而是梦想在现实面前被系统性地粉碎（Issue 2.1）。<br><br>
+  <strong>③ 递进——消亡意象的不可逆升级：</strong>桥段说唱线构建了一条完整的"消亡链"——"被踩得喘不过气"（肉体压迫）→"或许我根本不属于这里"（归属否定）→"销声匿迹"（社会消亡）→"一具空壳尸体"（精神死亡）→"Rest in peace"（彻底消亡）。五级递进从外在困境层层深入到精神层面的彻底摧毁。英语"RIP"打破中文语境，产生墓志铭般的疏离感——像是为北漂梦想写下的终结语（Issue 1.1）。<br><br>
+  <strong>总结：</strong>主歌3和桥段共同构建了一条从<strong>祈祷（设问/天坛）→ 撕裂（对位结构）→ 幻灭（先扬后抑）→ 消亡（递进）</strong>的心理下降曲线。设问标志着挣扎的终结，对比呈现希望的系统性破碎，递进将个人推向精神的彻底死亡——这是全曲情感的最低点，深刻揭示了 Issue 1.1 的核心：社会变迁对个人的冲击从物质层面一路深入到精神世界，最终导致了存在意义的彻底消解。
+</div>
+
+<div class="answer-heading">Part 3 Q4 — 参考范例</div>
+
+<div class="sub-heading">审题参考</div>
+<p style="margin: 6px 0; font-size: 10pt;">
+  关键词：① 社会变迁　② 从希望到绝望　③ 最深刻的冲击<br>
+  对应 Issue <strong>1.1</strong>（社会变迁对个人的冲击）+ Issue <strong>2.1</strong>（现代年轻人的压力）<br>
+  "从希望到绝望"与桥段中：① <strong>"梦想的中心 但梦想都遥不可及"</strong>　② <strong>"圆梦的圣地 但却总是扑朔迷离"</strong> 直接呼应
+</p>
+
+<div class="sub-heading">TEEL 论点段落范例</div>
+
+<div class="gold-box">
+  <strong>T：</strong>《漂向北方》的桥段通过极端的对比和意象递进，揭示了社会变迁对个人最深刻的冲击——不是物质的匮乏，而是希望的系统性破碎与精神世界的彻底消亡。<br><br>
+  <strong>E：</strong>桥段说唱线写道"这里是梦想的中心 但梦想都遥不可及""这里是圆梦的圣地 但却总是扑朔迷离"，随后急速下降至"多少人敌不过残酷的现实 从此销声匿迹""剩下一具空壳尸体"。<br><br>
+  <strong>E：</strong>作者运用了连续的<strong>先扬后抑对比</strong>——"梦想的中心"和"圆梦的圣地"承认了城市的吸引力，"但"字的转折却揭示了无法逾越的落差。这种写法比直接否定更有冲击力，因为它完整呈现了北漂者从满怀希望到彻底幻灭的心路历程。紧接着，<strong>递进</strong>手法将"销声匿迹→空壳尸体→Rest in peace"层层推进，从社会意义上的消失发展到精神层面的死亡，构成了一条不可逆的"消亡链"。<br><br>
+  <strong>L：</strong>由此可见，现代社会对个人最深刻的冲击正在于这种"先给予希望再彻底摧毁"的过程——社会变迁不仅夺走了物质层面的安全感，更从根本上消解了个人存在的意义。
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · L7 课后练习册<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Issue 1.3 现代社会中的家庭 · Issue 2.1 现代年轻人的压力 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W1 L1 — 《漂向北方》导入：北漂现象与时代背景</title>
+<style>
+  /* ===== FONTS ===== */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  /* ===== COLOUR PALETTE ===== */
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  /* ===== PAGE SETUP ===== */
+  @page { size: A4; margin: 16mm 18mm; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  /* ===== HEADER BAR ===== */
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 18px;
+    font-size: 9pt;
+    font-weight: 500;
+    border-radius: 4px 4px 0 0;
+  }
+
+  /* ===== TITLE BOX ===== */
+  .title-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%);
+    color: var(--white);
+    padding: 22px 24px 18px;
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 16px;
+  }
+  .title-box h1 {
+    font-size: 20pt;
+    font-weight: 900;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+  .title-box .subtitle {
+    font-size: 11pt;
+    font-weight: 300;
+    color: var(--light-blue);
+  }
+  .title-box .lesson-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== INFO FIELDS ===== */
+  .info-fields {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .field {
+    flex: 1;
+    min-width: 140px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 8px 12px;
+    background: var(--white);
+  }
+  .field-label {
+    font-size: 8pt;
+    color: var(--mid-grey);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .field-value {
+    font-size: 10pt;
+    font-weight: 500;
+    min-height: 1.4em;
+  }
+
+  /* ===== SECTION HEADINGS ===== */
+  .section-heading {
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 16px;
+    font-size: 12pt;
+    font-weight: 700;
+    border-radius: 4px;
+    margin: 20px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-heading .time-badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .sub-heading {
+    color: var(--blue);
+    font-size: 11pt;
+    font-weight: 700;
+    border-left: 4px solid var(--gold);
+    padding-left: 10px;
+    margin: 14px 0 8px;
+  }
+
+  /* ===== CONTENT BOXES ===== */
+  .info-box {
+    background: var(--light-blue);
+    border-left: 4px solid var(--blue);
+    padding: 12px 16px;
+    border-radius: 0 4px 4px 0;
+    margin: 10px 0;
+    font-size: 10.5pt;
+  }
+
+  .gold-box {
+    background: var(--light-gold);
+    border-left: 4px solid var(--gold);
+    padding: 12px 16px;
+    border-radius: 0 4px 4px 0;
+    margin: 10px 0;
+    font-size: 10.5pt;
+  }
+
+  .vocab-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 10px 0;
+  }
+
+  .vocab-item {
+    display: flex;
+    align-items: baseline;
+    padding: 4px 0;
+    border-bottom: 1px dashed #e0e0e0;
+    gap: 8px;
+  }
+  .vocab-item:last-child { border-bottom: none; }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--navy);
+    min-width: 100px;
+    font-size: 11pt;
+  }
+  .vocab-def {
+    flex: 1;
+    font-size: 10pt;
+  }
+
+  /* ===== DISCUSSION BOXES ===== */
+  .discussion {
+    background: var(--white);
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .discussion-title {
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 10pt;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .discussion ol, .discussion ul {
+    padding-left: 20px;
+    margin: 6px 0;
+  }
+  .discussion li {
+    margin-bottom: 4px;
+    font-size: 10.5pt;
+  }
+
+  /* ===== TABLES ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 10pt;
+  }
+  th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 9.5pt;
+  }
+  td {
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td {
+    background: var(--light-grey);
+  }
+
+  /* ===== COMPARISON TABLE ===== */
+  .compare-table th:first-child { width: 26%; }
+  .compare-table .col-local { background: #E8F5E9; }
+  .compare-table .col-migrant { background: #FFF3E0; }
+
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+    margin: 12px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--blue);
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 12px;
+    padding-left: 16px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+  .timeline-year {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 11pt;
+  }
+  .timeline-desc {
+    font-size: 10pt;
+    color: var(--dark);
+  }
+
+  /* ===== DATA CALLOUT ===== */
+  .data-callout {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+  }
+  .data-card {
+    flex: 1;
+    min-width: 130px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--blue);
+    border-radius: 4px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .data-number {
+    font-size: 20pt;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .data-label {
+    font-size: 8.5pt;
+    color: var(--mid-grey);
+    margin-top: 2px;
+  }
+
+  /* ===== LYRICS PREVIEW ===== */
+  .lyrics-box {
+    background: #F9F6F0;
+    border: 1px solid #DDD5C5;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 12pt;
+    line-height: 2;
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .lyrics-box .highlight {
+    background: #FFEAA7;
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+
+  /* ===== TASK CHECKPOINT ===== */
+  .checkpoint {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 10pt;
+  }
+  .checkpoint-title {
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+    font-size: 10.5pt;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    font-size: 8pt;
+    color: var(--mid-grey);
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    margin-top: 24px;
+  }
+
+  /* ===== PAGE BREAK ===== */
+  .page-break { page-break-before: always; break-before: page; }
+
+  /* ===== PRINT / PDF STYLES ===== */
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      max-width: none;
+      width: 100%;
+      font-size: 10.5pt;
+      background: white;
+    }
+    .page-break { page-break-before: always; break-before: page; }
+    .no-print { display: none; }
+
+    .header-bar {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+
+    .info-fields {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    .info-fields .field {
+      display: table-cell;
+      padding-right: 12px;
+    }
+
+    .data-callout {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    .data-callout .data-card {
+      display: table-cell;
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    h2, h3, .section-heading, .sub-heading {
+      page-break-after: avoid;
+      break-after: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .title-box, .info-fields, .checkpoint {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .info-box, .discussion, .vocab-box, .gold-box, .lyrics-box, .timeline {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+    .vocab-item, .timeline-item, .discussion li, tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    table {
+      page-break-inside: auto;
+      break-inside: auto;
+      width: 100% !important;
+      max-width: 100%;
+    }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PAGE 1: COVER & LESSON OVERVIEW                      -->
+<!-- ════════════════════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>2026 · Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第一周 · 第一课 W1 L1</div>
+  <h1>《漂向北方》导入课</h1>
+  <div class="subtitle">北漂现象与时代背景 · The Beipiao Phenomenon and Its Era</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">课文 Prescribed Text</div>
+    <div class="field-value">《漂向北方》黄明志 feat. 王力宏</div>
+  </div>
+  <div class="field">
+    <div class="field-label">主题 Theme</div>
+    <div class="field-value">Theme 1: 个人与社会 (Individual and Society)</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issue</div>
+    <div class="field-value">1.1 不断变化的社会对个人的冲击</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 了解"北漂现象"的经济、制度、文化背景，建立歌曲的社会语境<br>
+  ② 初步感知歌曲的整体情绪和结构<br>
+  ③ 理解"漂"字的多层含义，为后续精读做铺垫<br>
+  ④ 将北漂现象与 NESA Issue 1.1 建立联系
+</div>
+
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PAGE 2: 破冰导入                                      -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L1 · 《漂向北方》导入课</span>
+  <span>Part A — 破冰导入</span>
+</div>
+
+<div class="section-heading">
+  <span>Part A · 破冰导入：一个"漂"字</span>
+</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>在白板上写一个大字——<strong>"漂"</strong>。不要告诉学生今天学什么歌，先让他们思考这个字。
+</div>
+
+<div class="gold-box">
+  <strong>"漂"的三层含义 Three Layers of 漂：</strong>
+  <table style="margin-top: 8px;">
+    <thead>
+      <tr>
+        <th style="width:20%;">层次</th>
+        <th style="width:25%;">含义</th>
+        <th style="width:55%;">解释</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>表层</strong></td>
+        <td>漂浮</td>
+        <td>物体在水面上浮动——没有根基，随波逐流</td>
+      </tr>
+      <tr>
+        <td><strong>中层</strong></td>
+        <td>漂泊</td>
+        <td>人离开家乡四处流浪——居无定所，身份不稳</td>
+      </tr>
+      <tr>
+        <td><strong>深层</strong></td>
+        <td>漂流</td>
+        <td>被动地随水流移动——无法掌控方向，听天由命</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">Think-Pair-Share 思考讨论</div>
+  <p style="font-weight: 600; color: var(--navy); margin-bottom: 6px;">如果一个年轻人离开家乡去大城市追梦，他/她是在"漂"还是在"飞"？</p>
+  <ul>
+    <li><strong>"漂"</strong> 暗示什么？→ 被动、无根、不确定、没有方向</li>
+    <li><strong>"飞"</strong> 暗示什么？→ 主动、有目标、充满希望、自由</li>
+    <li><strong>"闯"</strong> 暗示什么？→ 勇敢、冒险、打破障碍、有冲劲</li>
+  </ul>
+  <p style="margin-top: 6px; font-size: 10pt; color: var(--mid-grey);">→ 歌曲选择了"漂"而不是"飞"或"闯"，这个选择本身就传达了一种态度。我们等一下来验证。</p>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PAGE 3-4: 时代背景 PART 1                              -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L1 · 《漂向北方》导入课</span>
+  <span>Part B — 时代背景</span>
+</div>
+
+<div class="section-heading">
+  <span>Part B · 时代背景：什么是"北漂"？</span>
+</div>
+
+<div class="info-box">
+  <strong>北漂</strong> = 北京 + 漂泊。指那些从外地来到北京，没有北京户口、没有稳定住所，在北京工作和生活的人。广义上也指所有离开家乡到大城市打拼的流动人口。
+</div>
+
+<!-- LAYER 1: 经济背景 -->
+<div class="sub-heading">第一层：经济推力——为什么要"北漂"？</div>
+
+<div class="data-callout">
+  <div class="data-card">
+    <div class="data-number">2.98亿</div>
+    <div class="data-label">中国流动人口<br>(2020年普查)</div>
+  </div>
+  <div class="data-card">
+    <div class="data-number">~3:1</div>
+    <div class="data-label">城乡收入差距<br>(城市 vs 农村)</div>
+  </div>
+  <div class="data-card">
+    <div class="data-number">800万+</div>
+    <div class="data-label">北京外来常住人口<br>(2017年高峰)</div>
+  </div>
+  <div class="data-card">
+    <div class="data-number">65%</div>
+    <div class="data-label">中国城市化率<br>(2023年)</div>
+  </div>
+</div>
+
+<p style="margin: 8px 0;">改革开放（1978年）以来，中国经历了人类历史上规模最大的城市化进程。北京、上海、广州、深圳等一线城市集中了全国最优质的教育资源、就业机会和文化产业。与此同时，中西部地区和农村的发展相对滞后，形成了巨大的<strong>城乡差距</strong>和<strong>区域不平衡</strong>。</p>
+
+<div class="gold-box">
+  <strong>推拉理论 Push-Pull Theory：</strong><br>
+  <strong>推力 Push（离开家乡的原因）：</strong>家乡就业机会少、收入低、教育资源不足、发展空间有限<br>
+  <strong>拉力 Pull（去大城市的原因）：</strong>高薪工作、更好的教育、文化多样性、实现梦想的平台
+</div>
+
+<!-- TIMELINE -->
+<div class="sub-heading">中国城市化关键时间线</div>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-year">1978</div>
+    <div class="timeline-desc">改革开放启动，农村劳动力开始向城市流动</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">1990s</div>
+    <div class="timeline-desc">"下海潮""打工潮"——大批农民工涌入沿海城市，"北漂"一词开始流行</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2001</div>
+    <div class="timeline-desc">中国加入 WTO，经济高速增长，城市扩张加速</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2008</div>
+    <div class="timeline-desc">北京奥运会，城市基础设施大规模建设，吸引更多外来务工者</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2010s</div>
+    <div class="timeline-desc">互联网经济兴起，新一代"北漂"不再只是农民工，还有大学生、创业者、艺术家</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2017</div>
+    <div class="timeline-desc">《漂向北方》发行，成为北漂群体的"心声之歌"</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PAGE 4: 户籍制度                                      -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L1 · 《漂向北方》导入课</span>
+  <span>Part B — 时代背景（续）</span>
+</div>
+
+<!-- LAYER 2: 户籍制度 -->
+<div class="sub-heading">第二层：制度之墙——户籍制度 The Hukou System</div>
+
+<div class="info-box">
+  <strong>户籍制度</strong>（户口）是中国独特的人口登记制度。每个公民出生时按父母户籍登记为"农村户口"或"城市户口"，并绑定到特定城市。这意味着：即使你在北京工作了十年，如果你的户口不在北京，你在法律意义上仍然是<strong>"外地人"</strong>。
+</div>
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>权利 / 待遇</th>
+      <th>有北京户口 ✅</th>
+      <th>没有北京户口 ❌</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>子女教育</strong></td>
+      <td class="col-local">可上公立学校，参加北京高考</td>
+      <td class="col-migrant">需缴高额借读费或只能上私立学校；孩子可能被迫回老家成为"留守儿童"上学</td>
+    </tr>
+    <tr>
+      <td><strong>医疗保障</strong></td>
+      <td class="col-local">享受北京医保报销</td>
+      <td class="col-migrant">医保在老家，北京就医需自费或报销比例极低</td>
+    </tr>
+    <tr>
+      <td><strong>购房资格</strong></td>
+      <td class="col-local">可直接购房</td>
+      <td class="col-migrant">需连续5年社保/纳税记录才能购房</td>
+    </tr>
+    <tr>
+      <td><strong>社会福利</strong></td>
+      <td class="col-local">享受低保、养老、廉租房等</td>
+      <td class="col-migrant">基本无法享受北京本地福利</td>
+    </tr>
+    <tr>
+      <td><strong>身份认同</strong></td>
+      <td class="col-local">"北京人"</td>
+      <td class="col-migrant">"外地人""外来务工人员"</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">课堂讨论 Class Discussion</div>
+  <p style="font-weight: 600; color: var(--navy); margin-bottom: 6px;">看完这个对比，你觉得一个人为什么会愿意留在一个"不欢迎自己"的城市？</p>
+  <p style="font-size: 10pt; color: var(--mid-grey);">提示：从经济需求、个人梦想、家庭期望等角度思考</p>
+</div>
+
+<!-- LAYER 3: 北漂心理 -->
+<div class="sub-heading">第三层：北漂的精神状态——悬浮的人</div>
+
+<p style="margin: 8px 0;">北漂不只是一种地理迁移，更是一种<strong>精神状态</strong>。北漂者常常陷入多重矛盾：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30%;">矛盾</th>
+      <th style="width: 35%;">一方面…</th>
+      <th style="width: 35%;">另一方面…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>留 vs 走</strong></td>
+      <td>城市有机会、有梦想</td>
+      <td>城市冷漠、压力巨大、永远是"外人"</td>
+    </tr>
+    <tr>
+      <td><strong>希望 vs 绝望</strong></td>
+      <td>相信努力就能改变命运</td>
+      <td>制度壁垒和现实差距让人绝望</td>
+    </tr>
+    <tr>
+      <td><strong>归属 vs 疏离</strong></td>
+      <td>在城市生活多年，有新的朋友和习惯</td>
+      <td>回到家乡又觉得格格不入，"回不去了"</td>
+    </tr>
+    <tr>
+      <td><strong>个人 vs 家庭</strong></td>
+      <td>为了自己的前途留在城市</td>
+      <td>父母年迈、孩子留守、家庭分离</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">议题联系 Issue Connection</div>
+  以上所有矛盾都是 <strong>Issue 1.1 "不断变化的社会对个人的冲击"</strong> 的具体表现：<br>
+  • 经济发展和城市化（社会变化）→ 迫使个人离开家乡（冲击）<br>
+  • 户籍制度（社会结构）→ 限制个人发展和身份认同（冲击）<br>
+  • 文化断裂（社会变迁）→ 导致个人归属感缺失（冲击）
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PAGE 5: 黄明志 + 关键词汇                              -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L1 · 《漂向北方》导入课</span>
+  <span>Part B — 时代背景（续）</span>
+</div>
+
+<!-- LAYER 4: 黄明志 -->
+<div class="sub-heading">第四层：黄明志——马来西亚华人的"双重漂泊"</div>
+
+<div class="info-box">
+  <strong>黄明志 Namewee</strong>（1983—），马来西亚华裔歌手、导演、社会评论者。以大胆直言和关注社会议题著称。<br>
+  <strong>王力宏 Wang Leehom</strong>（1976—），美国出生的华裔歌手，在华语乐坛享有极高声誉。
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%;">黄明志的"漂"</th>
+      <th style="width: 50%;">歌曲中的意义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>作为马来西亚华人，在马来西亚是"少数族裔"</td>
+      <td rowspan="3" style="vertical-align: middle;">歌曲中的"漂"不只是中国内部的北漂，更是一种<strong>跨国的文化漂泊</strong>——海外华人在中华文化圈内外的认同困境。这使得歌曲的共鸣范围远远超出了北京北漂群体。</td>
+    </tr>
+    <tr>
+      <td>到中国发展，在中国是"外国人"</td>
+    </tr>
+    <tr>
+      <td>在文化上认同中华文化，但在国籍上是外国人</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>为什么这首歌引起了广泛共鸣？</strong><br>
+  因为"漂"的经历不只属于北漂者——每一个离开家乡、在异地寻找归属的人都能在这首歌中找到自己的影子。这也是它作为 HSC 课文的价值所在：它连接了<strong>个人经历</strong>与<strong>社会结构</strong>。
+</div>
+
+<!-- KEY VOCABULARY -->
+<div class="sub-heading">本课关键词汇 Key Vocabulary</div>
+
+<div class="vocab-box">
+  <div class="vocab-item">
+    <span class="vocab-term">北漂</span>
+    <span class="vocab-def">在北京漂泊的人；泛指到大城市打拼的外来人口</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">户籍制度</span>
+    <span class="vocab-def">中国的人口登记制度，决定个人享受的公共服务和社会福利</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">城市化</span>
+    <span class="vocab-def">urbanisation；人口从农村向城市转移的过程</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">流动人口</span>
+    <span class="vocab-def">migrant population；离开户籍所在地到其他地方工作/生活的人</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">城乡差距</span>
+    <span class="vocab-def">urban-rural gap；城市和农村在收入、资源等方面的差异</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">外来务工人员</span>
+    <span class="vocab-def">migrant workers；从外地来的打工者</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">留守儿童</span>
+    <span class="vocab-def">left-behind children；父母外出打工后留在农村的孩子</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">归属感</span>
+    <span class="vocab-def">sense of belonging；觉得自己"属于"某个地方或群体的感觉</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">身份认同</span>
+    <span class="vocab-def">identity；对"我是谁""我属于哪里"的认知</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-term">漂泊</span>
+    <span class="vocab-def">to drift / wander；没有固定居所地四处流浪</span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PAGE 6: 首次聆听                                      -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L1 · 《漂向北方》导入课</span>
+  <span>Part C — 首次聆听</span>
+</div>
+
+<div class="section-heading">
+  <span>Part C · 首次聆听：带着问题听</span>
+</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>播放完整歌曲（约4分30秒）。学生在聆听过程中完成以下任务单。<strong>这是第一次听，目标是建立感性认知，不需要深入分析。</strong>
+</div>
+
+<div class="gold-box" style="border: 2px solid var(--gold); background: var(--white); padding: 20px;">
+  <div style="text-align: center; font-size: 13pt; font-weight: 700; color: var(--navy); margin-bottom: 14px;">
+    聆听任务单 Listening Task Sheet
+  </div>
+
+  <p style="margin-bottom: 6px;"><strong>任务一：</strong>用<strong>一个词</strong>概括歌曲的整体情绪 Overall mood（中文或英文皆可）</p>
+
+  <p style="margin: 10px 0 6px;"><strong>任务二：</strong>你在歌曲中听到了哪些和"北漂"相关的<strong>词语或画面</strong>？写下至少三个</p>
+
+  <p style="margin: 10px 0 6px;"><strong>任务三：</strong>歌曲中有几个不同的<strong>"声音"（歌手/视角）</strong>？你觉得他们的角色有什么不同？</p>
+
+  <p style="margin: 10px 0 6px;"><strong>任务四（选做）：</strong>歌曲中有没有让你特别触动的一句歌词？写下来</p>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PAGE 7: 初步印象 + 歌名解读 + 收尾                      -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L1 · 《漂向北方》导入课</span>
+  <span>Part D — 初步印象 & 收尾</span>
+</div>
+
+<div class="section-heading">
+  <span>Part D · 初步印象与歌名解读</span>
+</div>
+
+<div class="sub-heading">歌名用词分析：为什么是"漂"？</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 15%;">动词</th>
+      <th style="width: 25%;">含义</th>
+      <th style="width: 30%;">暗示的态度</th>
+      <th style="width: 30%;">如果歌名是…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-size: 14pt; font-weight: 900; color: var(--gold);">漂</td>
+      <td>随水漂流</td>
+      <td>被动、无根、无法掌控方向</td>
+      <td>《<strong>漂</strong>向北方》✅ 实际歌名</td>
+    </tr>
+    <tr>
+      <td style="font-size: 12pt; font-weight: 700;">飞</td>
+      <td>高高飞翔</td>
+      <td>主动、自由、充满希望</td>
+      <td>《飞向北方》→ 完全不同的情感</td>
+    </tr>
+    <tr>
+      <td style="font-size: 12pt; font-weight: 700;">闯</td>
+      <td>冲破障碍</td>
+      <td>勇敢、冒险、有力量</td>
+      <td>《闯向北方》→ 英雄叙事</td>
+    </tr>
+    <tr>
+      <td style="font-size: 12pt; font-weight: 700;">奔</td>
+      <td>快速奔跑</td>
+      <td>急切、有方向、有目标</td>
+      <td>《奔向北方》→ 积极进取</td>
+    </tr>
+    <tr>
+      <td style="font-size: 12pt; font-weight: 700;">走</td>
+      <td>步行前往</td>
+      <td>中性、平淡、日常</td>
+      <td>《走向北方》→ 缺乏情感张力</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">全班讨论 Whole-Class Discussion</div>
+  <ol>
+    <li>听完歌曲之后，你对"漂"这个字有没有<strong>新的理解</strong>？和课堂一开始的理解有什么不同？</li>
+    <li>歌词中的"漂"和我们刚才讲的<strong>北漂现象</strong>有什么联系？</li>
+    <li>歌名中的<strong>"北方"</strong>只是指北京吗？还是有更深的含义？</li>
+  </ol>
+</div>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">本课核心收获 Key Takeaways</div>
+  ✦ "北漂"是中国城市化进程中数亿人的真实经历<br>
+  ✦ 户籍制度是理解"漂"的关键——制度性的排斥让"外来者"永远无法真正融入<br>
+  ✦ 歌名选择"漂"而非"飞/闯/奔"，传达了被动、无根、无力的情感基调<br>
+  ✦ 这些都是 Issue 1.1"不断变化的社会对个人的冲击"的直接体现
+</div>
+
+<div class="section-heading">
+  <span>Part E · 收尾与预习</span>
+</div>
+
+<div class="gold-box">
+  <strong>预习任务 Preview Task：</strong><br>
+  ① 再听一遍《漂向北方》完整歌曲<br>
+  ② 把歌词中你觉得<strong>最有画面感</strong>的一句话标记出来，下节课分享<br>
+  ③ 思考：歌曲开头的"有人在…有人在…"描写了哪些人？
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W1 L1<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

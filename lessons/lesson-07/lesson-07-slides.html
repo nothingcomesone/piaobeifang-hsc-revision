@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W2 L7 — 祈祷·呐喊·消亡</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy); color: var(--white); padding: 10px 18px; font-size: 9pt; font-weight: 500; border-radius: 4px 4px 0 0; }
+  .title-box { background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%); color: var(--white); padding: 22px 24px 18px; border-radius: 0 0 4px 4px; margin-bottom: 16px; }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: 9pt; font-weight: 700; padding: 3px 12px; border-radius: 3px; margin-bottom: 8px; }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 140px; border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; background: var(--white); }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading { background: var(--navy); color: var(--white); padding: 8px 16px; font-size: 12pt; font-weight: 700; border-radius: 4px; margin: 20px 0 12px; }
+  .sub-heading { color: var(--blue); font-size: 11pt; font-weight: 700; border-left: 4px solid var(--gold); padding-left: 10px; margin: 14px 0 8px; }
+
+  .info-box { background: var(--light-blue); border-left: 4px solid var(--blue); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+  .gold-box { background: var(--light-gold); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+
+  .lyrics-box { background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px; padding: 16px 20px; margin: 12px 0; font-size: 12pt; line-height: 2.0; color: var(--navy); font-weight: 500; }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-blue { background: #B3D9F2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-green { background: #C8E6C9; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-pink { background: #F8BBD0; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-red { background: #FFCDD2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate { font-size: 9pt; font-weight: 400; color: var(--mid-grey); display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px; }
+  .lyrics-box .new-line { border-left: 3px solid var(--gold); padding-left: 8px; margin: 4px 0; }
+  .lyrics-box .bridge-sing { color: var(--navy); font-weight: 500; }
+  .lyrics-box .bridge-rap { color: #8B4513; font-weight: 600; font-style: italic; }
+  .lyrics-box .bridge-label { font-size: 8pt; font-weight: 700; display: inline-block; padding: 1px 6px; border-radius: 3px; margin-right: 4px; }
+  .lyrics-box .label-sing { background: var(--light-blue); color: var(--navy); }
+  .lyrics-box .label-rap { background: #FDEBD0; color: #8B4513; }
+
+  .discussion { background: var(--white); border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .discussion-title { font-weight: 700; color: var(--gold); font-size: 10pt; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .discussion ol, .discussion ul { padding-left: 20px; margin: 6px 0; }
+  .discussion li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .technique-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 4px; padding: 12px 16px; margin: 10px 0; }
+  .technique-card h3 { font-size: 12pt; color: var(--navy); font-weight: 900; margin-bottom: 2px; }
+  .technique-card .en { font-size: 9pt; color: var(--mid-grey); font-weight: 400; }
+  .technique-card .def { margin: 6px 0; font-size: 10.5pt; }
+  .technique-card .effect { color: var(--blue); font-weight: 600; font-size: 10pt; }
+
+  .checkpoint { background: var(--navy); color: var(--white); border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 10pt; }
+  .checkpoint-title { font-weight: 700; color: var(--gold); margin-bottom: 4px; font-size: 10.5pt; }
+
+  .q3-box { background: #FFF8F0; border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q3-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q3-marks { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .footer { text-align: center; font-size: 8pt; color: var(--mid-grey); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px; }
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box, .checkpoint, .technique-card { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .discussion, .gold-box, .lyrics-box, .q3-box { page-break-inside: auto; break-inside: auto; }
+    .discussion li, tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第二周 · 第七课 W2 L7</div>
+  <h1>祈祷·呐喊·消亡</h1>
+  <div class="subtitle">主歌3 + 桥段 精读 · Verse 3 &amp; Bridge Close Reading</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">主歌3 + 桥段</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issues</div>
+    <div class="field-value">1.1 + 1.3 + 2.1</div>
+  </div>
+  <div class="field">
+    <div class="field-label">语言技巧 Focus</div>
+    <div class="field-value">设问 · 对位结构</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 理解"设问"手法——分析"谁又能带领着我一起飞翔"的修辞效果<br>
+  ② 分析主歌3新增内容："尘土飘散"比喻 + 天坛祈祷场景的文化意义<br>
+  ③ 掌握"对位结构"——桥段中吟唱与说唱的双重叙事如何形成对话<br>
+  ④ 深入分析桥段中的极端对比："梦想的中心/遥不可及""圆梦的圣地/扑朔迷离"<br>
+  ⑤ 练习 Q3(c) 题型：全面分析语言技巧及其效果（7 分）
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: 主歌3 歌词 + 设问                -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L7 · 祈祷·呐喊·消亡</span>
+  <span>Part A — 主歌3 精读</span>
+</div>
+
+<div class="section-heading">Part A · 主歌3：第三次"漂向北方"——从叹息到祈祷</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>主歌3 是"漂向北方"旋律的第三次出现。L6 分析了第二次重复如何在新语境下加深绝望感。主歌3 在重复的基础上加入了<strong>全新的后半段</strong>——从叙事转向精神层面的祈祷，标志着北漂者从"挣扎求存"到"精神求助"的转变。
+</div>
+
+<div class="lyrics-box">
+  我漂向北方 别问我家乡<br>
+  高耸古老的城墙 挡不住忧伤<br>
+  我漂向北方 家人是否无恙<br>
+  肩上沉重的行囊 盛满了惆怅<br>
+  <span class="new-line"><span class="highlight">就像那尘土飘散随着风向</span></span>
+  <span class="new-line"><span class="highlight-blue">谁又能带领着我一起飞翔</span></span>
+  <span class="new-line"><span class="highlight-green">我站在天坛中央 闭上眼</span></span>
+  <span class="new-line"><span class="highlight-green">祈求一家人都平安</span></span>
+  <span class="annotate">前四句与主歌1/2相同 ｜ 黄色 = 比喻 ｜ 蓝色 = 设问 ｜ 绿色 = 祈祷场景</span>
+</div>
+
+<div class="sub-heading">反复的第三层深化：三次"漂向北方"的情感弧线</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 16%;">段落</th>
+      <th style="width: 28%;">"别问我家乡"的含义</th>
+      <th style="width: 28%;">新增内容</th>
+      <th style="width: 28%;">情感层次</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>主歌1</strong>（L3）</td>
+      <td>逃避——刚来北方，不愿触及家乡</td>
+      <td>无（首次出现）</td>
+      <td>叙述：客观描述北漂处境</td>
+    </tr>
+    <tr>
+      <td><strong>主歌2</strong>（L6）</td>
+      <td>无力——经历失败后，说不出口</td>
+      <td>"回不去的远方"——不可逆转</td>
+      <td>叹息：绝望中的回望</td>
+    </tr>
+    <tr>
+      <td><strong>主歌3</strong>（本课）</td>
+      <td>麻木——已经不需要别人来问</td>
+      <td>"尘土飘散"+"天坛祈祷"——精神寄托</td>
+      <td><strong>祈祷：从人间求助转向精神求助</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>情感弧线总结：</strong>三次"漂向北方"不是简单重复，而是一条完整的情感下降曲线：<strong>叙述 → 叹息 → 祈祷</strong>。当一个人从"告诉你我的困境"变成"闭上眼祈求平安"，说明他已经穷尽了所有世俗层面的努力，只能转向精神世界寻求慰藉。这正是反复技巧的最高形式——同样的旋律，承载着越来越重的绝望。
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: 比喻 + 设问 + 天坛              -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L7 · 祈祷·呐喊·消亡</span>
+  <span>Part B — 设问 + 意象分析</span>
+</div>
+
+<div class="section-heading">Part B · 语言技巧：设问</div>
+
+<div class="technique-card">
+  <h3>设问 <span class="en">Rhetorical Question</span></h3>
+  <div class="def">
+    <strong>定义：</strong>明知没有答案或不需要对方回答，却故意以<strong>问句形式</strong>提出，以引起注意、强调观点或表达强烈情感。设问的答案往往隐含在问题本身之中。
+  </div>
+  <div class="def">
+    <strong>与一般提问的区别：</strong>一般提问是为了获取信息（"你叫什么名字？"）；设问是为了<strong>表达情感</strong>，问者并不期待回答。
+  </div>
+  <div class="effect">
+    效果：引起注意 · 强调无助 · 激发共鸣 · 留白思考
+  </div>
+</div>
+
+<div class="sub-heading">"谁又能带领着我一起飞翔"分析</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">分析维度</th>
+      <th style="width: 80%;">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>表层含义</strong></td>
+      <td>北漂者在困境中发问——谁能帮助我脱离现状？</td>
+    </tr>
+    <tr>
+      <td><strong>隐含答案</strong></td>
+      <td><strong>没有人。</strong>"谁又能"中的"又"字暗示了之前已经多次寻求帮助但失败，现在连发问都带着绝望的预设</td>
+    </tr>
+    <tr>
+      <td><strong>"飞翔"意象</strong></td>
+      <td>与前一句"尘土飘散随着风向"形成对比——尘土只能被动地随风飘散，而"飞翔"是主动的、有方向的。北漂者渴望从被动的"飘"变成主动的"飞"，但这种渴望以设问形式出现，恰恰说明它是不可能实现的</td>
+    </tr>
+    <tr>
+      <td><strong>Issue 联系</strong></td>
+      <td>Issue 1.1：个人在社会变迁中的无力感——面对结构性的社会壁垒，个人的力量微不足道<br>Issue 2.1：年轻人的压力已经超出了个人承受范围，渴望外界的引领与支持</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">"尘土飘散"比喻 + "天坛祈祷"场景</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 25%;">歌词</th>
+      <th style="width: 20%;">手法</th>
+      <th style="width: 55%;">分析</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"就像那尘土飘散随着风向"</td>
+      <td><strong>比喻</strong></td>
+      <td>将北漂者比作尘土——<strong>渺小、无根、随波逐流</strong>。"随着风向"强调个人命运完全受外在环境支配，毫无自主权。与歌名"漂向北方"的"漂"字形成呼应：从"漂"到"飘散"，个人的存在感进一步消解</td>
+    </tr>
+    <tr>
+      <td>"我站在天坛中央 闭上眼<br>祈求一家人都平安"</td>
+      <td><strong>场景描写</strong><br>+<strong>文化象征</strong></td>
+      <td><strong>天坛</strong>是古代皇帝祭天祈福之地——北漂者站在天坛，是以最卑微的姿态向最高的力量祈求。"闭上眼"暗示对现实世界的放弃——不再睁眼面对困境，转而向精神世界求助。"一家人都平安"——最朴素的愿望，反衬出现实处境的艰难（Issue 1.3）</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <ol>
+    <li>为什么歌词选择"天坛"而不是"教堂"或"寺庙"？这个地点的选择有什么文化意义？</li>
+    <li>"祈求一家人都平安"是一个很简单的愿望——为什么一个如此简单的愿望需要"站在天坛中央"才能说出口？</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 对位结构 + 桥段歌词              -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L7 · 祈祷·呐喊·消亡</span>
+  <span>Part C — 桥段：对位结构</span>
+</div>
+
+<div class="section-heading">Part C · 语言技巧：对位结构</div>
+
+<div class="technique-card">
+  <h3>对位结构 <span class="en">Counterpoint Structure</span></h3>
+  <div class="def">
+    <strong>定义：</strong>源自音乐术语，指两条独立的旋律线<strong>同时进行</strong>，各自独立又相互呼应。在歌词中，指两组不同风格/视角的文本<strong>交替出现</strong>，形成对话与张力。
+  </div>
+  <div class="def">
+    <strong>在本曲中的表现：</strong>桥段由<strong>吟唱</strong>（王力宏，重复主歌旋律）和<strong>说唱</strong>（黄明志，全新歌词）两条线交织构成。吟唱是熟悉的悲伤叙述，说唱是愤怒的现实控诉——两种声音、两种情绪同时存在。
+  </div>
+  <div class="effect">
+    效果：多声部叙事 · 情感层次叠加 · 内心矛盾外化 · 戏剧性高潮
+  </div>
+</div>
+
+<div class="sub-heading">桥段歌词：吟唱 vs 说唱</div>
+
+<div class="lyrics-box">
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（我漂向北方）</span><span class="bridge-rap">我站在天子脚下 被踩得喘不过气</span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（别问我家乡）</span><span class="bridge-rap">走在前门大街 跟人潮 总会分歧</span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（高耸古老的城墙）</span><span class="bridge-rap">或许我根本不属于这里 早就该离去</span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（挡不住忧伤）</span><span class="bridge-rap"><span class="highlight-red">谁能给我致命的一击 请用力到彻底</span></span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（我漂向北方）</span><span class="bridge-rap">这里是<span class="highlight">梦想的中心</span> 但梦想都<span class="highlight-pink">遥不可及</span></span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（家人是否无恙）</span><span class="bridge-rap">这里是<span class="highlight">圆梦的圣地</span> 但却总是<span class="highlight-pink">扑朔迷离</span></span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（肩上沉重的行囊）</span><span class="bridge-rap">多少人敌不过残酷的现实 从此<span class="highlight-red">销声匿迹</span></span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（盛满了惆怅）</span><span class="bridge-rap">多少人陷入了昏迷 剩下<span class="highlight-red">一具空壳尸体</span></span><br>
+  <span class="bridge-label label-sing">吟</span><span class="bridge-sing">（也是最后寄望）</span><span class="bridge-rap"><span class="highlight-red">Rest in peace</span></span>
+  <span class="annotate">蓝底 = 吟唱线（王力宏） ｜ 棕色斜体 = 说唱线（黄明志） ｜ 黄色 = 正面期待 ｜ 粉色 = 负面现实 ｜ 红色 = 消亡意象</span>
+</div>
+
+<div class="info-box">
+  <strong>结构解读：</strong>吟唱线不断重复我们已熟悉的"漂向北方"旋律——这是北漂者<strong>内心的悲伤低语</strong>，柔和、无力、循环往复。说唱线则是全新的歌词——这是北漂者<strong>外在的愤怒呐喊</strong>，急促、尖锐、直面现实。两条线同时进行，制造出强烈的戏剧张力：<strong>一边在低泣，一边在怒吼。</strong>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: 桥段深度分析                      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L7 · 祈祷·呐喊·消亡</span>
+  <span>Part D — 桥段极端对比</span>
+</div>
+
+<div class="section-heading">Part D · 桥段说唱线：极端对比与消亡意象</div>
+
+<div class="sub-heading">极端对比：梦想 vs 现实</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30%;">正面表述（期待）</th>
+      <th style="width: 30%;">负面现实（落差）</th>
+      <th style="width: 40%;">分析</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"<strong>梦想的中心</strong>"</td>
+      <td>"梦想都<strong>遥不可及</strong>"</td>
+      <td>地理上到达了中心，精神上却被永远排斥在外——社会流动的虚假承诺（Issue 1.1）</td>
+    </tr>
+    <tr>
+      <td>"<strong>圆梦的圣地</strong>"</td>
+      <td>"却总是<strong>扑朔迷离</strong>"</td>
+      <td>"圣地"暗示朝圣般的虔诚，"扑朔迷离"揭示方向的彻底迷失——不仅梦想遥远，连方向都看不清（Issue 2.1）</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>对比手法的深层效果：</strong>歌词不是简单地说"北京不好"——而是<strong>先肯定再否定</strong>。"梦想的中心"和"圆梦的圣地"承认了北京的吸引力，"但"字转折之后揭示了残酷的落差。这种<strong>先扬后抑</strong>的写法比直接否定更有力量，因为它展现了北漂者从希望到失望的完整心路历程——<strong>他们不是没有梦想，而是梦想在现实面前破碎了。</strong>
+</div>
+
+<div class="sub-heading">消亡意象递进</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30%;">歌词</th>
+      <th style="width: 18%;">消亡层次</th>
+      <th style="width: 52%;">分析</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"被踩得喘不过气"</td>
+      <td><strong>肉体压迫</strong></td>
+      <td>"天子脚下"本是尊贵之地，北漂者却"被踩"——权力中心对底层人物的碾压。"喘不过气"是最基本的生存困难</td>
+    </tr>
+    <tr>
+      <td>"或许我根本不属于这里 早就该离去"</td>
+      <td><strong>归属否定</strong></td>
+      <td>从"不适应"（L6）到"不属于"——身份认同的彻底崩溃。"早就该"暗示后悔与自我否定</td>
+    </tr>
+    <tr>
+      <td>"谁能给我致命的一击 请用力到彻底"</td>
+      <td><strong>精神崩溃</strong></td>
+      <td>不再祈求帮助（主歌3），而是<strong>祈求结束</strong>——"致命的一击"是对痛苦的极端厌倦。"用力到彻底"暗示连彻底的结束都是一种奢望</td>
+    </tr>
+    <tr>
+      <td>"从此销声匿迹"</td>
+      <td><strong>社会消亡</strong></td>
+      <td>"多少人"将个人困境推广到群体——这不是一个人的命运，而是无数北漂者的共同结局。"销声匿迹"——在社会中彻底消失，不留痕迹</td>
+    </tr>
+    <tr>
+      <td>"剩下一具空壳尸体"<br>"Rest in peace"</td>
+      <td><strong>彻底消亡</strong></td>
+      <td>"空壳"——肉体存在但精神已死。"尸体"是全曲最激烈的意象。"Rest in peace"以英语出现，打破了中文歌词的语境，产生强烈的疏离感——像是为北漂梦想写下的<strong>墓志铭</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <ol>
+    <li>桥段中为什么要用"Rest in peace"这句英语来结尾，而不是中文的"安息"？</li>
+    <li>"天子脚下"和"天坛中央"都包含"天"字——但两者在歌词中的含义有何不同？</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: Q3(c) 练习 + 总结               -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W2 L7 · 祈祷·呐喊·消亡</span>
+  <span>Part E — Q3(c) 练习 + 总结</span>
+</div>
+
+<div class="section-heading">Part E · 考试技能：Q3(c) 练习</div>
+
+<div class="info-box">
+  <strong>Q3(c) 题型说明：</strong>(c) 小题通常要求学生<strong>综合分析语言技巧</strong>在整首歌/整段文本中的运用及效果，分值为 <strong>7 分</strong>。答题需要覆盖<strong>多个技巧</strong>，每个技巧包含：命名 → 引用歌词 → 分析效果 → 联系议题。答案应有整体论述的深度，而非简单罗列。
+</div>
+
+<div class="q3-box">
+  <div class="q3-title">模拟题 Practice Question</div>
+  <p><strong>(c)</strong> 歌曲的桥段（bridge）运用了哪些语言技巧来表达北漂者的困境？分析这些技巧如何深化歌曲的主题。<span class="q3-marks">7 分</span></p>
+</div>
+
+<div class="sub-heading">答题框架 Answer Framework</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 14%;">技巧</th>
+      <th style="width: 24%;">引用歌词</th>
+      <th style="width: 36%;">分析效果</th>
+      <th style="width: 26%;">议题联系</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>① 对位结构</strong></td>
+      <td>吟唱"漂向北方"与说唱"天子脚下被踩得喘不过气"同时进行</td>
+      <td>两条声线的对比——悲伤的低语与愤怒的呐喊同时存在，外化了北漂者内心深处的矛盾：既无力反抗，又无法接受</td>
+      <td>Issue 1.1：社会变迁中个人内心的撕裂——对城市既依赖又愤怒</td>
+    </tr>
+    <tr>
+      <td><strong>② 极端对比</strong></td>
+      <td>"梦想的中心/遥不可及"<br>"圆梦的圣地/扑朔迷离"</td>
+      <td>先扬后抑——先承认北京的吸引力，再揭示残酷的落差。连续两组对比强化了"希望→失望"的模式</td>
+      <td>Issue 2.1：年轻人对未来的期待与现实之间的巨大鸿沟</td>
+    </tr>
+    <tr>
+      <td><strong>③ 意象递进</strong></td>
+      <td>"喘不过气"→"销声匿迹"→"空壳尸体"→"Rest in peace"</td>
+      <td>从肉体压迫到社会消亡再到彻底死亡，意象层层加重，构成完整的"消亡链"。英语"RIP"打破语境，产生墓志铭般的疏离效果</td>
+      <td>Issue 1.1：社会对个人的冲击从外部困境发展到精神层面的彻底摧毁</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">课堂练习 Your Turn</div>
+  <p>用上面的框架（技巧命名→引用→分析效果→议题联系），在课堂上口头回答以下题目：</p>
+  <p style="margin-top: 8px; color: var(--navy); font-weight: 600;">(c) 歌曲的主歌3和桥段如何通过语言技巧表达北漂者从"挣扎"到"绝望"的心理转变？（7 分）</p>
+  <p style="font-size: 9.5pt; color: var(--mid-grey); margin-top: 6px;">提示：主歌3的设问（精神层面的求助） → "尘土"比喻（个人渺小） → 天坛场景（精神寄托） → 桥段对位结构（内心撕裂） → 消亡意象递进 → 总结情感弧线</p>
+</div>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">本课核心收获 Key Takeaways</div>
+  ✦ <strong>设问</strong>："谁又能带领着我一起飞翔"——隐含答案是"没有人"，"又"字暗示多次求助无果<br>
+  ✦ <strong>"尘土飘散"比喻</strong>：北漂者如尘土般渺小、无根、随波逐流，与"漂"字的核心意象呼应<br>
+  ✦ <strong>天坛祈祷</strong>：从人间求助转向精神求助，反映了世俗努力的穷尽（Issue 1.3——最朴素的愿望是家人平安）<br>
+  ✦ <strong>对位结构</strong>：吟唱（悲伤低语）vs 说唱（愤怒呐喊）——两种声音外化了内心的撕裂<br>
+  ✦ <strong>极端对比</strong>："梦想中心/遥不可及""圆梦圣地/扑朔迷离"——先扬后抑，展现希望到失望的完整弧线<br>
+  ✦ <strong>消亡意象链</strong>：喘不过气→销声匿迹→空壳尸体→RIP——全曲情感的最低点<br>
+  ✦ <strong>已掌握技巧</strong>：11/11（新增设问·对位结构）——全部语言技巧已学完<br>
+  ✦ 下节课：L8 结尾分析 + 全曲整合——"别再问"vs"别问"的反复变化 + 全曲结构图
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W2 L7<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Issue 1.3 现代社会中的家庭 · Issue 2.1 现代年轻人的压力 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

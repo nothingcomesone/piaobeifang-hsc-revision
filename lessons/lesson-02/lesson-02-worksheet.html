@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L2 练习册 — 排比与细节描写 · Q3 &amp; Q4 Practice</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy); color: var(--white); padding: 10px 18px; font-size: 9pt; font-weight: 500; border-radius: 4px 4px 0 0; }
+  .title-box { background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%); color: var(--white); padding: 22px 24px 18px; border-radius: 0 0 4px 4px; margin-bottom: 16px; }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: 9pt; font-weight: 700; padding: 3px 12px; border-radius: 3px; margin-bottom: 8px; }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 140px; border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; background: var(--white); }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading { background: var(--navy); color: var(--white); padding: 8px 16px; font-size: 12pt; font-weight: 700; border-radius: 4px; margin: 20px 0 12px; }
+  .sub-heading { color: var(--blue); font-size: 11pt; font-weight: 700; border-left: 4px solid var(--gold); padding-left: 10px; margin: 14px 0 8px; }
+
+  .info-box { background: var(--light-blue); border-left: 4px solid var(--blue); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+  .gold-box { background: var(--light-gold); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+
+  .lyrics-box { background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px; padding: 16px 20px; margin: 12px 0; font-size: 12pt; line-height: 2.0; color: var(--navy); font-weight: 500; }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate { font-size: 9pt; font-weight: 400; color: var(--mid-grey); display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .q3-box { background: #FFF8F0; border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q3-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q3-marks { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .q4-box { background: #F0F4FF; border: 2px solid var(--blue); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q4-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q4-marks { display: inline-block; background: var(--blue); color: var(--white); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .writing-line { border-bottom: 1px solid var(--border); height: 28px; width: 100%; }
+  .writing-line-short { border-bottom: 1px solid var(--border); height: 24px; width: 100%; }
+
+  .fill-blank { display: inline-block; border-bottom: 2px solid var(--navy); min-width: 120px; height: 20px; margin: 0 4px; }
+  .fill-blank-long { display: inline-block; border-bottom: 2px solid var(--navy); min-width: 220px; height: 20px; margin: 0 4px; }
+
+  .exercise-num { display: inline-block; background: var(--blue); color: var(--white); font-weight: 700; font-size: 9pt; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; margin-right: 6px; }
+
+  .teel-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 0 4px 4px 0; padding: 10px 14px; margin: 8px 0; }
+  .teel-label { display: inline-block; background: var(--blue); color: var(--white); font-size: 9pt; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 4px; }
+  .teel-prompt { font-size: 10pt; color: var(--mid-grey); margin-top: 4px; font-style: italic; }
+
+  .answer-heading { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 8px 16px; font-size: 11pt; font-weight: 700; color: #2E7D32; border-radius: 0 4px 4px 0; margin: 16px 0 10px; }
+
+  .footer { text-align: center; font-size: 8pt; color: var(--mid-grey); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px; }
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .gold-box, .lyrics-box, .q3-box, .q4-box, .teel-card { page-break-inside: auto; break-inside: auto; }
+    tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER + 技巧热身                -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12 · 课后练习</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">L2 课后练习册 Practice Booklet</div>
+  <h1>排比与细节描写 · Q3 &amp; Q4</h1>
+  <div class="subtitle">主歌1前半 · "有人…有人…" 精读巩固与考试练习</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">主歌1 前半</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心技巧 Techniques</div>
+    <div class="field-value">排比 · 细节描写</div>
+  </div>
+  <div class="field">
+    <div class="field-label">考试技能 Exam Skills</div>
+    <div class="field-value">Q3 (a)(b)(c) + Q4 论点构建</div>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>使用说明：</strong>本练习册配合 L2 课堂内容使用。Part 1 为技巧复习填空（约 10 分钟），Part 2 为 Q3 限时模拟（约 20 分钟），Part 3 为 Q4 论点构建脚手架练习（约 15 分钟），Part 4 为参考答案。建议先完成 Part 1-3，再对照 Part 4 自评。
+</div>
+
+<div class="section-heading">Part 1 · 技巧热身：排比与细节描写</div>
+
+<div class="lyrics-box">
+  <span class="highlight">有人</span>说他在老家欠了一堆钱 需要避避风头<br>
+  <span class="highlight">有人</span>说他练就了一身武艺 却没机会展露<br>
+  <span class="highlight">有人</span>失去了自我 手足无措四处漂流<br>
+  <span class="highlight">有人</span>为了梦想 为了三餐为养家糊口
+</div>
+
+<p style="margin: 12px 0 6px; font-weight: 600; color: var(--navy);">请完成以下填空：</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">1</span>这段歌词使用了 <span class="fill-blank"></span> 手法（中文名称），英文名称是 <span class="fill-blank"></span>。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">2</span>排比的识别标志是：句首重复 <span class="fill-blank"></span> 一词，共出现了 <span class="fill-blank" style="min-width: 40px;"></span> 次。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">3</span>歌词用"有人"而不是具体的名字（如"小明"），这种<strong>匿名性</strong>的效果是：<br>
+  <span class="fill-blank-long"></span><span class="fill-blank-long"></span>
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">4</span>排比手法的三个主要效果是：① <span class="fill-blank"></span>　② <span class="fill-blank"></span>　③ <span class="fill-blank"></span>
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">5</span><strong>细节描写</strong>（Specific Detail）的定义是：用具体的、可感知的事物来描写场景或人物，使 <span class="fill-blank"></span> 的概念变得 <span class="fill-blank"></span>。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">6</span>在这段歌词中，排比提供了 <span class="fill-blank"></span>（重复的句式），细节描写填充了 <span class="fill-blank"></span>（每句里的具体处境）。两者协同工作的效果是：读者不是在"理解"北漂，而是在 <span class="fill-blank"></span> 北漂。
+</p>
+
+<p style="margin: 12px 0 6px; font-weight: 600; color: var(--navy);">将四个"有人"与 Issue 1.1 延伸点连线：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 45%;">歌词</th>
+      <th style="width: 10%;">连线</th>
+      <th style="width: 45%;">Issue 1.1 延伸点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>有人欠了一堆钱 需要避避风头</td>
+      <td style="text-align: center;">→</td>
+      <td>A. 个人角色及责任</td>
+    </tr>
+    <tr>
+      <td>有人练就一身武艺 却没机会展露</td>
+      <td style="text-align: center;">→</td>
+      <td>B. 个人修养及技能</td>
+    </tr>
+    <tr>
+      <td>有人失去了自我 四处漂流</td>
+      <td style="text-align: center;">→</td>
+      <td>C. 社会进步发展对个人的影响</td>
+    </tr>
+    <tr>
+      <td>有人为了梦想 为了三餐养家糊口</td>
+      <td style="text-align: center;">→</td>
+      <td>D. 社会与个人相互影响</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: Q3 模拟                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L2 练习册 · 排比与细节描写</span>
+  <span>Part 2 — Q3 模拟</span>
+</div>
+
+<div class="section-heading">Part 2 · Q3 模拟练习（15 分）</div>
+
+<div class="info-box">
+  <strong>答题要求：</strong>用<strong>中文或英文</strong>作答。每个论点须包含：<strong>引用歌词 → 命名技巧 → 分析效果 → 联系议题</strong>。注意按分值控制答案长度。<br>
+  <strong>建议时间：</strong>(a) 5 min · (b) 8 min · (c) 12 min = 共 25 min
+</div>
+
+<div class="q3-box">
+  <div class="q3-title">Question 3（15 marks）</div>
+
+  <p style="font-size: 10pt; color: var(--mid-grey); margin-bottom: 12px;">
+    阅读《漂向北方》主歌1前半段歌词（"有人说他在老家欠了一堆钱…有人为了梦想 为了三餐为养家糊口"），回答以下问题。<br>
+    閱讀《漂向北方》主歌1前半段歌詞，回答以下問題。<br>
+    <em>Read the first half of Verse 1 from "Drifting North" and answer the following questions.</em>
+  </p>
+
+  <p style="margin-top: 14px;">
+    <strong>(a)</strong>&nbsp;
+    歌词中反复使用"有人"一词有什么效果？<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    歌詞中反復使用"有人"一詞有甚麼效果？<br>
+    <em>What is the effect of the repeated use of "有人" (someone) in the lyrics?</em>
+    </span>
+    <span class="q3-marks">3 分</span>
+  </p>
+
+  <div style="margin: 8px 0 16px;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <p style="margin-top: 14px;">
+    <strong>(b)</strong>&nbsp;
+    根据歌词，分析歌曲如何通过具体的人物处境来体现"不断变化的社会对个人的冲击"这一议题。请引用至少两个不同的"有人"段落。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    根據歌詞，分析歌曲如何通過具體的人物處境來體現"不斷變化的社會對個人的衝擊"這一議題。請引用至少兩個不同的"有人"段落。<br>
+    <em>Analyse how the song uses specific character situations to reflect the issue of "the impact of a changing society on individuals". Refer to at least two different "有人" segments.</em>
+    </span>
+    <span class="q3-marks">5 分</span>
+  </p>
+
+  <div style="margin: 8px 0 16px;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <p style="margin-top: 14px;">
+    <strong>(c)</strong>&nbsp;
+    分析这段歌词中"排比"和"细节描写"两种语言技巧是如何共同作用来塑造北漂群体形象的。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    分析這段歌詞中"排比"和"細節描寫"兩種語言技巧是如何共同作用來塑造北漂群體形象的。<br>
+    <em>Analyse how the two language features — parallelism and specific detail — work together to portray the image of the "bei piao" (north-drifting) community.</em>
+    </span>
+    <span class="q3-marks">7 分</span>
+  </p>
+
+  <div style="margin: 8px 0;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: Q4 论点构建                      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L2 练习册 · 排比与细节描写</span>
+  <span>Part 3 — Q4 论点构建</span>
+</div>
+
+<div class="section-heading">Part 3 · Q4 脚手架练习：论点构建</div>
+
+<div class="info-box">
+  <strong>说明：</strong>这不是一道完整的 Q4——完整 Q4 需要分析<strong>两部</strong>指定作品，并写出 350-450 字的论述。本练习只要求你围绕<strong>一部作品</strong>（《漂向北方》）构建<strong>一个论点段落</strong>，帮助你掌握 TEEL 结构。
+</div>
+
+<div class="q4-box">
+  <div class="q4-title">Q4 模拟题 Practice Prompt</div>
+  <p>
+    "社会的快速变化让许多人失去了自我，被迫成为无名的群体中的一员。"<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">"社會的快速變化讓許多人失去了自我，被迫成為無名的群體中的一員。"</span><br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey); font-style: italic;">'The rapid changes in society have caused many people to lose their sense of self, forced to become nameless members of a faceless crowd.'</span>
+  </p>
+</div>
+
+<div class="sub-heading">Step 1 · 审题——圈出关键词</div>
+
+<p style="margin: 8px 0;">
+  在题目中圈出核心概念，然后填写：
+</p>
+<p style="margin: 8px 0;">
+  关键词 ①：<span class="fill-blank"></span>　关键词 ②：<span class="fill-blank"></span>　关键词 ③：<span class="fill-blank"></span>
+</p>
+<p style="margin: 8px 0;">
+  这道题主要对应 Issue <span class="fill-blank" style="min-width: 40px;"></span>，因为 <span class="fill-blank-long"></span>
+</p>
+
+<div class="sub-heading">Step 2 · 选素材——从歌词中找论据</div>
+
+<p style="margin: 8px 0;">从主歌1前半段中，找出<strong>两处</strong>可以用来论证"失去自我/成为无名群体"的歌词：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 10%;">论据</th>
+      <th style="width: 40%;">歌词引用</th>
+      <th style="width: 25%;">对应的语言技巧</th>
+      <th style="width: 25%;">与题目的关联</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>①</strong></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td><strong>②</strong></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">Step 3 · 用 TEEL 写一个论点段落</div>
+
+<p style="margin: 8px 0; font-size: 10pt; color: var(--mid-grey);">用你在 Step 2 中选择的素材，按 TEEL 结构写出<strong>一个完整的论点段落</strong>（约 80-120 字）。</p>
+
+<div class="teel-card">
+  <div class="teel-label">T — Topic Sentence 主题句</div>
+  <div class="teel-prompt">开门见山，回应题目。例如："《漂向北方》通过……揭示了社会变迁如何……"</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">E — Evidence 论据（引用歌词）</div>
+  <div class="teel-prompt">直接引用歌词原文。例如："歌中写道……"</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">E — Explanation 分析（技巧 + 效果）</div>
+  <div class="teel-prompt">命名技巧，分析效果。例如："作者运用了XX手法，……的效果是……"</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">L — Link 回扣（联系议题）</div>
+  <div class="teel-prompt">回到题目的议题陈述，总结本段论点。例如："这充分体现了……"</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 参考答案                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L2 练习册 · 排比与细节描写</span>
+  <span>Part 4 — 参考答案</span>
+</div>
+
+<div class="section-heading">Part 4 · 参考答案</div>
+
+<div class="answer-heading">Part 1 技巧热身 — 答案</div>
+
+<p style="margin: 6px 0; font-size: 10pt;">
+  <span class="exercise-num">1</span><strong>排比</strong>；Parallelism<br>
+  <span class="exercise-num">2</span><strong>"有人"</strong>；<strong>4</strong> 次<br>
+  <span class="exercise-num">3</span>反映北漂者作为无名群体的<strong>普遍性</strong>——他们没有姓名，只有动作，暗示个人在社会变迁中变得<strong>渺小和被忽视</strong><br>
+  <span class="exercise-num">4</span>① 画面叠加　② 匿名性/普遍性　③ 节奏积累/压迫感<br>
+  <span class="exercise-num">5</span><strong>抽象</strong>的概念变得<strong>具体可感</strong><br>
+  <span class="exercise-num">6</span>排比提供了<strong>结构</strong>，细节描写填充了<strong>内容</strong>；"<strong>看见</strong>"北漂
+</p>
+
+<p style="margin: 10px 0 4px; font-size: 10pt; font-weight: 600;">连线答案：</p>
+<p style="font-size: 10pt;">
+  欠钱避风头 → <strong>C</strong>（社会进步发展对个人的影响）<br>
+  武艺没机会 → <strong>B</strong>（个人修养及技能）<br>
+  失去自我漂流 → <strong>D</strong>（社会与个人相互影响）<br>
+  梦想/三餐/养家 → <strong>A</strong>（个人角色及责任）
+</p>
+
+<div class="answer-heading">Part 2 Q3 — 答案要点</div>
+
+<div class="sub-heading">(a) "有人"的反复使用效果（3 分）</div>
+
+<div class="gold-box">
+  歌词中"有人"一词反复出现四次，构成<strong>排比</strong>结构。其效果有三：第一，<strong>画面叠加</strong>——每个"有人"引出一种不同的北漂处境，连续出现形成一组"蒙太奇"群像，展现北漂群体的多样性。第二，<strong>匿名性</strong>——"有人"而非具体名字，暗示这些北漂者是无名的、被社会忽视的群体，体现了个人在城市化进程中的渺小。第三，<strong>积累感</strong>——重复的结构产生不断堆叠的压迫感，强化了社会冲击的广泛性和深度（Issue 1.1）。
+</div>
+
+<div class="sub-heading">(b) 人物处境与议题的联系（5 分）</div>
+
+<div class="gold-box">
+  <strong>论点①：</strong>"有人说他练就了一身武艺 却没机会展露"——通过<strong>细节描写</strong>刻画了一个怀才不遇的北漂者形象。"一身武艺"是传统意象，暗指现代技能；"却"字转折揭示了社会资源分配不均的现实。这体现了 Issue 1.1 中"个人修养及技能"维度：社会变迁导致人才与机会的错配，个人的能力无法在城市中得到应有的认可。<br><br>
+  <strong>论点②：</strong>"有人失去了自我 手足无措四处漂流"——"失去自我"直接描述了身份认同危机，"四处漂流"与歌名"漂向北方"的"漂"字呼应。这体现了 Issue 1.1 中"社会与个人相互影响"维度：城市化进程瓦解了个人原有的身份认同，北漂者既无法融入城市，也回不了家乡，成为社会夹缝中的漂泊者。
+</div>
+
+<div class="sub-heading">(c) 排比与细节描写的协同作用（7 分）</div>
+
+<div class="gold-box">
+  <strong>排比的作用：</strong>"有人…有人…有人…有人…"的句式重复创造了结构上的统一感和节奏上的积累感。四个"有人"并列，形成一幅北漂生活的全景图，突出社会冲击不是个别现象，而是结构性的、大规模的群体困境。同时，"有人"的匿名性本身就是一种语言选择——反映了社会变迁中个人从"有名有姓"到"无名无姓"的消解过程。<br><br>
+  <strong>细节描写的作用：</strong>每一个"有人"后面跟随的都是具体的、可感知的处境——欠债、武艺无用、失去自我、养家糊口。这些具体细节让"北漂之苦"从抽象概念变成了一个个可以"看见"的人生困境，引发读者的共情。<br><br>
+  <strong>协同效果：</strong>排比提供了<strong>框架</strong>（重复的结构），细节描写填充了<strong>血肉</strong>（具体的故事）。两者结合的效果是：一个又一个有血有肉的个人故事不断叠加，最终汇聚成一个庞大而沉重的北漂群像。读者在阅读时既感受到个体的真实痛苦（细节描写），又体会到这种痛苦的普遍性和不可逃避（排比）。这两种技巧共同深化了 Issue 1.1 的核心主题：不断变化的社会对个人的冲击既是广泛的（排比），也是深刻的、具体的（细节描写）。
+</div>
+
+<div class="answer-heading">Part 3 Q4 — 参考范例</div>
+
+<div class="sub-heading">审题参考</div>
+<p style="margin: 6px 0; font-size: 10pt;">
+  关键词：① 社会的快速变化　② 失去自我　③ 无名的群体<br>
+  对应 Issue <strong>1.1</strong>（不断变化的社会对个人的冲击），兼及 <strong>D. 社会与个人相互影响</strong>
+</p>
+
+<div class="sub-heading">TEEL 论点段落范例</div>
+
+<div class="gold-box">
+  <strong>T：</strong>《漂向北方》通过主歌1前半段的排比结构，深刻揭示了社会快速变化如何将个体消解为无名群体中的一员。<br><br>
+  <strong>E：</strong>歌词写道"有人说他在老家欠了一堆钱 需要避避风头 / 有人说他练就了一身武艺 却没机会展露 / 有人失去了自我 手足无措四处漂流 / 有人为了梦想 为了三餐为养家糊口"。<br><br>
+  <strong>E：</strong>作者运用<strong>排比</strong>手法，以"有人"开头连续列举四种北漂者的困境。值得注意的是，歌词刻意用"有人"而非具体姓名——这种匿名性本身就体现了题目中"成为无名群体"的核心概念。同时，每句歌词包含具体的<strong>细节描写</strong>（欠债、武艺、自我迷失、养家糊口），将"失去自我"这一抽象概念转化为四种可感知的生活困境，使社会冲击变得真实可见。<br><br>
+  <strong>L：</strong>这充分体现了社会快速变化对个人的冲击——在城市化浪潮中，千千万万有着不同故事的个体被简化为"有人"，失去了姓名、身份和自我，印证了题目所述"被迫成为无名群体中的一员"。
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · L2 课后练习册<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

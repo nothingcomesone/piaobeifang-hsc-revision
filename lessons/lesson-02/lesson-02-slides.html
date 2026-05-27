@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W1 L2 — 北漂群像："有人…有人…"</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 18px;
+    font-size: 9pt;
+    font-weight: 500;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .title-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%);
+    color: var(--white);
+    padding: 22px 24px 18px;
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 16px;
+  }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field {
+    flex: 1; min-width: 140px;
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 8px 12px; background: var(--white);
+  }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading {
+    background: var(--navy); color: var(--white);
+    padding: 8px 16px; font-size: 12pt; font-weight: 700;
+    border-radius: 4px; margin: 20px 0 12px;
+  }
+
+  .sub-heading {
+    color: var(--blue); font-size: 11pt; font-weight: 700;
+    border-left: 4px solid var(--gold); padding-left: 10px;
+    margin: 14px 0 8px;
+  }
+
+  .info-box {
+    background: var(--light-blue); border-left: 4px solid var(--blue);
+    padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt;
+  }
+
+  .gold-box {
+    background: var(--light-gold); border-left: 4px solid var(--gold);
+    padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt;
+  }
+
+  .lyrics-box {
+    background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px;
+    padding: 16px 20px; margin: 12px 0;
+    font-size: 13pt; line-height: 2.1; color: var(--navy); font-weight: 500;
+  }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate {
+    font-size: 9pt; font-weight: 400; color: var(--mid-grey);
+    display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px;
+  }
+
+  .discussion {
+    background: var(--white); border: 2px solid var(--gold);
+    border-radius: 6px; padding: 14px 16px; margin: 12px 0;
+  }
+  .discussion-title {
+    font-weight: 700; color: var(--gold); font-size: 10pt;
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .discussion ol, .discussion ul { padding-left: 20px; margin: 6px 0; }
+  .discussion li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .technique-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-top: 3px solid var(--blue); border-radius: 4px;
+    padding: 12px 16px; margin: 10px 0;
+  }
+  .technique-card h3 {
+    font-size: 12pt; color: var(--navy); font-weight: 900; margin-bottom: 2px;
+  }
+  .technique-card .en { font-size: 9pt; color: var(--mid-grey); font-weight: 400; }
+  .technique-card .def { margin: 6px 0; font-size: 10.5pt; }
+  .technique-card .effect { color: var(--blue); font-weight: 600; font-size: 10pt; }
+
+  .checkpoint {
+    background: var(--navy); color: var(--white);
+    border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 10pt;
+  }
+  .checkpoint-title { font-weight: 700; color: var(--gold); margin-bottom: 4px; font-size: 10.5pt; }
+
+  .footer {
+    text-align: center; font-size: 8pt; color: var(--mid-grey);
+    border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px;
+  }
+
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box, .checkpoint, .technique-card { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .discussion, .gold-box, .lyrics-box { page-break-inside: auto; break-inside: auto; }
+    .discussion li, tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第一周 · 第二课 W1 L2</div>
+  <h1>北漂群像："有人…有人…"</h1>
+  <div class="subtitle">主歌1前半精读 · Verse 1 (First Half) Close Reading</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">主歌1 前半</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issue</div>
+    <div class="field-value">1.1 不断变化的社会对个人的冲击</div>
+  </div>
+  <div class="field">
+    <div class="field-label">语言技巧 Focus</div>
+    <div class="field-value">排比 · 细节描写</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 精读主歌1前半段歌词，理解表层含义与深层意义<br>
+  ② 掌握"排比"技巧的定义、识别方法和分析效果<br>
+  ③ 认识"细节描写"如何将抽象的社会议题具体化<br>
+  ④ 将歌词中的人物形象与 Issue 1.1 延伸点对应
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: 复习 + 歌词投影                  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L2 · 北漂群像</span>
+  <span>Part A — 复习与歌词</span>
+</div>
+
+<div class="section-heading">Part A · 复习导入</div>
+
+<div class="info-box">
+  <strong>快速回顾：</strong>上节课我们了解了北漂现象的四层背景（经济推力、户籍制度、北漂心理、黄明志的双重漂泊），并第一次完整聆听了歌曲。今天我们正式进入歌词精读。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">快速提问 Quick Recall</div>
+  <ol>
+    <li>什么是"北漂"？用一句话解释。</li>
+    <li>户籍制度如何影响北漂者的生活？举一个例子。</li>
+    <li>预习时你标记了歌曲中"最有画面感"的一句歌词是什么？</li>
+  </ol>
+</div>
+
+<div class="section-heading">Part B · 歌词精读：主歌1前半</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>投影歌词，全班齐读一遍。注意节奏和语气——这一段是平静的叙述，不是激动的呐喊。
+</div>
+
+<div class="lyrics-box">
+  <span class="highlight">有人</span>说他在老家欠了一堆钱<br>
+  需要避避风头<br>
+  <span class="highlight">有人</span>说他练就了一身武艺<br>
+  却没机会展露<br>
+  <span class="highlight">有人</span>失去了自我<br>
+  手足无措四处漂流<br>
+  <span class="highlight">有人</span>为了梦想<br>
+  为了三餐为养家糊口
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: 排比技巧                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L2 · 北漂群像</span>
+  <span>Part C — 语言技巧：排比</span>
+</div>
+
+<div class="section-heading">Part C · 语言技巧一：排比</div>
+
+<div class="technique-card">
+  <h3>排比 <span class="en">Parallelism</span></h3>
+  <div class="def">
+    <strong>定义：</strong>用<strong>结构相同或相似</strong>的句式，连续排列三个或三个以上的句子/短语，表达相关的内容。
+  </div>
+  <div class="def">
+    <strong>识别标志：</strong>句首重复相同的词语（如"有人…有人…有人…有人…"），句式结构相似，内容层层展开。
+  </div>
+  <div class="effect">
+    效果：节奏感 · 积累感 · 画面叠加 · 情感强化
+  </div>
+</div>
+
+<div class="sub-heading">排比在这段歌词中的三重效果</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">效果</th>
+      <th style="width: 40%;">具体分析</th>
+      <th style="width: 38%;">与议题的联系</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>① 画面叠加</strong></td>
+      <td>每一个"有人"都引出一种不同的北漂处境，连续出现形成一组北漂生活的"蒙太奇"群像</td>
+      <td>社会变化不只影响一个人，而是影响了千千万万的个体 → 冲击的广泛性</td>
+    </tr>
+    <tr>
+      <td><strong>② 匿名性</strong></td>
+      <td>用"有人"而不是具体名字——这些人没有姓名，只有动作。他们是无名的、被忽视的群体</td>
+      <td>在不断变化的社会中，个人变得渺小和匿名 → 社会对个人的"消解"</td>
+    </tr>
+    <tr>
+      <td><strong>③ 节奏积累</strong></td>
+      <td>重复的句式形成一种"不断堆叠"的压迫感，读者/听众感受到这些人的数量之多、处境之普遍</td>
+      <td>社会冲击不是个别现象，而是结构性的、大规模的 → 冲击的深度</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <p>如果把所有的"有人"换成一个具体的名字，比如"小明说他欠了钱，小明练就了武艺，小明失去了自我…"——效果会有什么不同？为什么歌词选择了"有人"？</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 细节描写 + 人物分析               -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L2 · 北漂群像</span>
+  <span>Part D — 语言技巧：细节描写</span>
+</div>
+
+<div class="section-heading">Part D · 语言技巧二：细节描写</div>
+
+<div class="technique-card">
+  <h3>细节描写 <span class="en">Specific / Concrete Detail</span></h3>
+  <div class="def">
+    <strong>定义：</strong>用具体的、细小的、可感知的事物来描写场景或人物，使抽象的概念变得<strong>具体可感</strong>。
+  </div>
+  <div class="def">
+    <strong>在歌词中的表现：</strong>不说"北漂很辛苦"，而是写出具体的处境——欠债避风头、有武艺没机会、失去自我四处漂流、为三餐养家糊口。每一个细节都是一个可以"看见"的困境。
+  </div>
+  <div class="effect">
+    效果：真实感 · 画面感 · 共情 · 以小见大
+  </div>
+</div>
+
+<div class="sub-heading">排比 + 细节描写：如何协同工作？</div>
+
+<div class="gold-box">
+  排比提供了<strong>结构</strong>（重复的"有人…"句式），细节描写填充了<strong>内容</strong>（每句里具体的处境和困境）。两者结合的效果是：一个又一个具体的人生故事不断叠加，形成一个庞大的北漂群像——读者不是在"理解"北漂，而是在"看见"北漂。
+</div>
+
+<div class="sub-heading">人物形象分类</div>
+
+<p style="margin: 8px 0;">歌词中的每个"有人"都代表了一种不同类型的北漂者。我们可以逐一归类：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 32%;">歌词原文</th>
+      <th style="width: 22%;">北漂者类型</th>
+      <th style="width: 46%;">Issue 1.1 延伸点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>有人说他在老家<strong>欠了一堆钱</strong><br>需要避避风头</td>
+      <td>经济逃离者</td>
+      <td><strong>社会进步发展对个人的影响</strong>——经济发展不平衡导致基层债务危机，个人被迫通过地理流动逃避困境</td>
+    </tr>
+    <tr>
+      <td>有人说他练就了<strong>一身武艺</strong><br>却没机会展露</td>
+      <td>怀才不遇者</td>
+      <td><strong>个人修养及技能</strong>——有才华但缺乏平台和机会，社会资源分配不均制约了个人发展</td>
+    </tr>
+    <tr>
+      <td>有人<strong>失去了自我</strong><br>手足无措四处漂流</td>
+      <td>身份迷失者</td>
+      <td><strong>社会与个人相互影响</strong>——在社会变迁中失去身份认同，既不属于城市也回不了家乡</td>
+    </tr>
+    <tr>
+      <td>有人为了<strong>梦想</strong><br>为了三餐为<strong>养家糊口</strong></td>
+      <td>理想与生存的挣扎者</td>
+      <td><strong>个人角色及责任</strong>——梦想与生存的双重压力，个人在追求理想和承担家庭责任之间的艰难平衡</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: 小组活动 + 收尾                   -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L2 · 北漂群像</span>
+  <span>Part E — 活动与总结</span>
+</div>
+
+<div class="section-heading">Part E · 议题归类活动</div>
+
+<div class="info-box">
+  <strong>小组活动：</strong>每组选择主歌1前半中的<strong>两个"有人…"段落</strong>，完成以下分析表格。
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">分析维度</th>
+      <th style="width: 40%;">场景一：__________</th>
+      <th style="width: 40%;">场景二：__________</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>表层含义</strong><br>（字面说了什么？）</td>
+      <td>&nbsp;<br>&nbsp;<br>&nbsp;</td>
+      <td>&nbsp;<br>&nbsp;<br>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><strong>深层意义</strong><br>（实际在表达什么？）</td>
+      <td>&nbsp;<br>&nbsp;<br>&nbsp;</td>
+      <td>&nbsp;<br>&nbsp;<br>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><strong>语言技巧</strong><br>（排比/细节描写？效果？）</td>
+      <td>&nbsp;<br>&nbsp;<br>&nbsp;</td>
+      <td>&nbsp;<br>&nbsp;<br>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><strong>议题联系</strong><br>（对应 1.1 哪个延伸？）</td>
+      <td>&nbsp;<br>&nbsp;<br>&nbsp;</td>
+      <td>&nbsp;<br>&nbsp;<br>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>Issue 1.1 延伸点速查 Quick Reference：</strong><br>
+  <strong>A.</strong> 个人角色及责任 — 个人在社会变迁中承担的角色和义务<br>
+  <strong>B.</strong> 个人修养及技能 — 个人能力/才华在社会中的发展空间<br>
+  <strong>C.</strong> 社会进步发展对个人的影响 — 经济/科技发展如何改变个人生活<br>
+  <strong>D.</strong> 社会与个人相互影响 — 社会结构与个人命运的双向关系
+</div>
+
+<div class="section-heading">Part F · 仿写练习</div>
+
+<div class="info-box">
+  <strong>创意活动：</strong>模仿歌词的排比结构，写出<strong>2-3个"有人…"段落</strong>，描述你想象中（或你知道的）任何一种"漂泊者"的处境。不一定是北漂——可以是留学生、移民、在大城市打拼的年轻人等。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">示范 Model</div>
+  <p style="color: var(--navy); font-weight: 500;">
+    有人说她拿到了奖学金<br>
+    却付不起房租<br>
+    有人说他习惯了一个人吃饭<br>
+    却在视频通话里假装微笑<br>
+    有人为了一张签证<br>
+    放弃了所有的骄傲
+  </p>
+  <p style="font-size: 9.5pt; color: var(--mid-grey); margin-top: 6px;">→ 排比结构（有人…有人…有人…）+ 具体处境（奖学金vs房租、一个人吃饭、为签证放弃骄傲）= 具体可感的漂泊群像</p>
+</div>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">本课核心收获 Key Takeaways</div>
+  ✦ <strong>排比</strong>通过"有人…有人…"的结构重复创造积累感，"有人"的匿名性反映北漂群体的普遍性<br>
+  ✦ <strong>细节描写</strong>用具体处境（欠债、武艺无用、失去自我、养家糊口）替代抽象概念<br>
+  ✦ 四个"有人"分别对应 Issue 1.1 的四个延伸点（经济/技能/身份/责任）<br>
+  ✦ 下节课：主歌1后半——"漂"字象征与对比手法
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W1 L2<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

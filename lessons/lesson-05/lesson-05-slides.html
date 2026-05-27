@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W1 L5 — 周总结 + Q3 模拟</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 18px;
+    font-size: 9pt;
+    font-weight: 500;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .title-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%);
+    color: var(--white);
+    padding: 22px 24px 18px;
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 16px;
+  }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field {
+    flex: 1; min-width: 140px;
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 8px 12px; background: var(--white);
+  }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading {
+    background: var(--navy); color: var(--white);
+    padding: 8px 16px; font-size: 12pt; font-weight: 700;
+    border-radius: 4px; margin: 20px 0 12px;
+  }
+
+  .sub-heading {
+    color: var(--blue); font-size: 11pt; font-weight: 700;
+    border-left: 4px solid var(--gold); padding-left: 10px;
+    margin: 14px 0 8px;
+  }
+
+  .info-box {
+    background: var(--light-blue); border-left: 4px solid var(--blue);
+    padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt;
+  }
+
+  .gold-box {
+    background: var(--light-gold); border-left: 4px solid var(--gold);
+    padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt;
+  }
+
+  .lyrics-box {
+    background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px;
+    padding: 16px 20px; margin: 12px 0;
+    font-size: 12pt; line-height: 2.0; color: var(--navy); font-weight: 500;
+  }
+  .lyrics-box .bracket { color: var(--mid-grey); font-weight: 400; font-size: 10.5pt; }
+
+  .discussion {
+    background: var(--white); border: 2px solid var(--gold);
+    border-radius: 6px; padding: 14px 16px; margin: 12px 0;
+  }
+  .discussion-title {
+    font-weight: 700; color: var(--gold); font-size: 10pt;
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .discussion ol, .discussion ul { padding-left: 20px; margin: 6px 0; }
+  .discussion li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .structure-box {
+    background: var(--white); border: 2px solid var(--navy);
+    border-radius: 6px; padding: 16px 20px; margin: 12px 0;
+  }
+  .struct-row {
+    display: flex; gap: 6px; margin: 4px 0; flex-wrap: wrap; align-items: center;
+  }
+  .struct-block {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 10pt;
+    font-weight: 600;
+    text-align: center;
+  }
+  .struct-learned { background: var(--navy); color: var(--white); }
+  .struct-upcoming { background: var(--light-grey); color: var(--mid-grey); border: 1px dashed var(--border); }
+  .struct-arrow { color: var(--gold); font-weight: 900; font-size: 14pt; line-height: 1; }
+
+  .q3-box {
+    background: #FFF8F0; border: 2px solid var(--gold);
+    border-radius: 6px; padding: 16px 20px; margin: 12px 0;
+  }
+  .q3-title {
+    font-weight: 900; color: var(--navy); font-size: 12pt;
+    margin-bottom: 8px; letter-spacing: 0.5px;
+  }
+  .q3-marks {
+    display: inline-block; background: var(--gold); color: var(--navy);
+    font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px;
+    margin-left: 6px;
+  }
+
+  .checkpoint {
+    background: var(--navy); color: var(--white);
+    border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 10pt;
+  }
+  .checkpoint-title { font-weight: 700; color: var(--gold); margin-bottom: 4px; font-size: 10.5pt; }
+
+  .footer {
+    text-align: center; font-size: 8pt; color: var(--mid-grey);
+    border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px;
+  }
+
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+
+    .struct-row { display: block; }
+    .struct-block { margin: 3px 2px; }
+
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box, .checkpoint { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .discussion, .gold-box, .lyrics-box, .q3-box, .structure-box { page-break-inside: auto; break-inside: auto; }
+    .discussion li, tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第一周 · 第五课 W1 L5</div>
+  <h1>周总结 + Q3 模拟</h1>
+  <div class="subtitle">Week 1 Review + Q3 Full Practice (15 marks)</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">主歌1 + 副歌1 整合</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issue</div>
+    <div class="field-value">1.1 整合复习</div>
+  </div>
+  <div class="field">
+    <div class="field-label">考试技能 Exam Skill</div>
+    <div class="field-value">Q3 完整模拟 (15 分)</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 回顾歌曲结构图，标注已学部分与未学部分<br>
+  ② 快速复习 7 个语言技巧——定义、歌词实例、核心效果<br>
+  ③ 完成一道完整的 Q3 模拟题（15 分：3 + 5 + 7）<br>
+  ④ 归纳 Issue 1.1 在主歌1和副歌1中的不同面向
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: 歌曲结构图                       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L5 · 周总结 + Q3 模拟</span>
+  <span>Part A — 歌曲结构回顾</span>
+</div>
+
+<div class="section-heading">Part A · 歌曲结构图：我们学到了哪里？</div>
+
+<div class="info-box">
+  <strong>活动：</strong>全班一起回顾歌曲结构。深蓝色 = 已精读部分，灰色 = 第二周将学习的部分。
+</div>
+
+<div class="structure-box">
+  <div class="struct-row">
+    <span class="struct-block struct-learned">主歌1 前半<br><span style="font-size:8pt;">L2 · 北漂群像</span></span>
+    <span class="struct-arrow">→</span>
+    <span class="struct-block struct-learned">主歌1 后半<br><span style="font-size:8pt;">L3 · 城墙·行囊·燕郊</span></span>
+    <span class="struct-arrow">→</span>
+    <span class="struct-block struct-learned">副歌1<br><span style="font-size:8pt;">L4 · 情感爆发</span></span>
+  </div>
+  <div class="struct-row" style="margin-top: 8px;">
+    <span class="struct-block struct-upcoming">主歌2<br><span style="font-size:8pt;">L6</span></span>
+    <span class="struct-arrow">→</span>
+    <span class="struct-block struct-upcoming">副歌2<br><span style="font-size:8pt;">L6</span></span>
+    <span class="struct-arrow">→</span>
+    <span class="struct-block struct-upcoming">主歌3<br><span style="font-size:8pt;">L7</span></span>
+    <span class="struct-arrow">→</span>
+    <span class="struct-block struct-upcoming">桥段<br><span style="font-size:8pt;">L7</span></span>
+    <span class="struct-arrow">→</span>
+    <span class="struct-block struct-upcoming">结尾<br><span style="font-size:8pt;">L8</span></span>
+  </div>
+</div>
+
+<div class="sub-heading">已学部分的功能总结</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 18%;">段落</th>
+      <th style="width: 25%;">功能</th>
+      <th style="width: 30%;">核心内容</th>
+      <th style="width: 27%;">关键技巧</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>主歌1 前半</strong></td>
+      <td>群像叙事——"看见他们"</td>
+      <td>四种北漂者类型：经济逃离/怀才不遇/身份迷失/理想生存</td>
+      <td>排比 · 细节描写</td>
+    </tr>
+    <tr>
+      <td><strong>主歌1 后半</strong></td>
+      <td>个人聚焦——"成为他"</td>
+      <td>叙事视角转变、城墙象征、行囊借喻、燕郊纪实</td>
+      <td>象征 · 对比 · 借喻</td>
+    </tr>
+    <tr>
+      <td><strong>副歌1</strong></td>
+      <td>情感爆发——"感受他"</td>
+      <td>双轨结构、梦想成重担、身份层层卸下、南北意象对比</td>
+      <td>矛盾修辞 · 递进</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">快速提问 Quick Check</div>
+  <ol>
+    <li>主歌1的功能是______（叙事/抒情），副歌1的功能是______（叙事/抒情）。</li>
+    <li>从主歌到副歌，情感是从______到______（克制/爆发）。</li>
+    <li>已学的三个段落分别让听众"______他们""______他""______他"。</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: 7 技巧快速竞赛                   -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L5 · 周总结 + Q3 模拟</span>
+  <span>Part B — 7 技巧快速复习</span>
+</div>
+
+<div class="section-heading">Part B · 7 个语言技巧快速竞赛</div>
+
+<div class="info-box">
+  <strong>活动：</strong>分组竞赛——每组抽到一个技巧，用<strong>30秒</strong>向全班解释：① 定义 ② 歌词实例 ③ 效果。其他组补充或纠正。
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 5%;">#</th>
+      <th style="width: 13%;">技巧</th>
+      <th style="width: 27%;">一句话定义</th>
+      <th style="width: 30%;">歌词实例</th>
+      <th style="width: 25%;">核心效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>排比</strong></td>
+      <td>结构相同的句式连续排列三个以上</td>
+      <td>有人…有人…有人…有人…</td>
+      <td>画面叠加、匿名性、节奏积累</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>细节描写</strong></td>
+      <td>用具体可感知的事物描写场景</td>
+      <td>欠了一堆钱 / 一身武艺 / 残破的求职公寓</td>
+      <td>真实感、画面感、以小见大</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>象征</strong></td>
+      <td>用具体事物代表抽象概念</td>
+      <td>高耸古老的城墙</td>
+      <td>含蓄多义、引发思考</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>对比</strong></td>
+      <td>把相反的事物并置形成反差</td>
+      <td>城墙 vs 忧伤 / 埋头 vs 憧憬</td>
+      <td>揭示矛盾、突出差距</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>借喻</strong></td>
+      <td>直接用喻体替代本体，不说明比喻关系</td>
+      <td>行囊盛满了惆怅</td>
+      <td>抽象情感具象化</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>矛盾修辞</strong></td>
+      <td>把意义相反的词放在一起</td>
+      <td>抗下了梦想</td>
+      <td>冲击力、揭示扭曲关系</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>递进</strong></td>
+      <td>内容由轻到重、由浅到深层层推进</td>
+      <td>自尊→光环→过去多风光</td>
+      <td>层层深入、不可逆转感</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>议题面向归纳：</strong>Issue 1.1"不断变化的社会对个人的冲击"在这首歌前半部分至少体现了以下面向：经济逃离、人才错配、身份迷失、家庭分离、社会壁垒（城墙/户籍）、身份认同危机（层层卸下）、精神世界侵蚀（梦想成重担）、环境/文化不适应（雾霾/迷惘）。学生在 Q3(c) 答题时可以从中选取 3-4 个面向展开论述。
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: Q3 模拟题                        -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L5 · 周总结 + Q3 模拟</span>
+  <span>Part C — Q3 模拟练习</span>
+</div>
+
+<div class="section-heading">Part C · Q3 模拟练习（15 分）</div>
+
+<div class="info-box">
+  <strong>考试情境：</strong>以下是 HSC Section II Part A Question 3 的完整模拟。请在规定时间内独立完成。建议用时：(a) 5 分钟 (b) 10 分钟 (c) 15 分钟。
+</div>
+
+<div class="sub-heading">歌词节选</div>
+
+<div class="lyrics-box">
+  漂向北方 别问我家乡<br>
+  高耸古老的城墙 挡不住忧伤<br>
+  我漂向北方 家人是否无恙<br>
+  肩上沉重的行囊 盛满了惆怅<br><br>
+
+  有人说他在老家欠了一堆钱<br>
+  需要避避风头<br>
+  有人说他练就了一身武艺<br>
+  却没机会展露<br>
+  有人失去了自我<br>
+  手足无措四处漂流<br>
+  有人为了梦想<br>
+  为了三餐为养家糊口<br><br>
+
+  他住在燕郊区<br>
+  残破的求职公寓<br>
+  拥挤的大楼里<br>
+  堆满陌生人都来自外地<br>
+  他埋头写着履历<br>
+  怀抱着多少憧憬<br>
+  往返在九三零号公路<br>
+  内心盼着奇迹
+</div>
+
+<div class="q3-box">
+  <div class="q3-title">Question 3</div>
+  <p style="margin-bottom: 10px;"><strong>(a)</strong> "肩上沉重的行囊 盛满了惆怅"——解释这句歌词的含义。<span class="q3-marks">3 分</span></p>
+  <p style="margin-bottom: 10px;"><strong>(b)</strong> 根据以上歌词，解释年轻人选择北漂的原因有哪些？<span class="q3-marks">5 分</span></p>
+  <p><strong>(c)</strong> 根据整首歌词，分析北漂族要面临哪些困难？<span class="q3-marks">7 分</span></p>
+</div>
+
+<div class="gold-box">
+  <strong>答题提醒：</strong><br>
+  (a) 3 分 = 表层含义 + 深层意义 + 语言技巧效果<br>
+  (b) 5 分 = 至少 3 个原因，每个原因需引用歌词 + 分析<br>
+  (c) 7 分 = 至少 4 个困难面向，需引用整首歌词（不限节选），联系 Issue 1.1
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: Q3(a) 参考答案                    -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L5 · 周总结 + Q3 模拟</span>
+  <span>Part D — 参考答案 (a)</span>
+</div>
+
+<div class="section-heading">Part D · 参考答案与评分标准</div>
+
+<div class="sub-heading">(a) "肩上沉重的行囊 盛满了惆怅"（3 分）</div>
+
+<div class="q3-box">
+  <p>这句歌词通过<strong>借喻</strong>的修辞手法，深刻地描绘了北漂族内心的精神负担。</p>
+  <p style="margin-top: 6px;"><strong>表层含义：</strong>"沉重的行囊"表面上指的是实际携带的行李，描述北漂者肩上背负的物品。</p>
+  <p style="margin-top: 6px;"><strong>深层含义：</strong>"行囊"借指北漂者所背负的多重压力和责任——经济负担、思乡之情以及对未来的不确定性。</p>
+  <p style="margin-top: 6px;"><strong>语言效果：</strong>"盛满了惆怅"将抽象的情感具象化为可以"盛"进容器的物质，暗示压力已到极限，行囊中再也装不下更多。这让读者不仅"理解"北漂者的压力，更能"感受"到这种压力的沉重。</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 15%;">分数</th>
+      <th style="width: 85%;">评分标准</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>3 分</strong></td>
+      <td>完整覆盖表层含义 + 深层意义 + 语言技巧效果，论述清晰</td>
+    </tr>
+    <tr>
+      <td><strong>2 分</strong></td>
+      <td>覆盖其中两个维度，或三个维度均有涉及但不够深入</td>
+    </tr>
+    <tr>
+      <td><strong>1 分</strong></td>
+      <td>只覆盖一个维度，或理解存在偏差</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">(b) 年轻人选择北漂的原因（5 分）</div>
+
+<div class="q3-box">
+  <p><strong>原因一：经济压力。</strong>歌词中"有人说他在老家欠了一堆钱，需要避避风头"直接点明了一些人因经济困境被迫离开家乡。家乡经济发展不足、就业机会有限，使得许多人不得不到大城市寻求更好的收入。</p>
+  <p style="margin-top: 6px;"><strong>原因二：追求发展空间。</strong>"有人说他练就了一身武艺，却没机会展露"表明家乡无法提供足够的平台让有才能的年轻人发挥所长，他们期望在大城市找到展示自我价值的机会。</p>
+  <p style="margin-top: 6px;"><strong>原因三：追求梦想与改善家庭生活。</strong>"有人为了梦想，为了三餐为养家糊口"表明一部分人是为了追逐梦想以及改善家庭生活条件而选择北漂。他们肩负着家庭期望，希望通过自己的努力改变命运。</p>
+  <p style="margin-top: 6px;"><strong>总结：</strong>歌词展现了经济压力、发展空间局限以及追求梦想和更好生活的愿望是促使年轻人北漂的主要原因，这些因素反映了中国社会发展不平衡带来的现实问题。</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: Q3(c) 参考答案                    -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L5 · 周总结 + Q3 模拟</span>
+  <span>Part D（续）— 参考答案 (c)</span>
+</div>
+
+<div class="sub-heading">(c) 北漂族面临的困难（7 分）</div>
+
+<div class="q3-box">
+  <p><strong>困难一：居住条件恶劣。</strong>"他住在燕郊区，残破的求职公寓，拥挤的大楼里"生动地展现了北漂者居住环境的艰苦。燕郊作为北京远郊区，租金较低但条件差，反映了城市高房价导致的社会分化。</p>
+  <p style="margin-top: 6px;"><strong>困难二：社会归属感缺失。</strong>"堆满陌生人都来自外地"和副歌中的"斜视冷漠的眼光"表明北漂者在城市中感受到的疏离和排斥，始终被视为"外来者"，缺乏真正的归属感。</p>
+  <p style="margin-top: 6px;"><strong>困难三：就业压力巨大。</strong>"他埋头写着履历，怀抱着多少憧憬"描绘了求职过程的艰辛。"有人练就了一身武艺，却没机会展露"更揭示了人才与机会的结构性错配。</p>
+  <p style="margin-top: 6px;"><strong>困难四：精神孤独与思乡。</strong>歌词反复出现"别问我家乡""家人是否无恙"，展现了内心深处的思乡之情和对亲人的牵挂。副歌中"椰子树摇晃 梦境倒映着的幻想"更将家乡描绘为不可触及的幻梦。</p>
+  <p style="margin-top: 6px;"><strong>困难五：环境适应。</strong>"空气太脏太混浊他说不喜欢，车太混乱太匆忙他还不习惯"描述了从家乡清新环境到城市污染和喧嚣的巨大反差。"雾霾太猖狂 不散 都看不清前方"更象征了前途的不确定性。</p>
+  <p style="margin-top: 6px;"><strong>总结：</strong>北漂族面临的困难涵盖物质（居住/就业）、社会（归属感/融入）、精神（孤独/乡愁）和环境（适应/迷茫）等多个层面，全方位反映了中国城市化进程中社会问题的复杂性。</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 15%;">分数段</th>
+      <th style="width: 85%;">评分标准</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>6-7 分</strong></td>
+      <td>覆盖 4+ 面向，每个面向引用歌词原文 + 深入分析，联系议题，论述有逻辑层次</td>
+    </tr>
+    <tr>
+      <td><strong>4-5 分</strong></td>
+      <td>覆盖 3 个面向，引用歌词但分析深度不足，议题联系不够紧密</td>
+    </tr>
+    <tr>
+      <td><strong>2-3 分</strong></td>
+      <td>覆盖 1-2 个面向，引用较少，分析停留在表面</td>
+    </tr>
+    <tr>
+      <td><strong>0-1 分</strong></td>
+      <td>理解存在重大偏差，或未能引用歌词</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 7: 跨文化联系 + 总结                 -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L5 · 周总结 + Q3 模拟</span>
+  <span>Part E — 跨文化联系 + 总结</span>
+</div>
+
+<div class="section-heading">Part E · 跨文化联系</div>
+
+<div class="info-box">
+  <strong>讨论引导：</strong>《漂向北方》描述的是中国北漂族的处境，但"漂泊"并非中国独有的现象。作为在澳大利亚生活的华裔学生，你能找到哪些相似之处？
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30%;">《漂向北方》中的现象</th>
+      <th style="width: 35%;">澳大利亚对应现象</th>
+      <th style="width: 35%;">共同的议题核心</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>北漂者的城乡流动</td>
+      <td>州际迁移（Regional → Sydney/Melbourne）</td>
+      <td>经济发展不平衡推动人口流动</td>
+    </tr>
+    <tr>
+      <td>户籍制度造成的身份壁垒</td>
+      <td>签证制度对移民的限制</td>
+      <td>制度性障碍对个人机会的制约</td>
+    </tr>
+    <tr>
+      <td>"别问我家乡"的文化身份焦虑</td>
+      <td>华裔学生的"你从哪里来？"困扰</td>
+      <td>多元文化社会中的身份认同</td>
+    </tr>
+    <tr>
+      <td>"行囊盛满惆怅"的家庭分离</td>
+      <td>留学生/移民家庭的跨国分离</td>
+      <td>现代社会中家庭关系的挑战</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">开放讨论 Open Discussion</div>
+  <ol>
+    <li>你或你的家人有过"漂泊"的经历吗？歌词中哪句最让你产生共鸣？</li>
+    <li>如果把"漂向北方"改写成"漂向南方"（描述一个中国人移民到澳大利亚的故事），"城墙"可以换成什么象征物？"行囊"里会盛满什么？</li>
+  </ol>
+</div>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">第一周总结 Week 1 Summary</div>
+  ✦ <strong>歌曲结构</strong>：已精读 主歌1（前半+后半）+ 副歌1，占全曲约 1/3<br>
+  ✦ <strong>语言技巧</strong>：已掌握 7/11 个（排比·细节描写·象征·对比·借喻·矛盾修辞·递进）<br>
+  ✦ <strong>议题</strong>：Issue 1.1 为核心，1.3（家庭）和 2.1（年轻人压力）为延伸<br>
+  ✦ <strong>考试技能</strong>：L3 初练 Q3(a) → L5 完成 Q3 完整模拟（15 分）<br>
+  ✦ <strong>叙事弧线</strong>：群像（有人…）→ 个人（城墙·行囊）→ 情感爆发（副歌）<br>
+  ✦ <strong>下周预告</strong>：L6 主歌2（反复+叠词）· L7 桥段（设问+对位结构）· L8 结尾整合 · L9 Q3+Q4 综合模拟
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W1 L5<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

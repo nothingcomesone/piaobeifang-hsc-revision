@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L4 练习册 — 矛盾修辞·递进 · Q3 &amp; Q4 Practice</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy); color: var(--white); padding: 10px 18px; font-size: 9pt; font-weight: 500; border-radius: 4px 4px 0 0; }
+  .title-box { background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%); color: var(--white); padding: 22px 24px 18px; border-radius: 0 0 4px 4px; margin-bottom: 16px; }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: 9pt; font-weight: 700; padding: 3px 12px; border-radius: 3px; margin-bottom: 8px; }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 140px; border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; background: var(--white); }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading { background: var(--navy); color: var(--white); padding: 8px 16px; font-size: 12pt; font-weight: 700; border-radius: 4px; margin: 20px 0 12px; }
+  .sub-heading { color: var(--blue); font-size: 11pt; font-weight: 700; border-left: 4px solid var(--gold); padding-left: 10px; margin: 14px 0 8px; }
+
+  .info-box { background: var(--light-blue); border-left: 4px solid var(--blue); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+  .gold-box { background: var(--light-gold); border-left: 4px solid var(--gold); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt; }
+
+  .lyrics-box { background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px; padding: 16px 20px; margin: 12px 0; font-size: 12pt; line-height: 2.0; color: var(--navy); font-weight: 500; }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-blue { background: #B3D9F2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-green { background: #C8E6C9; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-pink { background: #F8BBD0; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate { font-size: 9pt; font-weight: 400; color: var(--mid-grey); display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .q3-box { background: #FFF8F0; border: 2px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q3-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q3-marks { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .q4-box { background: #F0F4FF; border: 2px solid var(--blue); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .q4-title { font-weight: 900; color: var(--navy); font-size: 11pt; margin-bottom: 6px; }
+  .q4-marks { display: inline-block; background: var(--blue); color: var(--white); font-weight: 700; font-size: 9pt; padding: 2px 8px; border-radius: 3px; margin-left: 6px; }
+
+  .writing-line { border-bottom: 1px solid var(--border); height: 28px; width: 100%; }
+  .writing-line-short { border-bottom: 1px solid var(--border); height: 24px; width: 100%; }
+
+  .fill-blank { display: inline-block; border-bottom: 2px solid var(--navy); min-width: 120px; height: 20px; margin: 0 4px; }
+  .fill-blank-long { display: inline-block; border-bottom: 2px solid var(--navy); min-width: 220px; height: 20px; margin: 0 4px; }
+
+  .exercise-num { display: inline-block; background: var(--blue); color: var(--white); font-weight: 700; font-size: 9pt; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; margin-right: 6px; }
+
+  .teel-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 0 4px 4px 0; padding: 10px 14px; margin: 8px 0; }
+  .teel-label { display: inline-block; background: var(--blue); color: var(--white); font-size: 9pt; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 4px; }
+  .teel-prompt { font-size: 10pt; color: var(--mid-grey); margin-top: 4px; font-style: italic; }
+
+  .answer-heading { background: #E8F5E9; border-left: 4px solid #4CAF50; padding: 8px 16px; font-size: 11pt; font-weight: 700; color: #2E7D32; border-radius: 0 4px 4px 0; margin: 16px 0 10px; }
+
+  .footer { text-align: center; font-size: 8pt; color: var(--mid-grey); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px; }
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .gold-box, .lyrics-box, .q3-box, .q4-box, .teel-card { page-break-inside: auto; break-inside: auto; }
+    tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER + 技巧热身                -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12 · 课后练习</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">L4 课后练习册 Practice Booklet</div>
+  <h1>矛盾修辞·递进 · Q3 &amp; Q4</h1>
+  <div class="subtitle">副歌1精读 · 情感爆发的语言机制巩固与考试练习</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">副歌1</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心技巧 Techniques</div>
+    <div class="field-value">矛盾修辞 · 递进</div>
+  </div>
+  <div class="field">
+    <div class="field-label">考试技能 Exam Skills</div>
+    <div class="field-value">Q3 (a)(b)(c) + Q4 论点构建</div>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>使用说明：</strong>本练习册配合 L4 课堂内容使用。Part 1 为技巧复习（约 10 分钟），Part 2 为 Q3 模拟（约 25 分钟），Part 3 为 Q4 论点构建脚手架练习（约 15 分钟），Part 4 为参考答案。建议先独立完成 Part 1-3，再对照 Part 4 自评。
+</div>
+
+<div class="section-heading">Part 1 · 技巧热身：矛盾修辞·递进</div>
+
+<div class="lyrics-box">
+  <span class="highlight">忍着泪</span> （不听也不想 不敢回头望的遗憾）<br>
+  <span class="highlight">掩着伤</span> （<span class="highlight-pink">抗下了梦想</span> 要毅然决然去流浪）<br>
+  <span class="highlight">抬头看</span> （<span class="highlight-blue">卸下了自尊 光环 过去多风光</span>）<br>
+  <span class="highlight">着斜阳</span> （就算再不堪 败仗 也不能投降）<br>
+  <span class="highlight-green">亲爱的</span> （再见了南方 眺望最美丽的家乡）<br>
+  <span class="highlight-green">在远方</span> （椰子树摇晃 梦境倒映着的幻想）<br>
+  <span class="highlight-green">这城市</span> （雾霾太猖狂 不散 都看不清前方）<br>
+  太迷惘
+  <span class="annotate">黄色 = 外在动作 ｜ 粉色 = 矛盾修辞 ｜ 蓝色 = 递进 ｜ 绿色 = 空间意象</span>
+</div>
+
+<p style="margin: 12px 0 6px; font-weight: 600; color: var(--navy);">请完成以下填空：</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">1</span><strong>矛盾修辞</strong>（Oxymoron）的定义是：把两个 <span class="fill-blank"></span> 的词语放在一起使用，创造出 <span class="fill-blank-long"></span> 的表达效果。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">2</span>"抗下了梦想"为什么构成矛盾修辞？<br>
+  &emsp;"梦想"通常让人联想到 <span class="fill-blank"></span> 的事物；<br>
+  &emsp;"抗"这个字意味着 <span class="fill-blank"></span>。<br>
+  &emsp;两者放在一起，梦想就从 <span class="fill-blank"></span> 变成了 <span class="fill-blank"></span>。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">3</span><strong>递进</strong>（Climax / Gradation）的定义是：将内容按照 <span class="fill-blank"></span> 的顺序排列，使情感或论述的力度 <span class="fill-blank"></span>。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">4</span>递进与排比的区别：排比强调的是 <span class="fill-blank"></span>（几个事物平等呈现）；递进强调的是 <span class="fill-blank"></span>（每一项比前一项更进一步）。
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">5</span>"卸下了自尊 光环 过去多风光"中，三层递进分别放下了什么？<br>
+  &emsp;第一层"自尊"→ <span class="fill-blank-long"></span><br>
+  &emsp;第二层"光环"→ <span class="fill-blank-long"></span><br>
+  &emsp;第三层"过去多风光"→ <span class="fill-blank-long"></span>
+</p>
+
+<p style="margin: 8px 0;">
+  <span class="exercise-num">6</span>副歌采用独特的<strong>"双轨"结构</strong>：每行前面的短句表达 <span class="fill-blank"></span>（如"忍着泪""掩着伤"），括号内的长句表达 <span class="fill-blank"></span>。这种结构的效果是揭示 <span class="fill-blank-long"></span> 之间的反差。
+</p>
+
+<p style="margin: 12px 0 6px; font-weight: 600; color: var(--navy);">技巧识别：判断下列歌词使用了哪种技巧（矛盾修辞 / 递进 / 对比 / 借喻）</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 55%;">歌词</th>
+      <th style="width: 25%;">技巧名称</th>
+      <th style="width: 20%;">效果关键词</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"抗下了梦想 要毅然决然去流浪"</td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td>"卸下了自尊 光环 过去多风光"</td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td>"椰子树摇晃" vs "雾霾太猖狂"</td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td>"肩上沉重的行囊 盛满了惆怅"</td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: Q3 模拟                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L4 练习册 · 矛盾修辞·递进</span>
+  <span>Part 2 — Q3 模拟</span>
+</div>
+
+<div class="section-heading">Part 2 · Q3 模拟练习（15 分）</div>
+
+<div class="info-box">
+  <strong>答题要求：</strong>用<strong>中文或英文</strong>作答。每个论点须包含：<strong>引用歌词 → 命名技巧 → 分析效果 → 联系议题</strong>。<br>
+  <strong>建议时间：</strong>(a) 5 min · (b) 8 min · (c) 12 min = 共 25 min
+</div>
+
+<div class="q3-box">
+  <div class="q3-title">Question 3（15 marks）</div>
+
+  <p style="font-size: 10pt; color: var(--mid-grey); margin-bottom: 12px;">
+    阅读《漂向北方》副歌1歌词（"忍着泪…太迷惘"），回答以下问题。<br>
+    閱讀《漂向北方》副歌1歌詞（"忍著淚…太迷惘"），回答以下問題。<br>
+    <em>Read the Chorus 1 lyrics from "Drifting North" ("holding back tears…too lost") and answer the following questions.</em>
+  </p>
+
+  <p style="margin-top: 14px;">
+    <strong>(a)</strong>&nbsp;
+    解释"抗下了梦想"一句如何运用矛盾修辞来揭示北漂者的处境。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    解釋"抗下了夢想"一句如何運用矛盾修辭來揭示北漂者的處境。<br>
+    <em>Explain how the phrase "bearing the weight of dreams" uses oxymoron to reveal the predicament of the "bei piao" community.</em>
+    </span>
+    <span class="q3-marks">3 分</span>
+  </p>
+
+  <div style="margin: 8px 0 16px;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <p style="margin-top: 14px;">
+    <strong>(b)</strong>&nbsp;
+    分析"卸下了自尊 光环 过去多风光"一句中递进手法的运用及其效果。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    分析"卸下了自尊 光環 過去多風光"一句中遞進手法的運用及其效果。<br>
+    <em>Analyse the use and effect of climax (gradation) in the line "shed self-esteem, glory, and all past splendour".</em>
+    </span>
+    <span class="q3-marks">5 分</span>
+  </p>
+
+  <div style="margin: 8px 0 16px;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <p style="margin-top: 14px;">
+    <strong>(c)</strong>&nbsp;
+    分析副歌1如何综合运用矛盾修辞、递进和对比等语言技巧来表达北漂者从坚持到迷惘的情感历程。请结合整段副歌内容回答。<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">
+    分析副歌1如何綜合運用矛盾修辭、遞進和對比等語言技巧來表達北漂者從堅持到迷惘的情感歷程。請結合整段副歌內容回答。<br>
+    <em>Analyse how Chorus 1 uses language features including oxymoron, climax and contrast to convey the emotional journey of the "bei piao" community from perseverance to disillusionment. Refer to the entire chorus.</em>
+    </span>
+    <span class="q3-marks">7 分</span>
+  </p>
+
+  <div style="margin: 8px 0;">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: Q4 论点构建                      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L4 练习册 · 矛盾修辞·递进</span>
+  <span>Part 3 — Q4 论点构建</span>
+</div>
+
+<div class="section-heading">Part 3 · Q4 脚手架练习：论点构建</div>
+
+<div class="info-box">
+  <strong>说明：</strong>本练习只要求围绕<strong>一部作品</strong>（《漂向北方》）构建<strong>一个论点段落</strong>，帮助你掌握 TEEL 结构。完整 Q4 需分析两部指定作品并写 350-450 字。
+</div>
+
+<div class="q4-box">
+  <div class="q4-title">Q4 模拟题 Practice Prompt</div>
+  <p>
+    "在追求个人理想的过程中，年轻人往往需要付出沉重的代价，甚至牺牲自我。"<br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey);">"在追求個人理想的過程中，年輕人往往需要付出沉重的代價，甚至犧牲自我。"</span><br>
+    <span style="font-size: 9.5pt; color: var(--mid-grey); font-style: italic;">'In the pursuit of personal ideals, young people often have to pay a heavy price, even sacrificing their sense of self.'</span>
+  </p>
+</div>
+
+<div class="sub-heading">Step 1 · 审题——圈关键词 + 判断议题</div>
+
+<p style="margin: 8px 0;">
+  关键词 ①：<span class="fill-blank"></span>　关键词 ②：<span class="fill-blank"></span>　关键词 ③：<span class="fill-blank"></span>
+</p>
+<p style="margin: 8px 0;">
+  这道题主要对应 Issue <span class="fill-blank" style="min-width: 40px;"></span> + Issue <span class="fill-blank" style="min-width: 40px;"></span><br>
+  理由：<span class="fill-blank-long"></span>
+</p>
+<p style="margin: 8px 0;">
+  题目中"牺牲自我"与副歌中哪句歌词直接呼应？<span class="fill-blank-long"></span>
+</p>
+
+<div class="sub-heading">Step 2 · 选素材——从歌词中找论据</div>
+
+<p style="margin: 8px 0;">从副歌1中，找出<strong>两处</strong>可以论证"追求理想需要付出代价/牺牲自我"的歌词：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 10%;">论据</th>
+      <th style="width: 35%;">歌词引用</th>
+      <th style="width: 20%;">语言技巧</th>
+      <th style="width: 35%;">与题目"牺牲自我"的关联</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>①</strong></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+    </tr>
+    <tr>
+      <td><strong>②</strong></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div></td>
+      <td><div class="writing-line-short"></div><div class="writing-line-short"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-heading">Step 3 · 用 TEEL 写一个论点段落（约 80-120 字）</div>
+
+<div class="teel-card">
+  <div class="teel-label">T — Topic Sentence 主题句</div>
+  <div class="teel-prompt">回应题目中"追求理想需要牺牲自我"这一核心概念。</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">E — Evidence 论据（引用歌词）</div>
+  <div class="teel-prompt">直接引用歌词原文。例如："副歌中写道'抗下了梦想 要毅然决然去流浪'……"</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">E — Explanation 分析（技巧 + 效果）</div>
+  <div class="teel-prompt">命名技巧（矛盾修辞/递进），分析效果，联系"牺牲自我"。</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+<div class="teel-card">
+  <div class="teel-label">L — Link 回扣（联系议题）</div>
+  <div class="teel-prompt">回到"追求个人理想需要付出沉重代价"这一论述。</div>
+  <div class="writing-line"></div>
+  <div class="writing-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 参考答案                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>L4 练习册 · 矛盾修辞·递进</span>
+  <span>Part 4 — 参考答案</span>
+</div>
+
+<div class="section-heading">Part 4 · 参考答案</div>
+
+<div class="answer-heading">Part 1 技巧热身 — 答案</div>
+
+<p style="margin: 6px 0; font-size: 10pt;">
+  <span class="exercise-num">1</span>把两个<strong>意义相反或矛盾</strong>的词语放在一起使用；创造出<strong>"不可能但又真实"</strong>的表达效果<br>
+  <span class="exercise-num">2</span>"梦想"让人联想到<strong>美好的、轻盈的、令人向往</strong>的事物；"抗"意味着<strong>扛起重物、承受重担</strong>；梦想从<strong>翅膀/希望</strong>变成了<strong>压在肩上的重担</strong><br>
+  <span class="exercise-num">3</span>按照<strong>由轻到重、由浅到深</strong>的顺序排列；使力度<strong>逐级增强</strong><br>
+  <span class="exercise-num">4</span>排比强调<strong>并列</strong>；递进强调<strong>升级</strong><br>
+  <span class="exercise-num">5</span>第一层"自尊"→ <strong>内在的自我价值感，最基本的人格尊严</strong>；第二层"光环"→ <strong>外在的成就光芒，他人的认可和赞赏</strong>；第三层"过去多风光"→ <strong>整个过去的辉煌，全部的历史身份</strong><br>
+  <span class="exercise-num">6</span>短句表达<strong>外在动作/行为</strong>；长句表达<strong>内心独白/真实感受</strong>；揭示<strong>外在沉默（克制）与内在汹涌（情感爆发）</strong>之间的反差
+</p>
+
+<p style="margin: 10px 0 4px; font-size: 10pt; font-weight: 600;">技巧识别答案：</p>
+<p style="font-size: 10pt;">
+  "抗下了梦想 要毅然决然去流浪" → <strong>矛盾修辞</strong>（梦想变成重担；坚定的选择导向漂泊的结果）<br>
+  "卸下了自尊 光环 过去多风光" → <strong>递进</strong>（由内到外层层放下，身份逐步归零）<br>
+  "椰子树摇晃" vs "雾霾太猖狂" → <strong>对比</strong>（南方温暖自然 vs 北方灰暗压抑）<br>
+  "行囊 盛满了惆怅" → <strong>借喻</strong>（行囊借指压力，抽象情感具象化）
+</p>
+
+<div class="answer-heading">Part 2 Q3 — 答案要点</div>
+
+<div class="sub-heading">(a) "抗下了梦想"的矛盾修辞（3 分）</div>
+
+<div class="gold-box">
+  <strong>矛盾所在：</strong>"梦想"通常是美好的、轻盈的、令人向往的。但"抗"（扛起）这个字意味着承受重物。将两者放在一起，梦想从令人憧憬的"翅膀"变成了压在肩上的<strong>"重担"</strong>。<br><br>
+  <strong>揭示的处境：</strong>在北漂的现实中，追求梦想不是轻松的旅程，而是一种<strong>负担</strong>——为了梦想必须"掩着伤""毅然决然去流浪"，付出自尊、舒适和家庭团聚的代价。<br><br>
+  <strong>议题联系：</strong>这反映了 Issue 2.1（现代年轻人的压力）——当代社会对年轻人的期待让"梦想"的含义发生了扭曲，从个人向往变成了生存压力的一部分。
+</div>
+
+<div class="sub-heading">(b) 递进手法的运用及效果（5 分）</div>
+
+<div class="gold-box">
+  <strong>论点①——三层递进：</strong>"自尊"是内在的自我价值感，是最基本的人格尊严；"光环"是外在的成就光芒，他人的认可与赞赏；"过去多风光"是整个过去的辉煌，全部的历史身份。三者按照<strong>从内到外、从局部到全部</strong>的顺序层层递进。<br><br>
+  <strong>论点②——"卸下"的不可逆性：</strong>"卸下"这个动词暗示了一种半主动半被迫的放弃——不是突然失去，而是在城市生存压力下<strong>一层一层地剥离</strong>。从最核心的自尊到整个过去，这个过程是<strong>不可逆的</strong>，让人感受到越来越深的失落，直到彻底"归零"。<br><br>
+  <strong>议题联系：</strong>递进手法深刻体现了 Issue 1.1（社会变迁对个人的冲击）——在社会流动中，个人身份被层层剥离：从家乡的"风光"到大城市的无名小卒，身份认同在城市化的冲击下逐步瓦解。
+</div>
+
+<div class="sub-heading">(c) 语言技巧综合分析（7 分）</div>
+
+<div class="gold-box">
+  <strong>① 矛盾修辞——揭示理想与现实的扭曲：</strong>"抗下了梦想 要毅然决然去流浪"中，"抗"让梦想从翅膀变成重担，"毅然决然"的坚定选择导向了"流浪"的漂泊结果。两组矛盾揭示了北漂者的核心困境：<strong>最坚定的选择导向了最不确定的结果</strong>。这反映了 Issue 2.1 中年轻人面对的压力——理想与现实之间的巨大落差（Issue 2.1）。<br><br>
+  <strong>② 递进——展现身份的逐步瓦解：</strong>"卸下了自尊 光环 过去多风光"按照由内到外的顺序层层递进：先放下内心最核心的东西（自尊），再放下外在的社会认可（光环），最后连整个过去的身份都放下了（风光）。这种不可逆的递进让读者感受到<strong>越来越深的失落</strong>，深刻体现了 Issue 1.1 中社会变迁导致的身份认同危机。<br><br>
+  <strong>③ 对比——空间意象中的情感撕裂：</strong>副歌后半段构建了南方与北方的强烈对比——"椰子树摇晃"代表温暖自然的家乡，"雾霾太猖狂"代表灰暗压抑的北方城市。然而家乡已是"梦境倒映着的幻想"——不可触及的过去，而北方则"看不清前方"——逃不掉的现在。南方=回不去的美好，北方=逃不出的迷惘，构成了一种<strong>空间上的情感撕裂</strong>。<br><br>
+  <strong>总结：</strong>副歌1通过矛盾修辞揭示理想与现实的扭曲，递进展现身份的逐步瓦解，对比呈现空间上的情感撕裂，三种技巧共同勾勒了一条从<strong>坚持（抗下梦想）→ 失落（卸下自尊）→ 乡愁（再见南方）→ 迷惘（看不清前方）</strong>的情感弧线，深化了歌曲"社会变迁对个人全方位冲击"的核心主题。
+</div>
+
+<div class="answer-heading">Part 3 Q4 — 参考范例</div>
+
+<div class="sub-heading">审题参考</div>
+<p style="margin: 6px 0; font-size: 10pt;">
+  关键词：① 个人理想　② 沉重的代价　③ 牺牲自我<br>
+  对应 Issue <strong>2.1</strong>（现代年轻人的压力）+ Issue <strong>1.1</strong>（社会变迁对个人的冲击）<br>
+  "牺牲自我"与副歌中<strong>"卸下了自尊 光环 过去多风光"</strong>直接呼应
+</p>
+
+<div class="sub-heading">TEEL 论点段落范例</div>
+
+<div class="gold-box">
+  <strong>T：</strong>《漂向北方》的副歌深刻揭示了年轻人为追求理想所付出的沉重代价——在城市化浪潮中，他们不得不层层卸下自我，直至身份归零。<br><br>
+  <strong>E：</strong>副歌写道"掩着伤（抗下了梦想 要毅然决然去流浪）""抬头看（卸下了自尊 光环 过去多风光）"。<br><br>
+  <strong>E：</strong>作者运用<strong>矛盾修辞</strong>，将"梦想"与"抗"并置——本应美好轻盈的理想变成了压在肩头的重担，揭示了当代社会中追梦的沉重本质。紧接着，<strong>递进</strong>手法将"自尊→光环→过去多风光"层层推进，北漂者从最核心的人格尊严到整个过去的辉煌被逐一剥离，呈现出一种不可逆的"归零"过程——正是题目所说的"牺牲自我"。<br><br>
+  <strong>L：</strong>由此可见，现代社会中年轻人追求理想的代价远不止物质层面的艰辛，更是精神层面的自我消解——他们在"毅然决然"的坚持中，一步步失去了定义自我的一切。
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · L4 课后练习册<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Issue 2.1 现代年轻人的压力 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>

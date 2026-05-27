@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W1 L4 — 副歌的情感爆发</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2E75B6;
+    --light-blue: #D5E8F0;
+    --gold: #C9A84C;
+    --light-gold: #FDF6E3;
+    --white: #FFFFFF;
+    --light-grey: #F2F2F2;
+    --mid-grey: #666666;
+    --dark: #222222;
+    --border: #CCCCCC;
+  }
+
+  @page { size: A4; margin: 16mm 18mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--dark);
+    padding: 18mm;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fafafa;
+  }
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 18px;
+    font-size: 9pt;
+    font-weight: 500;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .title-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #234B73 100%);
+    color: var(--white);
+    padding: 22px 24px 18px;
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 16px;
+  }
+  .title-box h1 { font-size: 20pt; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
+  .title-box .subtitle { font-size: 11pt; font-weight: 300; color: var(--light-blue); }
+  .title-box .lesson-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  .info-fields { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .field {
+    flex: 1; min-width: 140px;
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 8px 12px; background: var(--white);
+  }
+  .field-label { font-size: 8pt; color: var(--mid-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .field-value { font-size: 10pt; font-weight: 500; }
+
+  .section-heading {
+    background: var(--navy); color: var(--white);
+    padding: 8px 16px; font-size: 12pt; font-weight: 700;
+    border-radius: 4px; margin: 20px 0 12px;
+  }
+
+  .sub-heading {
+    color: var(--blue); font-size: 11pt; font-weight: 700;
+    border-left: 4px solid var(--gold); padding-left: 10px;
+    margin: 14px 0 8px;
+  }
+
+  .info-box {
+    background: var(--light-blue); border-left: 4px solid var(--blue);
+    padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt;
+  }
+
+  .gold-box {
+    background: var(--light-gold); border-left: 4px solid var(--gold);
+    padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 10px 0; font-size: 10.5pt;
+  }
+
+  .lyrics-box {
+    background: #F9F6F0; border: 1px solid #DDD5C5; border-radius: 6px;
+    padding: 16px 20px; margin: 12px 0;
+    font-size: 12pt; line-height: 2.0; color: var(--navy); font-weight: 500;
+  }
+  .lyrics-box .highlight { background: #FFEAA7; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-blue { background: #B3D9F2; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-green { background: #C8E6C9; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .highlight-pink { background: #F8BBD0; padding: 1px 4px; border-radius: 2px; }
+  .lyrics-box .annotate {
+    font-size: 9pt; font-weight: 400; color: var(--mid-grey);
+    display: block; line-height: 1.4; margin-top: -4px; margin-bottom: 6px;
+  }
+  .lyrics-box .bracket { color: var(--mid-grey); font-weight: 400; font-size: 10.5pt; }
+
+  .discussion {
+    background: var(--white); border: 2px solid var(--gold);
+    border-radius: 6px; padding: 14px 16px; margin: 12px 0;
+  }
+  .discussion-title {
+    font-weight: 700; color: var(--gold); font-size: 10pt;
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .discussion ol, .discussion ul { padding-left: 20px; margin: 6px 0; }
+  .discussion li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: var(--navy); color: var(--white); padding: 8px 10px; text-align: left; font-weight: 700; font-size: 9.5pt; }
+  td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-grey); }
+
+  .technique-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-top: 3px solid var(--blue); border-radius: 4px;
+    padding: 12px 16px; margin: 10px 0;
+  }
+  .technique-card h3 {
+    font-size: 12pt; color: var(--navy); font-weight: 900; margin-bottom: 2px;
+  }
+  .technique-card .en { font-size: 9pt; color: var(--mid-grey); font-weight: 400; }
+  .technique-card .def { margin: 6px 0; font-size: 10.5pt; }
+  .technique-card .effect { color: var(--blue); font-weight: 600; font-size: 10pt; }
+
+  .checkpoint {
+    background: var(--navy); color: var(--white);
+    border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 10pt;
+  }
+  .checkpoint-title { font-weight: 700; color: var(--gold); margin-bottom: 4px; font-size: 10.5pt; }
+
+  .tracker-tag {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 2px 8px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    margin: 2px 3px;
+  }
+  .tracker-tag.learned { background: var(--navy); color: var(--white); }
+  .tracker-tag.new { background: var(--gold); color: var(--navy); }
+  .tracker-tag.upcoming { background: var(--light-grey); color: var(--mid-grey); border: 1px solid var(--border); }
+
+  .footer {
+    text-align: center; font-size: 8pt; color: var(--mid-grey);
+    border-top: 1px solid var(--border); padding-top: 10px; margin-top: 24px;
+  }
+
+  .page-break { page-break-before: always; break-before: page; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; max-width: none; width: 100%; font-size: 10.5pt; background: white; }
+    .page-break { page-break-before: always; break-before: page; }
+
+    .header-bar { display: table; width: 100%; table-layout: fixed; }
+    .header-bar > span:first-child { display: table-cell; text-align: left; width: 60%; }
+    .header-bar > span:last-child { display: table-cell; text-align: right; width: 40%; }
+
+    .info-fields { display: table; width: 100%; table-layout: fixed; }
+    .info-fields .field { display: table-cell; padding-right: 12px; }
+
+    h2, h3, .section-heading, .sub-heading { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+    .title-box, .checkpoint, .technique-card { page-break-inside: avoid; break-inside: avoid; }
+    .info-box, .discussion, .gold-box, .lyrics-box { page-break-inside: auto; break-inside: auto; }
+    .discussion li, tr { page-break-inside: avoid; break-inside: avoid; }
+    table { page-break-inside: auto; break-inside: auto; width: 100% !important; max-width: 100%; }
+    thead { display: table-header-group; }
+    td, th { overflow-wrap: break-word; word-wrap: break-word; }
+    .footer { page-break-before: avoid; break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header-bar">
+  <span>HSC Chinese and Literature</span>
+  <span>Year 12</span>
+</div>
+
+<div class="title-box">
+  <div class="lesson-tag">第一周 · 第四课 W1 L4</div>
+  <h1>副歌的情感爆发</h1>
+  <div class="subtitle">副歌1精读 · Chorus 1 Close Reading</div>
+</div>
+
+<div class="info-fields">
+  <div class="field">
+    <div class="field-label">歌曲段落 Song Section</div>
+    <div class="field-value">副歌1</div>
+  </div>
+  <div class="field">
+    <div class="field-label">核心议题 Core Issues</div>
+    <div class="field-value">1.1 + 2.1</div>
+  </div>
+  <div class="field">
+    <div class="field-label">语言技巧 Focus</div>
+    <div class="field-value">矛盾修辞 · 递进</div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <strong>本课目标 Learning Objectives：</strong><br>
+  ① 理解主歌→副歌的功能转变（叙事→抒情）<br>
+  ② 掌握"矛盾修辞"技巧：分析"抗下了梦想"如何让梦想变成重担<br>
+  ③ 掌握"递进"技巧：分析"自尊→光环→风光"的层层卸下<br>
+  ④ 分析"雾霾"与"椰子树"的北方 vs 南方意象对比<br>
+  ⑤ 整理截至本课的语言技巧积累表（7个技巧）
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: 复习 + 主歌→副歌转变            -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L4 · 副歌的情感爆发</span>
+  <span>Part A — 结构转变</span>
+</div>
+
+<div class="section-heading">Part A · 复习 + 主歌→副歌的功能转变</div>
+
+<div class="info-box">
+  <strong>快速回顾：</strong>前三课我们精读了整个主歌1——从北漂群像（有人…有人…）到个人视角（城墙·行囊·燕郊）。今天我们进入<strong>副歌</strong>，歌曲的情感密度会急剧升高。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">快速提问 Quick Recall</div>
+  <ol>
+    <li>"城墙"在歌词中有哪三层象征含义？</li>
+    <li>"行囊盛满惆怅"用了什么语言技巧？效果是什么？</li>
+    <li>主歌1前半（群像）和后半（个人）在叙事视角上有什么不同？</li>
+  </ol>
+</div>
+
+<div class="sub-heading">主歌 vs 副歌：功能对比</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 18%;">对比维度</th>
+      <th style="width: 41%;">主歌 Verse</th>
+      <th style="width: 41%;">副歌 Chorus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>功能</strong></td>
+      <td>叙事——讲述故事、描写场景、塑造人物</td>
+      <td>抒情——释放情感、表达内心</td>
+    </tr>
+    <tr>
+      <td><strong>情感强度</strong></td>
+      <td>克制、平静，像一个旁观者在讲述</td>
+      <td>爆发、激烈，像当事人在呐喊</td>
+    </tr>
+    <tr>
+      <td><strong>语速/节奏</strong></td>
+      <td>较慢、叙述性，一句一个画面</td>
+      <td>较快、密集，情感层层叠加</td>
+    </tr>
+    <tr>
+      <td><strong>在本歌中</strong></td>
+      <td>群像（有人…）+ 个人（燕郊）= 建立情境</td>
+      <td>泪、伤、败仗、迷惘 = 释放积压的情感</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>关键认识：</strong>副歌不是"重复"的段落——它是主歌积蓄的情感在这里集中释放。主歌用排比和细节描写<strong>让你"看见"北漂</strong>，副歌用矛盾修辞和递进<strong>让你"感受"北漂</strong>。
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: 歌词投影 + 结构                  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L4 · 副歌的情感爆发</span>
+  <span>Part B — 歌词精读</span>
+</div>
+
+<div class="section-heading">Part B · 歌词精读：副歌1</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>副歌采用独特的"双轨"结构——每行都有一个<strong>短句</strong>（外在动作）和一个<strong>括号内的长句</strong>（内心独白）。投影歌词时建议用不同颜色标注这两个层次。
+</div>
+
+<div class="lyrics-box">
+  <span class="highlight">忍着泪</span> <span class="bracket">（不听也不想 不敢回头望的遗憾）</span><br>
+  <span class="highlight">掩着伤</span> <span class="bracket">（<span class="highlight-pink">抗下了梦想</span> 要毅然决然去流浪）</span><br>
+  <span class="highlight">抬头看</span> <span class="bracket">（<span class="highlight-blue">卸下了自尊 光环 过去多风光</span>）</span><br>
+  <span class="highlight">着斜阳</span> <span class="bracket">（就算再不堪 败仗 也不能投降）</span><br>
+  <span class="highlight-green">亲爱的</span> <span class="bracket">（再见了南方 眺望最美丽的家乡）</span><br>
+  <span class="highlight-green">在远方</span> <span class="bracket">（椰子树摇晃 梦境倒映着的幻想）</span><br>
+  <span class="highlight-green">这城市</span> <span class="bracket">（雾霾太猖狂 不散 都看不清前方）</span><br>
+  太迷惘
+  <span class="annotate">黄色 = 外在动作/状态 ｜ 粉色 = 矛盾修辞 ｜ 蓝色 = 递进 ｜ 绿色 = 空间意象</span>
+</div>
+
+<div class="sub-heading">副歌的"双轨"结构</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 15%;">行号</th>
+      <th style="width: 22%;">外在（短句）</th>
+      <th style="width: 38%;">内在（括号长句）</th>
+      <th style="width: 25%;">情感关键词</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>第1行</td>
+      <td>忍着泪</td>
+      <td>不听也不想 不敢回头望的遗憾</td>
+      <td>遗憾 · 逃避</td>
+    </tr>
+    <tr>
+      <td>第2行</td>
+      <td>掩着伤</td>
+      <td>抗下了梦想 要毅然决然去流浪</td>
+      <td>坚持 · 无奈</td>
+    </tr>
+    <tr>
+      <td>第3行</td>
+      <td>抬头看</td>
+      <td>卸下了自尊 光环 过去多风光</td>
+      <td>失落 · 放下</td>
+    </tr>
+    <tr>
+      <td>第4行</td>
+      <td>着斜阳</td>
+      <td>就算再不堪 败仗 也不能投降</td>
+      <td>倔强 · 不服输</td>
+    </tr>
+    <tr>
+      <td>第5-6行</td>
+      <td>亲爱的 / 在远方</td>
+      <td>再见了南方…椰子树摇晃…幻想</td>
+      <td>乡愁 · 幻灭</td>
+    </tr>
+    <tr>
+      <td>第7行</td>
+      <td>这城市</td>
+      <td>雾霾太猖狂 不散 都看不清前方</td>
+      <td>迷茫 · 无助</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: 矛盾修辞                        -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L4 · 副歌的情感爆发</span>
+  <span>Part C — 语言技巧：矛盾修辞</span>
+</div>
+
+<div class="section-heading">Part C · 语言技巧一：矛盾修辞</div>
+
+<div class="technique-card">
+  <h3>矛盾修辞 <span class="en">Oxymoron</span></h3>
+  <div class="def">
+    <strong>定义：</strong>把两个<strong>意义相反或矛盾</strong>的词语放在一起使用，创造出一种"不可能但又真实"的表达效果。读者会感到意外和冲击。
+  </div>
+  <div class="def">
+    <strong>常见例子：</strong>"甜蜜的痛苦""残忍的温柔""美丽的错误"
+  </div>
+  <div class="effect">
+    效果：冲击力 · 揭示矛盾本质 · 引发深层思考
+  </div>
+</div>
+
+<div class="sub-heading">"抗下了梦想"——矛盾修辞分析</div>
+
+<p style="margin: 8px 0;">歌词原文：<strong>"掩着伤（抗下了梦想 要毅然决然去流浪）"</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">分析维度</th>
+      <th style="width: 80%;">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>矛盾在哪里？</strong></td>
+      <td>"梦想"通常是美好的、轻盈的、令人向往的。但"抗"这个字意味着<strong>扛起重物、承受重担</strong>。把"梦想"和"抗"放在一起，梦想就不再是翅膀，而变成了<strong>压在肩上的重担</strong>。</td>
+    </tr>
+    <tr>
+      <td><strong>揭示了什么？</strong></td>
+      <td>在现实社会中，追求梦想不是轻松愉快的旅程——它是一种<strong>负担</strong>。梦想反而成了压力的来源：为了梦想必须"掩着伤""去流浪"，付出自尊和舒适。</td>
+    </tr>
+    <tr>
+      <td><strong>与"毅然决然去流浪"的配合</strong></td>
+      <td>"毅然决然"是坚定的决心，"流浪"是漂泊无定的状态。明明是"毅然决然"的选择，结果却是"流浪"——这又是一组矛盾：<strong>最坚定的选择导向了最不确定的结果</strong>。</td>
+    </tr>
+    <tr>
+      <td><strong>Issue 1.1 联系</strong></td>
+      <td>社会变迁让"梦想"的含义发生了扭曲——从个人向往变成了生存压力的一部分。社会对个人的冲击不仅体现在物质层面，更体现在对精神世界的侵蚀。</td>
+    </tr>
+    <tr>
+      <td><strong>Issue 2.1 联系</strong></td>
+      <td>现代年轻人的压力：梦想不再是轻松的"追求"，而是沉重的"背负"。这反映了当代社会中理想与现实的巨大落差。</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <p>如果把"抗下了梦想"改成"怀抱着梦想"或"追逐着梦想"，情感色彩会有什么变化？为什么歌词选择了"抗"这个字？</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: 递进                            -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L4 · 副歌的情感爆发</span>
+  <span>Part D — 语言技巧：递进</span>
+</div>
+
+<div class="section-heading">Part D · 语言技巧二：递进</div>
+
+<div class="technique-card">
+  <h3>递进 <span class="en">Climax / Gradation</span></h3>
+  <div class="def">
+    <strong>定义：</strong>将内容按照<strong>由轻到重、由浅到深</strong>的顺序排列，层层推进，让情感或论述的力度<strong>逐级增强</strong>。
+  </div>
+  <div class="def">
+    <strong>与排比的区别：</strong>排比强调的是"并列"（几个事物平等呈现）；递进强调的是"升级"（每一项比前一项更进一步）。
+  </div>
+  <div class="effect">
+    效果：层层深入 · 情感加强 · 不可逆转感
+  </div>
+</div>
+
+<div class="sub-heading">"自尊→光环→风光"——递进分析</div>
+
+<p style="margin: 8px 0;">歌词原文：<strong>"抬头看（卸下了自尊 光环 过去多风光）"</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 15%;">层级</th>
+      <th style="width: 20%;">被卸下的东西</th>
+      <th style="width: 35%;">含义</th>
+      <th style="width: 30%;">递进的程度</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>第一层</strong></td>
+      <td>自尊</td>
+      <td>内在的自我价值感——最基本的人格尊严</td>
+      <td>→ 放下基本尊严</td>
+    </tr>
+    <tr>
+      <td><strong>第二层</strong></td>
+      <td>光环</td>
+      <td>外在的成就光芒——他人的认可和赞赏</td>
+      <td>→ 进一步放下社会认可</td>
+    </tr>
+    <tr>
+      <td><strong>第三层</strong></td>
+      <td>过去多风光</td>
+      <td>整个过去的辉煌——全部的历史身份</td>
+      <td>→ 彻底放下过去的一切</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>递进的力量：</strong>从"自尊"到"光环"到"过去多风光"，北漂者<strong>层层卸下</strong>曾经拥有的一切。注意这个过程是<strong>不可逆的</strong>——先放下内心最核心的东西（自尊），再放下外在的（光环），最后连整个过去都放下了。这种递进让读者感受到一种<strong>越来越深的失落</strong>，直到彻底"归零"。<br><br>
+  这深刻体现了 Issue 1.1 中社会变迁导致的身份认同危机：从家乡的"风光"到大城市的无名小卒，个人身份在社会流动中被层层剥离。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">思考 Think</div>
+  <ol>
+    <li>如果把顺序反过来写成"过去多风光、光环、自尊"，效果会有什么不同？</li>
+    <li>"卸下"这个动词暗示这些东西是<strong>主动放下</strong>的还是<strong>被迫放下</strong>的？为什么？</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: 北方vs南方 意象对比              -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L4 · 副歌的情感爆发</span>
+  <span>Part E — 意象对比</span>
+</div>
+
+<div class="section-heading">Part E · 北方 vs 南方：意象对比</div>
+
+<div class="info-box">
+  <strong>教师指引：</strong>副歌后半段从个人内心转向空间意象——"南方"与"北方"的强烈对比。这里需要联系歌手黄明志的身份（马来西亚华人）来理解"椰子树""南方"的具体所指。
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 12%;">维度</th>
+      <th style="width: 44%;">南方（家乡）</th>
+      <th style="width: 44%;">北方（城市）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>歌词</strong></td>
+      <td>"再见了南方 眺望最美丽的家乡"<br>"椰子树摇晃 梦境倒映着的幻想"</td>
+      <td>"这城市 雾霾太猖狂 不散 都看不清前方"<br>"太迷惘"</td>
+    </tr>
+    <tr>
+      <td><strong>意象</strong></td>
+      <td>椰子树 · 摇晃 · 梦境 · 家乡</td>
+      <td>雾霾 · 猖狂 · 不散 · 看不清</td>
+    </tr>
+    <tr>
+      <td><strong>感官</strong></td>
+      <td>温暖、明亮、自然、柔软</td>
+      <td>灰暗、混浊、人造、刺眼</td>
+    </tr>
+    <tr>
+      <td><strong>情感</strong></td>
+      <td>美好但已成"幻想"——不可触及的过去</td>
+      <td>真实但令人窒息——逃不掉的现在</td>
+    </tr>
+    <tr>
+      <td><strong>关键词</strong></td>
+      <td><strong>"幻想"</strong>——暗示家乡的美好已经是一种不可实现的梦境</td>
+      <td><strong>"看不清前方"</strong>——既是物理环境，也象征前途的不确定</td>
+    </tr>
+    <tr>
+      <td><strong>议题联系</strong></td>
+      <td>Issue 1.1：身在北方，心系南方——精神上的"分裂"状态</td>
+      <td>Issue 2.1：年轻人面对未来的焦虑和迷茫</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>"雾霾"的双重含义：</strong>"雾霾"不仅是对北京空气污染的真实描写，更是一种<strong>借喻</strong>——它象征着前途的不确定性、社会环境的压抑、个人视野的模糊。"看不清前方"既是物理上的"看不见"，也是心理上的"看不透未来"。
+</div>
+
+<div class="discussion">
+  <div class="discussion-title">小组讨论 Group Discussion</div>
+  <ol>
+    <li>副歌的情感经历了哪些变化？尝试用关键词串联：遗憾 → ______ → ______ → ______ → 乡愁 → 迷惘</li>
+    <li>为什么作者在副歌中选择了"椰子树"而不是"樱花""稻田"等其他意象？这和黄明志的身份有什么关系？</li>
+  </ol>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 7: 技巧积累表 + 总结               -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="header-bar">
+  <span>W1 L4 · 副歌的情感爆发</span>
+  <span>Part F — 技巧积累 + 总结</span>
+</div>
+
+<div class="section-heading">Part F · 语言技巧积累表（截至 L4）</div>
+
+<div class="info-box">
+  <strong>活动：</strong>经过四节课，我们已经学习了<strong>7个语言技巧</strong>。用以下表格梳理每个技巧的核心定义和歌词实例，这将是 L5 周总结和 Q3 模拟的重要工具。
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 6%;">#</th>
+      <th style="width: 16%;">技巧</th>
+      <th style="width: 10%;">课次</th>
+      <th style="width: 34%;">歌词实例</th>
+      <th style="width: 34%;">核心效果（一句话）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>排比</strong><br><span class="tracker-tag learned">L2</span></td>
+      <td>L2</td>
+      <td>有人…有人…有人…有人…</td>
+      <td>画面叠加 + 匿名性 + 节奏积累，展现北漂群体的普遍性</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>细节描写</strong><br><span class="tracker-tag learned">L2</span></td>
+      <td>L2</td>
+      <td>欠了一堆钱 / 一身武艺 / 养家糊口</td>
+      <td>将抽象概念具体化，让读者"看见"而非"理解"</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>象征</strong><br><span class="tracker-tag learned">L3</span></td>
+      <td>L3</td>
+      <td>高耸古老的城墙</td>
+      <td>一个意象多层含义：实际城墙 / 社会壁垒 / 情感无力</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>对比</strong><br><span class="tracker-tag learned">L3</span></td>
+      <td>L3</td>
+      <td>城墙（坚固）vs 忧伤（无形）</td>
+      <td>揭示表象与本质的差距，突出矛盾</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>借喻</strong><br><span class="tracker-tag learned">L3</span></td>
+      <td>L3</td>
+      <td>行囊盛满了惆怅</td>
+      <td>将抽象情感具象化为"可触摸"的物体</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>矛盾修辞</strong><br><span class="tracker-tag new">L4 本课</span></td>
+      <td>L4</td>
+      <td>抗下了梦想</td>
+      <td>梦想变成重担，揭示理想与现实的扭曲关系</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>递进</strong><br><span class="tracker-tag new">L4 本课</span></td>
+      <td>L4</td>
+      <td>自尊→光环→过去多风光</td>
+      <td>层层卸下，情感不断加深，身份逐步归零</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="gold-box" style="margin-top: 14px;">
+  <strong>接下来还会学到的技巧：</strong><br>
+  <span class="tracker-tag upcoming">反复 L6</span>
+  <span class="tracker-tag upcoming">叠词 L6</span>
+  <span class="tracker-tag upcoming">设问 L7</span>
+  <span class="tracker-tag upcoming">对位结构 L7</span>
+</div>
+
+<div class="checkpoint">
+  <div class="checkpoint-title">本课核心收获 Key Takeaways</div>
+  ✦ <strong>主歌→副歌</strong>：叙事→抒情，情感从克制到爆发<br>
+  ✦ <strong>"双轨"结构</strong>：短句（外在动作）+ 括号（内心独白），外在沉默 vs 内在汹涌<br>
+  ✦ <strong>矛盾修辞</strong>："抗下了梦想"——梦想从翅膀变成重担，揭示社会对精神世界的侵蚀<br>
+  ✦ <strong>递进</strong>：自尊→光环→风光，层层卸下到彻底归零，身份认同的不可逆失落<br>
+  ✦ <strong>意象对比</strong>：椰子树（温暖/幻想）vs 雾霾（灰暗/迷惘），南方=回不去的过去，北方=逃不掉的现在<br>
+  ✦ <strong>截至本课</strong>：已掌握 7/11 个语言技巧<br>
+  ✦ 下节课：L5 周总结 + Q3 完整模拟
+</div>
+
+<div class="footer">
+  HSC Chinese and Literature · 《漂向北方》Unit · W1 L4<br>
+  Issue 1.1 不断变化的社会对个人的冲击 · Issue 2.1 现代年轻人的压力 · Theme 1 个人与社会
+</div>
+
+</body>
+</html>
